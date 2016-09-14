@@ -31,5 +31,29 @@ class Registro {
 		return $return;
 	}
 
+	/*Funcion para limpiar el texto antes de guardarlo*/
+	function limpiaContent($nombreVariable){
+		$limpieza = array(	"é" => "&eacute;",
+			"á" => "&aacute;",
+			"í" => "&iacute;",
+			"ó" => "&oacute;",
+			"ú" => "&uacute;",
+			"ñ" => "&ntilde;",
+			"É" => "&Eacute;",
+			"Á" => "&Aacute;",
+			"Í" => "&Iacute;",
+			"Ó" => "&Oacute;",
+			"Ú" => "&Uacute;",
+			"Ñ" => "&Ntilde;",
+			"®" => "&reg;",
+			"¿" => "&iquest;",
+			"¡" => "&iexcl;",
+			"®" => "&reg;",
+
+							
+		);
+		$nombreVariable = strtr($nombreVariable, $limpieza);
+		return $nombreVariable;
+	}
 }
 ?>
