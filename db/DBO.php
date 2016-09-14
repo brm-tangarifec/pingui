@@ -11,7 +11,8 @@ if (!defined('PATH_SEPARATOR')) {
 }
 
 $include_path = ini_get("include_path");
-@ini_set("include_path", $include_path . PATH_SEPARATOR . "./PEAR");
+@ini_set("include_path", $include_path . PATH_SEPARATOR . $_SERVER["DOCUMENT_ROOT"]."/PEAR");
+//@ini_set("include_path", $include_path . PATH_SEPARATOR . "./PEAR");
 //echo $include_path;
 
 require_once("DB.php");

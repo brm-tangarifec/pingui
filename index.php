@@ -1,4 +1,4 @@
 <?php
     require("db/requires.php");
-   $smarty->display("index.html");
+   $smarty->display("pruebahtml.html");
 ?>
