@@ -18,7 +18,7 @@ require($prefijo."class/class.General.inc.php");
 
 
 //Smarty
-require($_SERVER["DOCUMENT_ROOT"]."/Smarty/libs/Smarty.class.php");
+require($_SERVER["DOCUMENT_ROOT"]."./Smarty/libs/Smarty.class.php");
 $smarty = new Smarty();
 
 $smarty->compile_check = true;
