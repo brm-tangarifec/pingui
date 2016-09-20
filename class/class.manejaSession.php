@@ -1,9 +1,8 @@
 <?php
 
-
 class manejaSession {
 
-protected $protected='$f1nd3s3m0n4c00k13';
+
 
 	function __construct() {
 	   // set our custom session functions.
@@ -39,14 +38,14 @@ protected $protected='$f1nd3s3m0n4c00k13';
 	   // Change the session name 
 	   session_name($session_name);
 	   // Now we cat start the session
-	   //session_start();
+	   session_start();
 	   // This line regenerates the session and delete the old one. 
 	   // It also generates a new encryption key in the database. 
 	   session_regenerate_id(true); 
 	}
-	
+
 	function read($id) {
-		$session = DB_DataObject::Factory("TbSession");
+		$session = model("LallamaradaSession");
 		//debug(1);
 	  /* if(!isset($this->read_stmt)) {
 	      $this->read_stmt = $this->db->prepare("SELECT data FROM sessions WHERE id = ? LIMIT 1");
@@ -76,8 +75,7 @@ protected $protected='$f1nd3s3m0n4c00k13';
 	function write($id, $data) {
 		//printVar($id);
 		//printVar($data);
-		$session = DB_DataObject::Factory("TbSession");
-		DB_DataObject::debugLevel(1);
+		$session = model("LallamaradaSession");
    // Get unique key
 		//debug(1);
 		
@@ -95,9 +93,7 @@ protected $protected='$f1nd3s3m0n4c00k13';
 	   $session->session_key=$key;
 	   $session->set_time=time();
 	   $session->dns=$_SERVER['SERVER_NAME'];
-	 	$insert = $session -> insert();
-
-		$session -> free();
+	   $creaSession=$session->setInstancia();
 	 
 	  /* $this->w_stmt->bind_param('siss', $id, $time, $data, $key);
 	   $this->w_stmt->execute();*/
@@ -106,7 +102,7 @@ protected $protected='$f1nd3s3m0n4c00k13';
 
 
 	function destroy($id) {
-		$session = DB_DataObject::Factory("TbSession");
+		$session = model("LallamaradaSession");
 	  /* if(!isset($this->delete_stmt)) {
 	      $this->delete_stmt = $this->db->prepare("DELETE FROM sessions WHERE id = ?");
 	   }
@@ -118,7 +114,7 @@ protected $protected='$f1nd3s3m0n4c00k13';
 	}
 
 	function gc($max) {
-		$session = DB_DataObject::Factory("TbSession");
+		$session = model("LallamaradaSession");
 	   /*if(!isset($this->gc_stmt)) {
 	      $this->gc_stmt = $this->db->prepare("DELETE FROM sessions WHERE set_time < ?");
 	   }
@@ -132,8 +128,7 @@ protected $protected='$f1nd3s3m0n4c00k13';
 	}
 
 	private function getkey($id) {
-		DB_DataObject::debugLevel(1);
-		$session = DB_DataObject::Factory("TbSession");
+		$session = model("LallamaradaSession");
 	   /*if(!isset($this->key_stmt)) {
 	      $this->key_stmt = $this->db->prepare("SELECT session_key FROM sessions WHERE id = ? LIMIT 1");
 	   }
@@ -188,22 +183,31 @@ protected $protected='$f1nd3s3m0n4c00k13';
 	   return $decrypted;
 	}
 
-	/*Funcion para usar la variable del pass*/
-	public function llamaPass()
-    {
-        return $this->protected;
-    }
+/*	public function encryptS($data,$key) {
 
-/*Uso de decrypS
+	    $salt = substr(md5(mt_rand(), true), 8);
 
-protected $protected='passphrase';
-$mensajeSis=$session->decryptS($_COOKIE['nameCookie'],$protected);
+	    $key = md5($password . $salt, true);
+	    $iv  = md5($key . $password . $salt, true);
 
-Uso encrypS
-Cookie con id de usuario
-$datoCookie=$session->encryptS($idUsuario,$protected);
-//printVar($datoCookie);
-setcookie('nameCooke',$datoCookie, time() + 1200, '/', $secure, $httponly);
+	    $ct = mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, $iv);
+	    $encrypted=base64_encode('Salted__' . $salt . $ct);
+	    //printVar($encrypted,'encriptadoNew');
+	    return $encrypted;
+	}
 
-*/
+	public function decryptS($data,$key) {
+
+	    $data = base64_decode($data);
+	    $salt = substr($data, 8, 8);
+	    $ct   = substr($data, 16);
+	
+	    $key = md5($password . $salt, true);
+	    $iv  = md5($key . $password . $salt, true);
+	
+	    $pt = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $ct, MCRYPT_MODE_CBC, $iv);
+	    //printVar($pt,'decriptNew');
+	    return $pt;
+	}*/
+
 }
