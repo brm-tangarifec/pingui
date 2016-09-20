@@ -1,0 +1,110 @@
+article{
+	margin: 0 auto 0;
+	height: 100%;
+}
+
+#title-video{
+	display: block;
+	margin: 0 auto;
+	z-index: 1;
+	position: absolute;
+	top: 0;
+}
+#play-video{
+	display: block;
+	margin: 0 auto;
+	position: absolute;
+}
+#share-video{
+	display: block;
+	margin: 0 auto;
+	position: absolute;
+	bottom: 0;
+}
+.facebook-icon{
+	background-color: #0055a0;
+	background-size: 16px;
+}
+.whatsapp-icon{
+	margin-left: 4%;
+	background-color: #00c94e;
+	background-size: 32px;
+}
+.facebook-icon,.whatsapp-icon{
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-top: 2%;
+	cursor: pointer;
+}
+.button{
+	height: 50px;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 479px) {
+	section {height: 87%;}
+	.box{width: 100%;height: 102%;auto 0 auto;box-shadow: none;margin-top: -4%;}
+
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 480px) 
+and (max-width : 767px) {
+	section {height: 87%;}
+	.box{width: 100%;height: 102%;auto 0 auto;box-shadow: none;margin-top: -4%;}
+	#title-video{width: 50%;left: 25%;top: -7%;}
+	#play-video{width: 16%;top: 35%;left: 42%;}
+	.button{width: 79%;margin: 2% auto 0 auto;float: right;}
+	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1023px) {
+	article{width: 100%;padding-top: 8%;}
+	.box{width: 100%;height: 500px;margin: 2% auto 0 auto;}
+	#title-video{width: 50%;left: 25%;top: -7%;}
+	#play-video{width: 16%;top: 35%;left: 42%;}
+	.button{width: 79%;margin: 2% auto 0 auto;float: right;}
+	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
+}
+
+/* Desktops and laptops 1 ----------- */
+@media only screen 
+and (min-width : 1024px) 
+and (max-width : 1223px){
+	article{width: 85%;padding-top: 7%;}
+	.box{width: 100%;height: 500px;margin: 2%  auto 0 auto;}
+	#title-video{width: 50%;left: 25%;top: -7%;}
+	#play-video{width: 16%;top: 35%;left: 42%;}
+	.button{width: 79%;margin: 2% auto 0 auto;float: right;}
+	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
+}
+
+/* Desktops and laptops 2 ----------- */
+@media only screen 
+and (min-width : 1224px) 
+and (max-width : 1499px){
+	article{width: 70%;padding-top: 4%;}
+	.box{width: 100%;height: 540px;}
+	#title-video{width: 50%;left: 25%;top: -7%;}
+	#play-video{width: 16%;top: 35%;left: 42%;}
+	.button{width: 79%;margin: 2% auto 0 auto;float: right;}
+	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1500px) {
+	article{width: 57%;padding-top: 4%;}
+	.box{width: 100%;height: 540px;}
+	#title-video{width: 50%;left: 25%;top: -7%;}
+	#play-video{width: 16%;top: 35%;left: 42%;}
+	.button{width: 79%;margin: 2% auto 0 auto;float: right;}
+	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
+}

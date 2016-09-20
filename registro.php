@@ -1,5 +1,5 @@
 <?php
-session_start();
+require("db/requires.php");
 
-//setcookie('ywd_in', "HolaCookie", time() + 1200, '/');
+$smarty->display("video.html");
 ?>
