@@ -1,0 +1,49 @@
+@-webkit-keyframes hashtagAnim {
+  50% {
+    -webkit-transform: translate(0, 10px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+
+@-moz-keyframes hashtagAnim {
+  50% {
+    -moz-transform: translate(0, 10px);
+  }
+
+  100% {
+    -moz-transform: translate(0, 0);
+  }
+}
+
+@-o-keyframes hashtagAnim {
+  50% {
+    -o-transform: translate(0, 10px);
+  }
+
+  100% {
+    -o-transform: translate(0, 0);
+  }
+}
+
+@-ms-keyframes hashtagAnim {
+  50% {
+    -ms-transform: translate(0, 10px);
+  }
+
+  100% {
+    -ms-transform: translate(0, 0);
+  }
+}
+
+@keyframes hashtagAnim {
+  50% {
+    -webkit-transform: translate(0, 10px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}

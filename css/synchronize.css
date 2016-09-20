@@ -1,0 +1,94 @@
+article{
+	margin: 0 auto 0;
+	height: 100%;
+}
+#copy-up-synchronize{
+	position: absolute;
+	z-index: 1;
+}
+
+#icon-synchronize{
+	position: relative;
+	position: absolute;
+}
+#copy-down-synchronize{
+	position: absolute;
+}
+
+.button{
+	width: 49%;
+	position: absolute;
+	bottom: -80px;
+}
+.button:nth-child(even){
+	right: 0;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 479px) {
+	section {height: 87%;}
+	#copy-up-synchronize{width: 240px;left: calc(50% - 120px);top: 34px;}
+	#icon-synchronize{width: 200px;top: 190px;left: calc(50% - 100px);}
+	#copy-down-synchronize{width: 340px;top: 350px;left: calc(50% - 170px);}
+	.box{width: 100%;height: 102%;auto 0 auto;box-shadow: none;margin-top: -4%;}
+	.button{bottom: 14%;width: 80%;left: 10%;font-size: 21px;}
+	.button:nth-child(even){bottom: 6%;width: 80%;left: 10%;right: inherit;}
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 480px) 
+and (max-width : 767px) {
+	section {height: 87%;}
+	#copy-up-synchronize{width: 290px;left: calc(50% - 145px);top: 5px;}
+	#icon-synchronize{width: 242px;top: 190px;left: calc(50% - 121px);}
+	#copy-down-synchronize{width: 390px;top: 380px;left: calc(50% - 195px);}
+	.box{width: 100%;height: 102%;auto 0 auto;box-shadow: none;margin-top: -4%;}
+	.button{bottom: 22px;width: 80%;left: 10%;}
+	.button:nth-child(even){bottom: 80px;width: 80%;left: 10%;right: inherit;}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1023px) {
+	article{width: 100%;padding-top: 8%;}
+	#copy-up-synchronize{width: 290px;left: calc(50% - 145px);top: -39px;}
+	#icon-synchronize{width: 242px;top: calc(50% - 84px);left: calc(50% - 121px);}
+	#copy-down-synchronize{width: 390px;bottom: 25px;left: calc(50% - 195px);}
+	.box{width: 100%;height: 500px;auto 0 auto;}
+}
+
+/* Desktops and laptops 1 ----------- */
+@media only screen 
+and (min-width : 1024px) 
+and (max-width : 1223px){
+	article{width: 85%;padding-top: 7%;}
+	#copy-up-synchronize{width: 290px;left: calc(50% - 145px);top: -46px;}
+	#icon-synchronize{width: 242px;top: calc(50% - 84px);left: calc(50% - 121px);}
+	#copy-down-synchronize{width: 410px;bottom: 26px;left: calc(50% - 205px);}
+	.box{width: 100%;height: 500px; auto 0 auto;}
+}
+
+/* Desktops and laptops 2 ----------- */
+@media only screen 
+and (min-width : 1224px) 
+and (max-width : 1499px){
+	article{width: 70%;padding-top: 4%;}
+	#copy-up-synchronize{width: 300px;left: calc(50% - 150px);top: -50px;}
+	#icon-synchronize{width: 280px;top: calc(50% - 97px);left: calc(50% - 140px);}
+	#copy-down-synchronize{width: 430px;bottom: 25px;left: calc(50% - 215px);}
+	.box{width: 100%;height: 540px;}
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1500px) {
+	article{width: 57%;padding-top: 4%;}
+	#copy-up-synchronize{width: 300px;left: calc(50% - 150px);top: -50px;}
+	#icon-synchronize{width: 280px;top: calc(50% - 97px);left: calc(50% - 140px);}
+	#copy-down-synchronize{width: 430px;bottom: 25px;left: calc(50% - 215px);}
+	.box{width: 100%;height: 540px;}
+}

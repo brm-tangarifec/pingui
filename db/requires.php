@@ -19,7 +19,19 @@ require($prefijo."class/class.manejaSession.php");
 
 
 //Smarty
+<<<<<<< Updated upstream
 require($_SERVER["DOCUMENT_ROOT"]."./Smarty/libs/Smarty.class.php");
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+require($_SERVER["DOCUMENT_ROOT"]."/libs/Smarty/libs/Smarty.class.php");
+=======
+require($_SERVER["DOCUMENT_ROOT"]."./Smarty/libs/Smarty.class.php");
+>>>>>>> origin/master
+=======
+require($_SERVER["DOCUMENT_ROOT"]."./Smarty/libs/Smarty.class.php");
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 $smarty = new Smarty();
 
 $smarty->compile_check = true;

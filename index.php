@@ -1,6 +1,12 @@
 <?php
 /*Dato de lectura*/
     require("db/requires.php");
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+   $smarty->display("recipes.html");
+=======
+>>>>>>> Stashed changes
 	$session= new manejaSession();
     $receta=5;
     $decrypProt=$session->llamaPass();
@@ -24,4 +30,8 @@
 		setcookie('ywd_dt', $datoCookie, time() + 1200, '/', $secure, $httponly);
 	}
    //$smarty->display("pruebahtml.html");
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 ?>

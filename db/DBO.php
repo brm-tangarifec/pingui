@@ -11,7 +11,7 @@ if (!defined('PATH_SEPARATOR')) {
 }
 
 $include_path = ini_get("include_path");
-@ini_set("include_path", $include_path . PATH_SEPARATOR . $_SERVER["DOCUMENT_ROOT"]."/PEAR");
+@ini_set("include_path", $include_path . PATH_SEPARATOR . $_SERVER["DOCUMENT_ROOT"]."/libs/pear");
 //@ini_set("include_path", $include_path . PATH_SEPARATOR . "./PEAR");
 //echo $include_path;
 
@@ -26,7 +26,7 @@ $database_link = "movis25_testdb";
 /*LOCAL*/
 $serverdb_link = "localhost";
 $username_link = "root";
-$password_link = "1nt3r4ct1v3";
+$password_link = "root";
 $database_link = "pinguino";
 /**/
 
