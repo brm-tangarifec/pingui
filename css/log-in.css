@@ -47,10 +47,10 @@ article{
 @media only screen 
 and (min-width : 320px) 
 and (max-width : 479px) {
-
-	article{width: 80%;margin-top: 9%;}
+	section{height:auto;}
+	article{width: 80%;margin-top: 20%;margin-bottom: 13%;}
 	#hot-air-balloon{width: 29px;top: 11%;left: 1%;position: absolute;}
-	#helicopter{width: 51px;top: 8%;right: 4%;}
+	#helicopter{width: 51px;top: -11%;right: 4%;}
 	#balloon{width: 38px;top: 40%;left: 13%;display: none;}
 	#camera{width: 37px;top: 41%;right: 5%;display: none;}
 	#car{width: 56px;bottom: 25%;right: 4%;display: none;}
@@ -58,8 +58,8 @@ and (max-width : 479px) {
 	.button{width: 100%;margin-top: 20px;}
 	#copy-log-in{width: 240px;margin: 0 auto 5% auto;}
 	#terms {margin: 0 0 6% 0;}
-	#button-facebook{width: 100%;height: 40px;font-size: 18px;line-height: 40px;background-size: 3%;background-position: 13% 10px;}
-	#terms p{font-size: 13px;}
+	#button-facebook{width: 100%;height: 40px;font-size: 18px;line-height: 40px;background-size: 4%;background-position: 7% 11px;}
+	#terms p{font-size: 11px;}
 
 }
 

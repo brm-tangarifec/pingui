@@ -38,7 +38,7 @@ and (min-width : 320px)
 and (max-width : 479px) {
 	
 	section{height: auto;}
-	#hot-air-balloon{width: 28px;top: 4%;left: 5%;position: absolute;}
+	#hot-air-balloon{width: 28px;top: 7%;left: 5%;position: absolute;}
 	#helicopter{width: 59px;top: -7%;right: 11%;}
 	#balloon{width: 60px;top: 42%;left: 3%;display: none;}
 	#camera{width: 58px;top: 39%;right: 4%;display: none;}

@@ -48,8 +48,8 @@ and (max-width : 479px) {
 	#helicopter{width: 64px;top: 6%;right: 9%;}
 	#balloon{width: 49px;top: 42%;left: 4%;}
 	#camera{width: 51px;top: 41%;right: 6%;}
-	#car{width: 50px;bottom: 15%;right: 13%;}
-	#trolley{width: 53px;bottom: 21%;left: 7%;}
+	#car{width: 50px;bottom: 3%;right: 13%;}
+	#trolley{width: 49px;bottom: 9%;left: 1%;}
 	.button{width: 60%;margin-top: 20px;font-size: 20px;}
 	
 }
