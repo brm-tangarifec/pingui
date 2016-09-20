@@ -1,8 +1,9 @@
 <?php
 
+
 class manejaSession {
 
-
+protected $protected='$f1nd3s3m0n4c00k13';
 
 	function __construct() {
 	   // set our custom session functions.
@@ -38,12 +39,12 @@ class manejaSession {
 	   // Change the session name 
 	   session_name($session_name);
 	   // Now we cat start the session
-	   session_start();
+	   //session_start();
 	   // This line regenerates the session and delete the old one. 
 	   // It also generates a new encryption key in the database. 
 	   session_regenerate_id(true); 
 	}
-
+	
 	function read($id) {
 		$session = DB_DataObject::Factory("TbSession");
 		//debug(1);
@@ -75,7 +76,8 @@ class manejaSession {
 	function write($id, $data) {
 		//printVar($id);
 		//printVar($data);
-		$session = DB_DataObject::Factory("LallamaradaSession");
+		$session = DB_DataObject::Factory("TbSession");
+		DB_DataObject::debugLevel(1);
    // Get unique key
 		//debug(1);
 		
@@ -93,7 +95,9 @@ class manejaSession {
 	   $session->session_key=$key;
 	   $session->set_time=time();
 	   $session->dns=$_SERVER['SERVER_NAME'];
-	   $creaSession=$session->setInstancia();
+	 	$insert = $session -> insert();
+
+		$session -> free();
 	 
 	  /* $this->w_stmt->bind_param('siss', $id, $time, $data, $key);
 	   $this->w_stmt->execute();*/
@@ -102,7 +106,7 @@ class manejaSession {
 
 
 	function destroy($id) {
-		$session = DB_DataObject::Factory("LallamaradaSession");
+		$session = DB_DataObject::Factory("TbSession");
 	  /* if(!isset($this->delete_stmt)) {
 	      $this->delete_stmt = $this->db->prepare("DELETE FROM sessions WHERE id = ?");
 	   }
@@ -114,7 +118,7 @@ class manejaSession {
 	}
 
 	function gc($max) {
-		$session = DB_DataObject::Factory("LallamaradaSession");
+		$session = DB_DataObject::Factory("TbSession");
 	   /*if(!isset($this->gc_stmt)) {
 	      $this->gc_stmt = $this->db->prepare("DELETE FROM sessions WHERE set_time < ?");
 	   }
@@ -128,7 +132,8 @@ class manejaSession {
 	}
 
 	private function getkey($id) {
-		$session = DB_DataObject::Factory("LallamaradaSession");
+		DB_DataObject::debugLevel(1);
+		$session = DB_DataObject::Factory("TbSession");
 	   /*if(!isset($this->key_stmt)) {
 	      $this->key_stmt = $this->db->prepare("SELECT session_key FROM sessions WHERE id = ? LIMIT 1");
 	   }
@@ -182,6 +187,12 @@ class manejaSession {
 	   //printVar($decrypted,'decript');
 	   return $decrypted;
 	}
+
+	/*Funcion para usar la variable del pass*/
+	public function llamaPass()
+    {
+        return $this->protected;
+    }
 
 /*Uso de decrypS
 

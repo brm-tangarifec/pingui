@@ -1,8 +1,8 @@
 <?php
-ini_set("display_errors","0");
-@error_reporting(0);
+ini_set("display_errors","1");
+@error_reporting(E_ALL);
 
-session_start();
+//session_start();
 
 global $prefijo;
 
@@ -15,6 +15,7 @@ require($prefijo."db/requires.ini.php");
 
 //Clases
 require($prefijo."class/class.General.inc.php");
+require($prefijo."class/class.manejaSession.php");
 
 
 //Smarty
@@ -105,13 +106,14 @@ $_REQUEST = escapaReq($_REQUEST);
 $_POST = escapaReq($_POST);
 
 
-if(date('Y-m-d H:i:s') > '2015-09-30 00:00:00'){
+/*if(date('Y-m-d H:i:s') > '2015-09-30 00:00:00'){
 	
 	$acabar='1';
 }else{
 	
 	$acabar='0';
 }
-$smarty->assign("acabar",$acabar);
+$smarty->assign("acabar",$acabar);*/
+
 
 ?>
