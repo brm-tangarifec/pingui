@@ -39,3 +39,7 @@ jspm_packages
 #templates_c
 templates_c
 templates_c/*
+#Ignorar requires y dbo
+
+db/DBO.php
+db/requires.php
