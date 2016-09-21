@@ -20,7 +20,6 @@ $(function(){
 			},
 			load: {
 				filter: '.category-1',
-				sort: 'random'
 			},
 			animation: {
 				enable: true,
