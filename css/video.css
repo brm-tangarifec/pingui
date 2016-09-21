@@ -49,10 +49,10 @@ and (min-width : 320px)
 and (max-width : 479px) {
 	section {height: 87%;}
 	.box{width: 100%;height: 80%;auto 0 auto;box-shadow: none;margin-top: -2%;}
-	#title-video{width: 80%;left: 10%;top: 14%;}
-	#play-video{width: 21%;top: 37%;left: 39%;}
+	#title-video{width: 85%;left: 7%;top: 18%;}
+	#play-video{width: 25%;top: 37%;left: 39%;}
 	.button{width: 52%;margin: 5% 3% 7% auto;float: right;font-size: 20px;line-height: 20px;}
-	#share-video{width: 80%;left: 10%;bottom: 23%;}
+	#share-video{width: 85%;left: 10%;bottom: 20%;}
 	.facebook-icon{margin-left: 3%;}
 }
 
