@@ -16,8 +16,8 @@ class DataObject_TbUsuario extends DB_DataObject
     public $documento;                       // string(20)  not_null
     public $telefono;                        // string(25)  not_null
     public $email;                           // string(150)  not_null
-    public $idProvincia;                     // int(11)  not_null
-    public $idCiudad;                        // int(11)  not_null
+    public $provincia;                       // string(100)  not_null
+    public $ciudad;                          // string(100)  not_null
     public $activo;                          // string(1)  not_null enum
     public $contrasena;                      // string(100)  not_null
     public $idFacebook;                      // string(50)  
@@ -37,8 +37,8 @@ class DataObject_TbUsuario extends DB_DataObject
              'documento' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_NOTNULL,
              'telefono' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_NOTNULL,
              'email' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_NOTNULL,
-             'idProvincia' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
-             'idCiudad' =>  DB_DATAOBJECT_INT + DB_DATAOBJECT_NOTNULL,
+             'provincia' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_NOTNULL,
+             'ciudad' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_NOTNULL,
              'activo' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_NOTNULL,
              'contrasena' =>  DB_DATAOBJECT_STR + DB_DATAOBJECT_NOTNULL,
              'idFacebook' =>  DB_DATAOBJECT_STR,
@@ -65,6 +65,8 @@ class DataObject_TbUsuario extends DB_DataObject
              'documento' => '',
              'telefono' => '',
              'email' => '',
+             'provincia' => '',
+             'ciudad' => '',
              'activo' => '',
              'contrasena' => '',
              'idFacebook' => '',

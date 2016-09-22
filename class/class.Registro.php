@@ -2,16 +2,15 @@
 class Registro {
 
 	function inscripcion($campos) {
-		//printVar($campos);
-		$inscr = DB_DataObject::Factory('VntInscripcion');
+		printVar($campos);
+		$inscr = DB_DataObject::Factory('TbUsuario');
 		$inscr ->nombre = $campos['nombre'];
 		$inscr ->apellido = $campos['apellido'];
 		$inscr ->email = $campos['email'];
-		$inscr ->autorizacion = $campos['autorizacion'];
-		$inscr ->politicas = $campos['politicas'];
-		$inscr ->idHorus = $campos['idHorus'];
-		$inscr ->hash = $campos['hash'];
-		$inscr ->token = $campos['token'];
+		$inscr ->provincia = $campos['provincia'];
+		$inscr ->ciudad = $campos['ciudad'];
+		$inscr ->contrasena = $campos['lepass'];
+		$inscr ->activo = $campos['aceptar'];
 		$inscr ->fecha = date("Y:m:d H:i:s");
 		$insert = $inscr -> insert();
 
@@ -20,7 +19,7 @@ class Registro {
 	}
 
 	function verficaEmial($mail){
-		$inscr = DB_DataObject::Factory('VntInscripcion');
+		$inscr = DB_DataObject::Factory('TbUsuario');
 		$inscr->email=$mail;
 		$return =false;
 		$find=$inscr->find();

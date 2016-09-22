@@ -125,7 +125,7 @@
             <path fill="#E53027" stroke="#D32622" stroke-width="0.75" stroke-miterlimit="10" d="M152.433,89.279  c2.87,4.321,8.025-1.131,5.759-4.776C155.375,79.141,148.123,85.477,152.433,89.279"></path>
         </svg>
         <article>
-            <form autocomple="off">
+            <form autocomple="off" id="pinguino" name="pinguino">
                 <svg id="copy-register" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="-52.167 -2.833 741 122.167" xml:space="preserve">
                     <path fill="#FFFFFF" stroke="#D32622" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="  M-22.19,109.334c0,0-5.66-14.668-7.546-45.334S-48.604,5.334-25.02,7.334s128.294,1.333,162.254-0.667S324.012,2,358.917,2  c34.902,0,164.794,10.252,191.496,3.333C578.714-2,657.012,5.334,661.727,11.334c4.717,6-1.888,30.667,0.942,50  s15.092,49.333-8.49,51.333c-23.583,2-80.183,0.667-91.503,2.667s-73.579-4-90.559-2c-16.98,2-60.374-0.667-74.524-0.667  S230.623,114,230.623,114s-212.25,0.668-223.57-0.666C-4.268,112-25.02,121.334-22.19,109.334z"></path>
                     <g>
@@ -148,33 +148,34 @@
                 </svg>
                 <div class="goup-left">
                     <label for="name">Nombres</label>
-                    <input type="name" id="name" name="name">
-                    <label for="name">Email</label>
-                    <input type="name" id="name" name="name">
-                    <label for="name">Provincia</label>
-                    <input type="name" id="name" name="name">
+                    <input type="text" id="name" name="name" tabindex="1">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" tabindex="3">
+                    <label for="provincia">Provincia</label>
+                    <input type="text" id="provincia" name="provincia" tabindex="5">
                 </div>
                 <div class="goup-right">
-                    <label for="name">Apellidos</label>
-                    <input type="name" id="name" name="name">
-                    <label for="name">Ciudad</label>
-                    <input type="name" id="name" name="name">
+                    <label for="apellido">Apellidos</label>
+                    <input type="text" id="apellido" name="apellido" tabindex="2">
+                    <label for="text">Ciudad</label>
+                    <input type="text" id="ciudad" name="ciudad" tabindex="4">
                     <label for="name">Contraseña</label>
-                    <input type="name" id="name" name="name">
+                    <input type="password" id="lepas" name="lepas" tabindex="6">
                 </div>
                 <div class="goup-middle">
-                    <label for="name">Confirma tu contraseña</label>
-                    <input type="name" id="name" name="name">
+                    <label for="passwordC">Confirma tu contraseña</label>
+                    <input type="password" id="lepasc" name="lepasc" tabindex="7">
                     <div id="terms">
                         <div class="slideThree">
-                            <input type="checkbox" value="None" id="slideThree" name="check">
+                            <input type="checkbox" value="S" id="slideThree" name="check">
                             <label for="slideThree"></label>
                         </div>
                         <p>He leído y estoy de acuerdo con los términos y condiciones y con las políticas y tratamiento de datos personales.</p>
                     </div>
-                    <div class="button">volver</div>
-                    <div class="button">confirmar</div>
+                    <div class="button" id="volver">volver</div>
+                    <div class="button" id="confirmar">confirmar</div>
                 </div>
+                <div class="mensajes-pass"></div>
             </form>
         </article>
     </section>
@@ -189,7 +190,9 @@
             <path id="footer-bg-shape" fill="#9A9899" d="M-11.103,30.154c0-1.865,7.371-22.4,7.371-27.311  c48.945,0.66,193.229,37.467,212.234,37.467c18.994,0,127.671-39.725,194.331-26.145c45.764,9.323,90.125-9.721,139.526-10.941  c4.16,19.166,7.797,27.873,3.071,41.104c-2.834,27.4,3.003,80.799-2.834,110.551c-5.838,29.752-8.376,62.892-1.89,89.763  c6.707,27.785-1.072,113.331-7.56,127.088c-3.468,7.354-116.157,11.265-130.394,8.504c-29.687-5.76-194.084-2.79-280.631-5.67  c-37.777-1.257-104.568,9.368-131.811,0c4.119-19.303-1.418-69.951-1.418-91.182c0-21.229-4.725-91.653,1.418-118.582  c0-15.592,3.52-29.537,0-41.104C-19.607,91.1-11.103,37.967-11.103,30.154z"></path>
         </svg>
     </footer>
-    <script src="js/vendor/jquey.min.js"></script>
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/jquery.validate.min.js"></script>
+    <script src="js/vendor/additional-methods.min.js"></script>
     <script src="js/vendor/drawfillsvg.min.js"></script>
     <script src="js/register.js"></script>
 </body>
