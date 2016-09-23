@@ -1,3 +1,13 @@
+@keyframes play {
+   0% { background-position: 0px; }
+   16.6% { background-position: 116px; }
+   33.2% { background-position: 232px; }
+   49.8% { background-position: 348px; }
+   66.4% { background-position: 464px; }
+   83% { background-position: 580px; }
+   100% { background-position: 696px; }
+}
+
 @-webkit-keyframes hashtagAnim {
   50% {
     -webkit-transform: translate(0, 10px);
