@@ -44,7 +44,14 @@ html.no-js(lang='')
 						#shadow-right
 				#action
 					span#action-text
-					.action
+					#code
+						p Ingresa este codigo en tu celular
+						strong 48944
+					#form-code
+						label Ingresa el codigo
+						input(type="text" id="celCode")
+						button(id="submit") ➡
+					#sprite
 		footer
 			#footer-content
 				.facebook-icon
@@ -55,4 +62,5 @@ html.no-js(lang='')
 		script(type="text/javascript" src="js/vendor/hammer.min.js")
 		script(type="text/javascript" src="js/vendor/sequencer.canvas.js")
 		script(type="text/javascript" src="js/vendor/sequencer.benchmark.js")
+		script(src='js/action.js')
 		script(src='js/action-two.js')

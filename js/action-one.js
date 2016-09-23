@@ -17,8 +17,7 @@ document.getElementById("action-text").innerHTML = action;
 
 function deviceOrientationListener(event) {
 	
-	console.log(event.gamma);
-	if (event.gamma >= 0 || event.gamma =< 20) {
+	if ( event.gamma =< 0 && event.gamma =< 20 ) {
 		console.log("entro");
 		for (var i = 0; i <= 16; i++) {
 			Sequencer.nextImage();
