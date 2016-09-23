@@ -22,12 +22,12 @@ require($prefijo."class/class.manejaSession.php");
 
 //Smarty
 
-//Tanga
-require($_SERVER["DOCUMENT_ROOT"]."./Smarty/libs/Smarty.class.php");
+/*/Tanga
+require($_SERVER["DOCUMENT_ROOT"]."./Smarty/libs/Smarty.class.php");*/
 
 
-/*/mateo
-require($_SERVER["DOCUMENT_ROOT"]."/libs/Smarty/libs/Smarty.class.php");*/
+//mateo
+require($_SERVER["DOCUMENT_ROOT"]."/libs/Smarty/libs/Smarty.class.php");
 
 
 $smarty = new Smarty();

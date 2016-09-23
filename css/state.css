@@ -1,3 +1,17 @@
+@keyframes play {
+  0% { background-position: 0px; }
+  10% { background-position: -149px; }
+  20% {background-position: -298px;}
+  30% {background-position: -446px;}
+  40% {background-position: -595px;}
+  50% {background-position: -744px;}
+  60% {background-position: -893px;}
+  70% {background-position: -1042px;}
+  80% {background-position: -1191px;}
+  90% {background-position: -1340px;}
+  100% {background-position: -1484px;}
+}
+
 @-webkit-keyframes hashtagAnim {
   50% {
     -webkit-transform: translate(0, 10px);

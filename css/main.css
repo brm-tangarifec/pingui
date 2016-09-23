@@ -26,11 +26,11 @@ footer{
 	overflow: hidden;
 }
 
-#footer-bg{position:  absolute;}
+#footer-bg{position:  absolute;z-index: 45;}
 
 #footer-content{
 	position: absolute;
-	z-index: 1;
+	z-index: 50;
 	display: inline-table;
 }
 
