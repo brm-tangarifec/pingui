@@ -32,7 +32,23 @@ jQuery(document).ready(function(){
     rules:{
       name: {required: true, letras:true, accept: "[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]+"},
       apellido: {required: true, letras:true, accept: "[a-zA-ZáéíóúàèìòùÀÈÌÒÙÁÉÍÓÚñÑüÜ_\s]+"},
-      email: {required: true, email:true},
+      email: {
+        required: true,
+        email:true,
+        "remote": {
+                      url: 'eventos.php',
+                      type: "post",
+                      async:false,
+                      data:
+                      {
+                          email: function()
+                          {
+                              return jQuery('#email').val().toLowerCase();
+                          },
+                          vrtCrt:'email'
+                      }
+                    }
+      },
       provincia: {required: true,letras:true,},
       ciudad: {required: true,letras:true,},
       lepas:{required: true},
@@ -46,7 +62,7 @@ jQuery(document).ready(function(){
     messages:{
       name: {required: 'El nombre es requerido', letras:'El campo nombre no debe contener números ni caracteres especiales', accept: "Solo se aceptan letras"},
       apellido: {required: 'El campo es requerido', letras:'El campo apellido no debe contener números ni caracteres especiales' , accept: "Solo se aceptan letras"},
-      email: {required: 'Por favor ingrese un e-mail', email:'Ingrese un e-mail con formato v&aacute;lido'},
+      email: {required: 'Por favor ingrese un e-mail', email:'Ingrese un e-mail con formato v&aacute;lido',remote: jQuery.validator.format("{0} Ya se encuentra registrado.")},
       provincia: {required: 'Ingrese una provincia'},
       ciudad: {required: 'Ingrese una ciudad'},
       lepas:{required: 'El campo contrase&ntilde;a no debe estar vac&iacute;o'},
@@ -79,31 +95,39 @@ jQuery(document).on('change','#lepas',function(){
 
     jQuery("#lepas").each(function () {
         var validated =  true;
+        jQuery('.mensajes-pass').html('<p></p>');
         if(this.value.length < 8){
-          console.log('menor');
+          //console.log('menor');
           $('.mensajes-pass').append('<p>La contraseña no debe ser menor a ocho caracteres</p>').show('fade');
             validated = false;
+        }else{
+           
         }
         if(!/\d/.test(this.value)){
-            console.log('digito');
+            //console.log('digito');
           $('.mensajes-pass').append('<p>La contraseña debe contener al menos un digito</p>').show('fade');
             validated = false;
         }
         if(!/[a-z]/.test(this.value)){
-          console.log('minuscula');
+          //console.log('minuscula');
           $('.mensajes-pass').append('<p>La contraseña debe contener al menos una minúscula </p>').show('fade');
             validated = false;          
         }
         if(!/[A-Z]/.test(this.value)){
-          console.log('mayuscula');
+          //console.log('mayuscula');
           $('.mensajes-pass').append('<p>La contraseña debe contener al menos una mayúscula</p>').show('fade');
             validated = false;
         }
         if(!/[`~!@#$%^&*()_°¬|+\-=?;:'",.<>\{\}\[\]\\\/]/gi.test(this.value)){
-            console.log('especiales');
+            //console.log('especiales');
           $('.mensajes-pass').append('<p>La contraseña debe contener al menos un caracter especial</p>').show('fade');
             validated = false;
           
+        }
+        if(validated==false){
+          jQuery('#confirmar').hide('float').attr('disabled','disabled');
+        }else{
+          jQuery('#confirmar').show('float').removeAttr('disabled');
         }
         /*Se ponen los errores en el html*/
         //jQuery('div').text(validated ? "pass" : "fail");
@@ -117,8 +141,8 @@ jQuery('#confirmar').click(function(){
   console.log('hola, soy un click');
 
   if(jQuery('#pinguino').valid()){
-    console.log('valido');
-    console.log('hola, es válido');
+    //console.log('valido');
+    //console.log('hola, es válido');
     var nombre=jQuery('#name').val(),
     apellido=jQuery('#apellido').val(),
     email=jQuery('#email').val(),
@@ -127,6 +151,7 @@ jQuery('#confirmar').click(function(){
     lepas=jQuery('#lepas').val(),
     lepasc=jQuery('#lepasc').val(),
     aceptar=jQuery('#slideThree').val(),
+    idR=jQuery('#idRs').val(),
     urlR='eventos.php';
 
     jQuery.ajax({
@@ -142,6 +167,7 @@ jQuery('#confirmar').click(function(){
               lepas:lepas,
               lepasc:lepasc,
               aceptar:aceptar,
+              idR:idR,
               vrtCrt:'registrar'
             },
             success: function (data){

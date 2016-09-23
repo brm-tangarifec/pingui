@@ -73,8 +73,8 @@ class manejaSession {
 	   return $data;
 	}
 	function write($id, $data) {
-		//printVar($id);
-		//printVar($data);
+		printVar($id);
+		printVar($data);
 		$session = DB_DataObject::Factory("TbSession");
    // Get unique key
 		//debug(1);
@@ -191,7 +191,9 @@ class manejaSession {
     {
         return $this->protected;
     }
-
+    function site_protocol() {
+    if(isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')  return $protocol = 'https://'; else return $protocol = 'http://';
+}
 
     /*Uso de decrypS
 
@@ -203,6 +205,17 @@ Cookie con id de usuario
 $datoCookie=$session->encryptS($idUsuario,$protected);
 //printVar($datoCookie);
 setcookie('nameCooke',$datoCookie, time() + 1200, '/', $secure, $httponly);
+
+
+Se debe cargar todo sobre https
+$host=$_SERVER['SERVER_NAME'];
+			$dato=$guardaUsu."~".$host.'~4591';
+			$creaSessionU=$session->write($guardaUsu,$dato,$host);
+			printvar($creaSessionU,'holaCU');
+			$createCookieU=$session->start_session('ywd_usu',true);
+			printvar($createCookieU,'holaC');
+			/*Se crea cookie de usuario
+			setcookie('ywd_usu', $creaSessionU, time() + 1200, '/', $secure, $httponly);
 
 */
 
