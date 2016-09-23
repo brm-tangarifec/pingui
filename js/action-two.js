@@ -1,5 +1,6 @@
-var hammertime = new Hammer(document.getElementById('box'), "");
 
+var hammertime = new Hammer(document.getElementById('box'), "");
+var device="phone";
 var action=""
 		endsequence=0;
 
@@ -16,8 +17,9 @@ switch(device) {
 
 document.getElementById("action-text").innerHTML = action;
 
-hammertime.on('swipe', function(ev) {
-	for (var i = 0; i <= 10; i++) {
+function animaCanvas(data){
+	var i= data.actFm;
+	for (i; i <= 10; i++) {
 		endsequence++;
 		Sequencer.nextImage();
 	}
@@ -25,4 +27,23 @@ hammertime.on('swipe', function(ev) {
 	if (endsequence>=12){
 		playVideo();
 	}
+
+}
+
+hammertime.on('swipe', function(ev) {
+	for (var i = 0; i <= 10; i++) {
+		endsequence++;
+		Sequencer.nextImage();
+		canvasChange(i);
+	}
+
+	if (endsequence>=12){
+		playVideo();
+	}
 });
+
+
+
+
+
+

@@ -7,23 +7,6 @@ body:before{
 	bottom: 0;
 }
 
-
-body.gray{
-	background-image: url(../img/body-gray-bg.png);
-	background-color: #e6e6e6;
-}
-
-
-body.gray::before{
-	background: -moz-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* ff3.6+ */
-	background: -webkit-gradient(radial, 84% 46%, 0px, 84% 46%, 100%, color-stop(0%, rgba(168,168,168,0.75)), color-stop(100%, rgba(0,0,0,0))); /* safari4+,chrome */
-	background:-webkit-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* safari5.1+,chrome10+ */
-	background: -o-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* opera 11.10+ */
-	background: -ms-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* ie10+ */
-	background: radial-gradient(ellipse 84% 46%, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
-}
-
-
 body.white{
 	background-image: url(../img/body-white-bg.png);
 	background-color: #ffffff;
@@ -89,13 +72,13 @@ body.blue::before{
 
 #shadows #shadow-top{
 	position: absolute;
-	top: 22px;
-	width: 84%;
-	left: 7%;
+	top: 20px;
+	width: 80%;
+	left: 10%;
 	height: 40%;
 	-webkit-box-shadow: 0 -25px 32px 4px rgba(50, 50, 50, 0.48);
 	-moz-box-shadow:    0 -25px 32px 4px rgba(50, 50, 50, 0.48);
-	box-shadow: 0 -25px 32px 4px rgba(50, 50, 50, 0.28);
+	box-shadow: 0 -25px 32px 4px rgba(50, 50, 50, 0.48);
 	background-color: white;
 }
 
@@ -108,13 +91,13 @@ body.blue::before{
 	height: 40%;
 	-webkit-box-shadow: 59px 60px 30px -45px rgba(0,0,0,0.48);
 	-moz-box-shadow: 59px 60px 30px -45px rgba(0,0,0,0.48);
-	box-shadow: 59px 57px 50px -53px rgba(0,0,0,0.28);
+	box-shadow: 59px 57px 50px -53px rgba(0,0,0,0.48);
 }
 #shadows #shadow-left{
 	content: "";
 	-webkit-box-shadow: -59px 60px 30px -45px rgba(0,0,0,0.48);
 	-moz-box-shadow: -59px 60px 30px -45px rgba(0,0,0,0.48);
-	box-shadow: -59px 57px 50px -53px rgba(0,0,0,0.28);
+	box-shadow: -59px 57px 50px -53px rgba(0,0,0,0.48);
 	position: absolute;
 	width: 30%;
 	left: 0;
@@ -140,7 +123,7 @@ body.blue::before{
 	background-size: cover;
 	position: relative;
 	display: block;
-	box-shadow: inset 0px 0px 0px 6px #fff;
+	box-shadow: inset 0px 0px 0px 15px #fff;
 	background-color: rgba(235, 3, 27, 0.29);
 	background-blend-mode: overlay;
 }
