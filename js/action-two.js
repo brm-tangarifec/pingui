@@ -1,7 +1,7 @@
 var hammertime = new Hammer(document.getElementById('box'), "");
 
-var device="phone",
-		action="";
+var action=""
+		endsequence=0;
 
 switch(device) {
     case "phone":
@@ -18,6 +18,11 @@ document.getElementById("action-text").innerHTML = action;
 
 hammertime.on('swipe', function(ev) {
 	for (var i = 0; i <= 10; i++) {
+		endsequence++;
 		Sequencer.nextImage();
+	}
+
+	if (endsequence>=12){
+		playVideo();
 	}
 });
