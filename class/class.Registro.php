@@ -13,7 +13,7 @@ class Registro {
 		$inscr ->contrasena = $campos['lepass'];
 		$inscr ->activo = $campos['aceptar'];
 		$inscr ->idFacebook = $campos['idR'];
-		$inscr ->fecha = date("Y:m:d H:i:s");
+		$inscr ->fecha = date("Y-m-d H:i:s");
 		$insert = $inscr -> insert();
 
 		$inscr -> free();
@@ -106,6 +106,26 @@ class Registro {
 		return $pef;
 		$perfil->free();
 
+	}
+	/*Verifica si existe el email para enviar el mail*/
+	function verficaEmialE($mail){
+		//DB_DataObject::debugLevel(1);
+		$inscr = DB_DataObject::Factory('TbUsuario');
+		$inscr->selectAdd();
+		$inscr->selectAdd('id,email');
+		$inscr->whereAdd('email="'.$mail.'"');
+		//$inscr->email=$mail;
+		//$return =false;
+		$find=$inscr->find();
+		$count = 0;
+		while ($inscr -> fetch()) {
+			$ret[$count]->id = $inscr->id;			
+			$ret[$count]->email = $inscr->email;			
+			$count++;
+		}
+		//$ret = $ret + 1;
+		//Libera el objeto DBO
+		return $ret;
 	}
 }
 ?>

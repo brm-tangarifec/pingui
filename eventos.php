@@ -1,13 +1,13 @@
 <?php
 require('db/requires.php');
-ini_set('display_errors','0');
+ini_set('display_errors','1');
 @error_reporting(0);
 /*se ejecutan eventos dependiendo de lo solicitado*/
 $varPost=filter_input_array(INPUT_POST);
 $registrar= new Registro();
 $session= new manejaSession();
 $protocol=$session->site_protocol();
-    printVar($protocol);
+    //printVar($protocol);
     if($protocol=="https://"){
     	$secure=true;
     	$httponly=true;
@@ -22,8 +22,42 @@ $vrtCtr=$varPost['vrtCrt'];
 //printVar($vrtCtr);
 switch ($vrtCtr) {
 	/*Trae ciudades por departamento*/
-	case 'ciudad':
+	case 'recuperar':
 		# code...
+	
+		$mandaM=$registrar->verficaEmialE($varPost['email']);
+		//printVar($mandaM);
+		if($mandaM[0]->email!='' && $mandaM[0]->id!=''){
+			$idUsuarioL=$mandaM[0]->id;
+			$mail=$mandaM[0]->email;
+			$fecha=date('Y-m-d H:i:s');
+			$datoe=$mail."~".$idUsuarioL."~".$fecha;
+			printVar($datoe);
+			$protected=$session->llamaPass();
+			$datoCookie=$session->encryptS($datoe,$protected);
+		//die();
+		$para  = $mandaM[0]->email;
+		$urlEnvio="https://fbapp.brm.com.co/fbappPinguino/validaMailPass.php?".$datoCookie;
+		$asunto = 'Mensaje de recuperación';
+		$mensaje= "Hola, soy un mensaje, por favor de click en el link adjunto ". $urlEnvio ;
+
+		// Cabecera que especifica que es un HMTL
+		// Cabecera que especifica que es un HMTL
+		$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+		$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+		//$cabeceras .= 'Content-Type: text/plain; charset=utf-8' . "\r\n";
+		//$cabeceras .= 'Content-Type: text/plain; charset=utf-8' . "\r\n";
+		// Cabeceras adicionales
+		$cabeceras .= 'From: Pinguino <info@cristian.tangarife@brm.com.co>' . "\r\n";
+		//$cabeceras .= 'Cc: archivotarifas@example.com' . "\r\n";
+		//$cabeceras .= 'Bcc: lorena.lozano@brm.com.co,pedro.barreto@brm.com.co,mauricio.obando@preferente.com.co' . "\r\n";
+		// enviamos el correo!
+		mail($para, $asunto, $mensaje, $cabeceras);
+		echo json_encode("Hemos enviado un correo con la informaci&oacute;n para el cambio de contrase&ntilde;a");
+		}else{
+			echo json_encode("Hemos enviado un correo con la informaci&oacute;n para el cambio de contrase&ntilde;a");
+		}
+		
 	
 		break;
 	/*Verifica si ya se encuentra registrado el email*/
