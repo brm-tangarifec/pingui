@@ -48,14 +48,14 @@ var Benchmark = (function(){
         output.style.backgroundColor = "#CCCCCC";
         output.style.position = "fixed";
         output.style.left = "15px";
-        output.style.bottom = "15px";
+        output.style.bottom = "-50px";
         output.style.borderRadius = "4px";      
         output.style.fontFamily = "Helvetica, Arial, sans-serif",
         output.style.fontSize = "0.7em";
         output.style.zIndex = 1001;
-        output.innerHTML = "Start benchmark";
+        output.innerHTML = "animation";
         output.onclick = toggle;
-        output.onmouseover = function(){ this.style.backgroundColor = "#FFFF66";};
+        output.onmouseover = function(){ this.style.backgroundColor = "#e53027";};
         output.onmouseout = function(){ this.style.backgroundColor = "#CCCCCC";};
 
         document.body.appendChild(output);

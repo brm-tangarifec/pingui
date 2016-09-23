@@ -1,11 +1,15 @@
 @keyframes play {
-   0% { background-position: 0px; }
-   16.6% { background-position: 116px; }
-   33.2% { background-position: 232px; }
-   49.8% { background-position: 348px; }
-   66.4% { background-position: 464px; }
-   83% { background-position: 580px; }
-   100% { background-position: 696px; }
+  0% { background-position: 0px; }
+  10% { background-position: -149px; }
+  20% {background-position: -298px;}
+  30% {background-position: -446px;}
+  40% {background-position: -595px;}
+  50% {background-position: -744px;}
+  60% {background-position: -893px;}
+  70% {background-position: -1042px;}
+  80% {background-position: -1191px;}
+  90% {background-position: -1340px;}
+  100% {background-position: -1484px;}
 }
 
 @-webkit-keyframes hashtagAnim {

@@ -1,11 +1,11 @@
 var hammertime = new Hammer(document.getElementById('box'), "");
 
-var device="pc",
+var device="phone",
 		action="";
 
 switch(device) {
     case "phone":
-    		action="Deliza tu dedo hacia abajo";
+    		action="Deliza tu dedo izquierda o derecha";
 				Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});
      break;
     case "pc":
