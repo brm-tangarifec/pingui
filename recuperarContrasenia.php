@@ -16,5 +16,5 @@
 		/*Se crea cookie de usuario*
 		setcookie('ywd_in', $creaSession, time() + 1200, '/', $secure, $httponly);
 	}*/
-  $smarty->display("recipes.html");
+  $smarty->display("remember-password.html");
 ?>
