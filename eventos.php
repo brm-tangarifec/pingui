@@ -36,24 +36,32 @@ switch ($vrtCtr) {
 			$protected=$session->llamaPass();
 			$datoCookie=$session->encryptS($datoe,$protected);
 		//die();
-		$para  = $mandaM[0]->email;
-		$urlEnvio="https://fbapp.brm.com.co/fbappPinguino/validaMailPass.php?".$datoCookie;
-		$asunto = 'Mensaje de recuperación';
-		$mensaje= "Hola, soy un mensaje, por favor de click en el link adjunto ". $urlEnvio ;
-
-		// Cabecera que especifica que es un HMTL
-		// Cabecera que especifica que es un HMTL
-		$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
-		$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-		//$cabeceras .= 'Content-Type: text/plain; charset=utf-8' . "\r\n";
-		//$cabeceras .= 'Content-Type: text/plain; charset=utf-8' . "\r\n";
-		// Cabeceras adicionales
-		$cabeceras .= 'From: Pinguino <info@cristian.tangarife@brm.com.co>' . "\r\n";
-		//$cabeceras .= 'Cc: archivotarifas@example.com' . "\r\n";
-		//$cabeceras .= 'Bcc: lorena.lozano@brm.com.co,pedro.barreto@brm.com.co,mauricio.obando@preferente.com.co' . "\r\n";
-		// enviamos el correo!
-		mail($para, $asunto, $mensaje, $cabeceras);
-		echo json_encode("Hemos enviado un correo con la informaci&oacute;n para el cambio de contrase&ntilde;a");
+			$campos['mail']=$mail;
+			$campos['hash']=$datoCookie;
+			$registrar->mailC($campos);
+			if($registrar>0){
+				$para  = $mandaM[0]->email;
+				$urlEnvio="https://fbapp.brm.com.co/fbappPinguino/validaMailPass.php?".$datoCookie;
+				$asunto = 'Mensaje de recuperación';
+				$mensaje= "Hola, soy un mensaje, por favor de click en el link adjunto ". $urlEnvio ;
+		
+				// Cabecera que especifica que es un HMTL
+				// Cabecera que especifica que es un HMTL
+				$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+				$cabeceras .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+				//$cabeceras .= 'Content-Type: text/plain; charset=utf-8' . "\r\n";
+				//$cabeceras .= 'Content-Type: text/plain; charset=utf-8' . "\r\n";
+				// Cabeceras adicionales
+				$cabeceras .= 'From: Pinguino <info@cristian.tangarife@brm.com.co>' . "\r\n";
+				//$cabeceras .= 'Cc: archivotarifas@example.com' . "\r\n";
+				//$cabeceras .= 'Bcc: lorena.lozano@brm.com.co,pedro.barreto@brm.com.co,mauricio.obando@preferente.com.co' . "\r\n";
+				// enviamos el correo!
+				mail($para, $asunto, $mensaje, $cabeceras);
+				echo json_encode("Hemos enviado un correo con la informaci&oacute;n para el cambio de contrase&ntilde;a");
+			}else{
+			echo json_encode("Hemos enviado un correo con la informaci&oacute;n para el cambio de contrase&ntilde;a");
+		}
+		
 		}else{
 			echo json_encode("Hemos enviado un correo con la informaci&oacute;n para el cambio de contrase&ntilde;a");
 		}

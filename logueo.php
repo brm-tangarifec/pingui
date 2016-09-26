@@ -25,7 +25,7 @@
     $login=$registrar->logueo($mail,$pass);
     //printVar($login[0]->id);
     if($login[0]->id!='' && $login[0]->id!=0 && $login[0]->id > 0){
-    	echo "El usuario existe";
+    	//echo "El usuario existe";
     	$idUsuarioL=$login[0]->id;
     		$host=$_SERVER['SERVER_NAME'];
 			$dato=$idUsuarioL."~".$host.'~4591';

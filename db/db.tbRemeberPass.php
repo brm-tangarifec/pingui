@@ -9,7 +9,7 @@ class DataObject_TbRemeberPass extends DB_DataObject
     /* the code below is auto generated do not remove the above tag */
 
     public $__table = 'tb_remeber_pass';                 // table name
-    public $id;                              // int(10)  not_null primary_key
+    public $id;                              // int(10)  not_null primary_key auto_increment
     public $mail;                            // string(255)  
     public $keyMail;                         // string(255)  
     public $valido;                          // string(1)  enum
