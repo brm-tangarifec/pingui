@@ -70,7 +70,7 @@ article{
 #sprite{
 	left: calc(50% - 73px);
 	background-position: 0px;
-	background-image: url(../img/action-one.png);
+	background-image: url(../img/sprite-mano.png);
 	width: 146px;
 	height: 80px;
 	position: absolute;
