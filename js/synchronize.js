@@ -18,7 +18,7 @@ $(document ).ready(function() {
 	                    });
 
 	$('#btnSync').click(function(){
-		//alert("clic puta madre");
+	
 		var data = {};
 						data.action = "Sync";
 						data.amb="1";
@@ -32,8 +32,9 @@ $(document ).ready(function() {
 	                        }
 	                    });
 	});
+	
 	$('#btnNoExp').click(function(){
-		//alert("clic puta madre2");
+		
 		var data = {};
 						data.action = "Exp";
 						data.amb="";

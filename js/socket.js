@@ -4,12 +4,7 @@
  	function canvasChange(i){
 			socket.emit('video-changed-state',{actFrame:i});
 	}
-	
-	
-	function alerta2(){
-	
-alert("aasldkajsdlkajsdlkj");
-}
+
 	// Initialize the Reveal.js library with the default config options
 	// See more here https://github.com/hakimel/reveal.js#configuration
 
@@ -40,7 +35,7 @@ alert("aasldkajsdlkajsdlkj");
     	socket.on('pc',function(data){
     		console.log(data.val);
 			socket.emit('login',{username:'user',room:data.val});
-    		$('#code').text(data.val);
+    		$('#codeGen').text(data.val);
     		$('#infoText').text('Ingresa el siguiente codigo en tu celular');
     	});
     	socket.on('mobile',function(){
@@ -61,7 +56,9 @@ alert("aasldkajsdlkajsdlkj");
 		if(key.length) {
 
 			socket.emit('login',{username:'user',room:key});
-			$('#form').hide();
+			$('#form-code').hide();
+			$('#sprite,#action-text').show();
+			
 		}
 	})
 
