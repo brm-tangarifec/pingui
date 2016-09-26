@@ -1,6 +1,7 @@
 article{
 	margin: 0 auto 0;
 	height: 100%;
+	position: relative;
 }
 
 #title-video{
@@ -47,12 +48,13 @@ article{
 @media only screen 
 and (min-width : 320px) 
 and (max-width : 479px) {
-	section {height: 87%;}
-	.box{width: 100%;height: 80%;auto 0 auto;box-shadow: none;margin-top: -2%;}
-	#title-video{width: 85%;left: 7%;top: 18%;}
+	body{overflow-y: hidden;}
+	article{width: 100%;padding-top: 7%;}
+	.box{width: 100%;height: 300px;margin: 25%  auto 15% auto;}
+	#title-video{width: 85%;left: 7%;top: -10%;}
 	#play-video{width: 25%;top: 37%;left: 39%;}
 	.button{width: 52%;margin: 5% 3% 7% auto;float: right;font-size: 20px;line-height: 20px;}
-	#share-video{width: 85%;left: 10%;bottom: 20%;}
+	#share-video{width: 85%;left: 10%;bottom: -11%;}
 	.facebook-icon{margin-left: 3%;}
 }
 
@@ -60,9 +62,8 @@ and (max-width : 479px) {
 @media only screen 
 and (min-width : 480px) 
 and (max-width : 767px) {
-	article{display: block;}
-	section {height: 87%;}
-	.box{width: 100%;height: 102%;auto 0 auto;box-shadow: none;margin-top: -4%;}
+	article{width: 100%;padding-top: 7%;}
+	.box{width: 100%;height: 500px;margin: 3%  auto 0 auto;}
 	#title-video{width: 60%;left: 20%;top: 4%;}
 	#play-video{width: 21%;top: 28%;left: 39%;}
 	.button{width: 71%;margin: 5% 3% 7% auto;float: right;}
@@ -74,8 +75,8 @@ and (max-width : 767px) {
 @media only screen 
 and (min-width : 768px) 
 and (max-width : 1023px) {
-	article{width: 100%;padding-top: 8%;}
-	.box{width: 100%;height: 500px;margin: 2% auto 0 auto;}
+	article{width: 100%;padding-top: 7%;}
+	.box{width: 100%;height: 500px;margin: 3%  auto 0 auto;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	.button{width: 79%;margin: 5% auto 0 auto;float: right;}
@@ -86,8 +87,8 @@ and (max-width : 1023px) {
 @media only screen 
 and (min-width : 1024px) 
 and (max-width : 1223px){
-	article{width: 85%;padding-top: 7%;}
-	.box{width: 100%;height: 500px;margin: 2%  auto 0 auto;}
+	article{width: 100%;padding-top: 7%;}
+	.box{width: 100%;height: 500px;margin: 3%  auto 0 auto;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	.button{width: 79%;margin: 5% auto 0 auto;float: right;}

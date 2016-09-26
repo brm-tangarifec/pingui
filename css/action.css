@@ -84,20 +84,15 @@ article{
 #code p{
 	font-family: stick;
 	color: #fff;
-	letter-spacing: 1px;
-	font-size: 35px;
 	text-align: center;
 	margin: 0;
-	line-height: 35px;
 }
 #code strong{
 	text-align: center;
 	font-family: stick;
-	font-size: 55px;
 	color: rgb(255, 255, 255);
 	text-align: center;
 	display: block;
-	letter-spacing: 10px;
 }
 
 #form-code{display: none;width: 100%;position: relative;top: 22%;padding: 0 8%;overflow: hidden;}
@@ -212,6 +207,8 @@ and (max-width : 1223px){
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
 	#action{width: 400px;bottom: -190px;left: calc(50% - 200px);height: 400px;}
 	#action span{top: 27%;width: 100%;letter-spacing: 1px;font-size: 39px;padding: 0 4%;}
+	#code p{letter-spacing: 1px;font-size: 35px;line-height: 35px;}
+	#code strong{ font-size: 55px; letter-spacing: 10px;}
 }
 
 /* Desktops and laptops 2 ----------- */
@@ -226,6 +223,8 @@ and (max-width : 1499px){
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
 	#action{width: 400px;bottom: -195px;left: calc(50% - 200px);height: 400px;}
 	#action span{top: 27%;width: 100%;letter-spacing: 1px;font-size: 39px;padding: 0 4%;}
+	#code p{letter-spacing: 1px;font-size: 30px;line-height: 30px;}
+	#code strong{font-size: 49px;letter-spacing: 10px;}
 }
 
 /* Large screens ----------- */
@@ -239,4 +238,6 @@ and (min-width : 1500px) {
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
 	#action{width: 500px;bottom: -232px;left: calc(50% - 250px);height: 500px;}
 	#action span{top: 24%;width: 100%;letter-spacing: 1px;font-size: 50px;padding: 0 4%;}
+	#code p{letter-spacing: 1px;font-size: 35px;line-height: 35px;}
+	#code strong{ font-size: 55px; letter-spacing: 10px;}
 }
