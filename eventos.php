@@ -32,7 +32,7 @@ switch ($vrtCtr) {
 			$mail=$mandaM[0]->email;
 			$fecha=date('Y-m-d H:i:s');
 			$datoe=$mail."~".$idUsuarioL."~".$fecha;
-			printVar($datoe);
+			//printVar($datoe);
 			$protected=$session->llamaPass();
 			$datoCookie=$session->encryptS($datoe,$protected);
 		//die();
