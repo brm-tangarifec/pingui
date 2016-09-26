@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : fbapp
-Source Server Version : 50169
-Source Host           : 50.57.130.144:3306
-Source Database       : per16_chivasdb
+Source Server         : migracion
+Source Server Version : 50505
+Source Host           : localhost:3306
+Source Database       : pinguino
 
 Target Server Type    : MYSQL
-Target Server Version : 50169
+Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-09-26 10:19:30
+Date: 2016-09-26 16:01:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -146,6 +146,23 @@ CREATE TABLE `tb_receta_desbloqueada` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for tb_remeber_pass
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_remeber_pass`;
+CREATE TABLE `tb_remeber_pass` (
+  `id` int(10) NOT NULL,
+  `mail` varchar(255) DEFAULT NULL,
+  `keyMail` varchar(255) DEFAULT NULL,
+  `valido` enum('S','N') DEFAULT 'S',
+  `fecha` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tb_remeber_pass
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for tb_session
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_session`;
@@ -157,12 +174,14 @@ CREATE TABLE `tb_session` (
   `dns` varchar(128) NOT NULL,
   `set_time` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_session
 -- ----------------------------
-INSERT INTO `tb_session` VALUES ('47', '1', 'dO0WZmZT1/8t/Td/V76mXYMve66AWHYTvTqFB+1/9J4=', 'a42a463470315ff5a1b5307a081b9031a6ce28fba98adb506c7a600c72ed93b7a250870967f677f8d74861032f303f13a72cbb40a01df4f9e836422a71878b1b', 'fbapp.brm.com.co', '1474659990');
+INSERT INTO `tb_session` VALUES ('1', '5', 'j/S/ubkP4IXVO9EExraxl9tRIHPIwhWIQ5KH3NVlin8=', '00f62d0aabcb4beecbf406b68a9f3d91554136ba4cc88f2230adef1f9c10fd620e7bdea6d15627e233765f66bc244b1ca3b469686ed40277c0c08c41c917fe53', '172.16.229.22', '1474469315');
+INSERT INTO `tb_session` VALUES ('2', '5', 'j/S/ubkP4IXVO9EExraxl9tRIHPIwhWIQ5KH3NVlin8=', '00f62d0aabcb4beecbf406b68a9f3d91554136ba4cc88f2230adef1f9c10fd620e7bdea6d15627e233765f66bc244b1ca3b469686ed40277c0c08c41c917fe53', '172.16.229.22', '1474469326');
+INSERT INTO `tb_session` VALUES ('3', '5', 'j/S/ubkP4IXVO9EExraxl9tRIHPIwhWIQ5KH3NVlin8=', '00f62d0aabcb4beecbf406b68a9f3d91554136ba4cc88f2230adef1f9c10fd620e7bdea6d15627e233765f66bc244b1ca3b469686ed40277c0c08c41c917fe53', '172.16.229.22', '1474471027');
 
 -- ----------------------------
 -- Table structure for tb_usuario
@@ -184,9 +203,40 @@ CREATE TABLE `tb_usuario` (
   `fecha` datetime NOT NULL,
   `fechaActualizacion` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of tb_usuario
 -- ----------------------------
-INSERT INTO `tb_usuario` VALUES ('1', 'Cristian', 'Tangarife', '0000-00-00', '', '', 'cgt9145@gmail.com', 'yatusabe', 'Ciudad', 'S', 'QW51YmlzMTQ1OSQ=', '10153969802438226', '2016-09-22 15:30:25', null);
+INSERT INTO `tb_usuario` VALUES ('1', 'Cristian', 'Tangarife', '0000-00-00', '', '', 'cristian.tangarife@brm.com.co', 'provincia', 'ciudad', 'S', 'MTIzNDU2', null, '2016-09-22 02:17:08', null);
+INSERT INTO `tb_usuario` VALUES ('2', 'cristian', 'tangarife', '0000-00-00', '', '', 'cristian.tangarife@brm.com.co', 'hola', 'ciudad', 'S', 'MTIzNDU2', null, '2016-09-22 02:31:28', null);
+INSERT INTO `tb_usuario` VALUES ('3', 'cristian', 'tangarife', '0000-00-00', '', '', 'cristian.tangarife@brm.com.co', 'hola', 'ciudad', 'S', 'MTIzNDU2', null, '2016-09-22 02:31:28', null);
+INSERT INTO `tb_usuario` VALUES ('4', 'cristian', 'tangarife', '0000-00-00', '', '', 'cristian.tangarife@brm.com.co', 'hola', 'ciudad', 'S', 'MTIzNDU2', null, '2016-09-22 02:31:28', null);
+INSERT INTO `tb_usuario` VALUES ('5', 'cristian', 'tangarife', '0000-00-00', '', '', 'cristian.tangarife@brm.com.co', 'hola', 'ciudad', 'S', 'MTIzNDU2', null, '2016-09-22 02:31:29', null);
+INSERT INTO `tb_usuario` VALUES ('6', 'cristian', 'tangarife', '0000-00-00', '', '', 'cristian.tangarife@brm.com.co', 'hola', 'ciudad', 'S', 'MTIzNDU2', null, '2016-09-22 02:31:29', null);
+
+-- ----------------------------
+-- Table structure for tb_usuario_org
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_usuario_org`;
+CREATE TABLE `tb_usuario_org` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(150) NOT NULL,
+  `apellido` varchar(150) NOT NULL,
+  `fechaNacimiento` date NOT NULL,
+  `documento` varchar(20) NOT NULL,
+  `telefono` varchar(25) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `idProvincia` int(11) NOT NULL,
+  `idCiudad` int(11) NOT NULL,
+  `activo` enum('S','N') NOT NULL,
+  `contrasena` varchar(100) NOT NULL,
+  `idFacebook` varchar(50) DEFAULT NULL,
+  `fecha` datetime NOT NULL,
+  `fechaActualizacion` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tb_usuario_org
+-- ----------------------------
