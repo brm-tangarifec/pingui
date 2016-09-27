@@ -31,10 +31,12 @@ $('#btn-sync').click(function(){
 	$("article").addClass(device);
 
 	if (mobile) {
+		comparaCodigo();
 		$("#box-action").remove();
 		$("#code-phone").show();
 		$("#code-desktop").hide();
 	}else{
+		peticionCodigo();
 		$("#code-phone").hide();
 		$("#code-desktop").show();
 	}
