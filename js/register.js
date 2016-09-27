@@ -108,6 +108,7 @@ jQuery(document).on('change','#lepas',function(){
 		});
 
 
+
 });
 
 jQuery('#confirmar').click(function(){
@@ -150,5 +151,7 @@ jQuery('#confirmar').click(function(){
 						});
 						return false;
 	}
+
 });
+
 });

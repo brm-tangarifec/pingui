@@ -32,7 +32,6 @@ top.location.href = self.location.href;
 
 
     localStorage.clear();
-
     $(".mix").on("click", function() {
     	var videoi=jQuery(this).attr('data');
     	console.log(videoi);
