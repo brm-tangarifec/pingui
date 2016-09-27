@@ -28,7 +28,9 @@ $('#btn-sync').click(function(){
 	device="phone-desktop";
 
 	$("#icon-synchronize").hide();
-	$("article").addClass(device);
+
+	$("#btn-sync").hide();
+	$("#btn-no-sync").hide();
 
 	if (mobile) {
 		comparaCodigo();
@@ -50,27 +52,39 @@ $('#btn-no-sync').click(function(){
 function createcanvas(device){
 
 	$("#box-synchronize").remove();
-	$("#box-action").show();
-	$("#action").show();
 
 	var action="";
 
 	switch(device) {
+
 	    case "phone-desktop":
+					
+					if (mobile) { $("article").addClass(device); }
 	    		action="Desliza tu dedo izquierda o derecha";
 					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});
+
 	    break;
+
 	    case "phone":
+
+					$("#box-action").show();
+					$("#action").show();
 	    		action="Desliza tu dedo izquierda o derecha";
 					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});
+
 	    break;
+
 	    case "desktop":
+
+					$("#box-action").show();
+					$("#action").show();
 	    		action="Mover mouse izquierda o derecha";
 					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg", direction:"x", playMode:"mouse"});
+
 	    break;
 	}
 
 	$(".sprite").attr("id","action-two");
-	document.getElementById("action-text").innerHTML = action;
+	$("#action-text").html(action);
 
 }
