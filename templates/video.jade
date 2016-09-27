@@ -20,6 +20,7 @@ html.no-js(lang='')
 		link(rel='stylesheet', href='css/theme.css')
 		link(rel='stylesheet', href='css/state.css')
 		link(rel='stylesheet', href='css/main.css')
+		link(rel='stylesheet', href='css/changing-box.css')
 		link(rel='stylesheet', href='css/video.css')
 		script(src='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')
 	body.white
@@ -36,6 +37,8 @@ html.no-js(lang='')
 		section
 			article
 				#box(style="background-image: url('img/recipes/1.png');" class="box")
+					video(id="video")
+						source(src="_data/videos/two.mp4" type="video/mp4") 
 					#shadows
 						#shadow-top
 						#shadow-left
@@ -53,8 +56,6 @@ html.no-js(lang='')
 				.whatsapp-icon
 				p Al acceder a este sitio y a cualquier página del mismo te comprometes a cumplir con todos los términos y condiciones. <br> Copyright © 2016 Unilever.
 			include svg/footer-bg.jade
-		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
-		script.
-			window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\\/script>')
+		script(src='js/vendor/jquery.min.js')
 		script(src='js/vendor/drawfillsvg.min.js')
 		script(src='js/video.js')

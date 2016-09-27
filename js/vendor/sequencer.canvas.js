@@ -19,6 +19,8 @@ var Sequencer = (function () {
 		var playInterval;
 		var playDir = 1;
 		var lastLoaded = -1;
+		var contFrameInterval=0;
+		var stopFrameInterval;
 
 		// configuration defaults
 		var config = {
@@ -32,7 +34,7 @@ var Sequencer = (function () {
 				bgColor             : "#FFFFFF",    // page background color
 				scaleMode           : "cover",      // as in CSS3, can be: auto, cover, contain
 				direction           : "y",          // mouse direction, can be x, -x, y, -y, applies only if playMode == "mouse"
-				playMode            : "pong",      			// can be: mouse, loop, pong or none (in this case a nextImage() call has to be made somewhere
+				playMode            : "",      			// can be: mouse, loop, pong or none (in this case a nextImage() call has to be made somewhere
 				playInterval        : 20,           // interval in milliseconds beteen each frame, applies only if playMode != "mouse"
 				progressDiam        : "110",        // progress diameter
 				progressFontFamily  : "stick",
@@ -64,6 +66,7 @@ var Sequencer = (function () {
 						showImage(e.id);
 						lastLoaded = e.id;
 				}
+				showImage(0);
 		}
 
 		function onPreloadComplete(e){
@@ -110,12 +113,36 @@ var Sequencer = (function () {
 						}
 						showImage(current);
 				} else {
-					console.log("2");
-					console.log(++current % images.length);
-						showImage(++current % images.length); //loop
+						var nextId= (current === images.length-1) ? 0 : ++current; //loop
+						showImage(nextId); 
 				}
 		}
 
+		function previousImage(mode){
+				if (!mode) mode = config.playMode;
+				var previousId = (current === 0) ? images.length-1 : --current; //loop
+				showImage(previousId); 
+		}
+
+
+		function toFrame(id){
+
+				stopFrameInterval=(current <= id ) ? (id-current) : (current-id);
+
+				var frameInterval = setInterval(function(){ 
+					
+					contFrameInterval++;
+
+					(current <= id ) ? nextImage() : previousImage();
+
+					if (contFrameInterval == stopFrameInterval) {
+						clearInterval(frameInterval);
+						contFrameInterval=0;
+					}
+
+				}, 300);
+
+		}
 
 		function onMouseMove(e){
 				var t = images.length;
@@ -188,16 +215,17 @@ var Sequencer = (function () {
 						var oy = canvas.height/2 - ih/2;
 						context.drawImage(img, 0, 0, img.width, img.height, Math.round(ox), Math.round(oy), Math.round(iw), Math.round(ih));
 						current = id;
-						
 				}
 		}
 
 		return {
 				init : init,
 				nextImage : nextImage,
+				previousImage : previousImage,
 				setPlayMode : setPlayMode,
 				play : play,
 				showImage : showImage,
+				toFrame : toFrame,
 				stop : stop
 		};
 })();

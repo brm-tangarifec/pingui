@@ -20,6 +20,7 @@ html.no-js(lang='')
 		link(rel='stylesheet', href='css/theme.css')
 		link(rel='stylesheet', href='css/state.css')
 		link(rel='stylesheet', href='css/main.css')
+		link(rel='stylesheet', href='css/changing-box.css')
 		link(rel='stylesheet', href='css/action.css')
 		script(src='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')
 	body.white
@@ -44,14 +45,7 @@ html.no-js(lang='')
 						#shadow-right
 				#action
 					span#action-text
-					#code
-						p Ingresa este codigo en tu celular
-						strong 48944
-					#form-code
-						label Ingresa el codigo
-						input(type="text" id="celCode")
-						button(id="submit") ➡
-					#sprite
+					.sprite#action-two
 		footer
 			#footer-content
 				.facebook-icon

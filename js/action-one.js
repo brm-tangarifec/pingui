@@ -1,28 +1,19 @@
 var action="";
-
+var device="desktop";
 switch(device) {
 	case "mobile":
 			action="gira tu celular 360 grados";
-			Sequencer.init({from:0, to: 162, folder:"img/action-one", baseName:"action-one-", ext:"jpg"});
-			Sequencer.nextImage();
+			Sequencer.init({from:1, to: 162, folder:"img/action-one", baseName:"action-one-", ext:"jpg"});
 	 break;
 	case "desktop":
 			action="Mover mouse arriba o abajo";
-			Sequencer.init({from:0, to: 162, folder:"img/action-one", baseName:"action-one-", ext:"jpg", direction:"-y", playMode:"mouse"});
-			Sequencer.nextImage();
+			Sequencer.init({from:1, to: 162, folder:"img/action-one", baseName:"action-one-", ext:"jpg"});
 	break;
 }
 
 document.getElementById("action-text").innerHTML = action;
 
 function deviceOrientationListener(event) {
-	
-	if ( event.gamma =< 0 && event.gamma =< 20 ) {
-		console.log("entro");
-		for (var i = 0; i <= 16; i++) {
-			Sequencer.nextImage();
-		}
-	}
 
 
 }

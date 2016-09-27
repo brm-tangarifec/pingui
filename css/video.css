@@ -15,12 +15,14 @@ article{
 	display: block;
 	margin: 0 auto;
 	position: absolute;
+	cursor: pointer;
 }
 #share-video{
 	display: block;
 	margin: 0 auto;
 	position: absolute;
 	bottom: 0;
+	cursor: pointer;
 }
 .facebook-icon{
 	background-color: #0055a0;
@@ -35,26 +37,27 @@ article{
 	width: 50px;
 	height: 50px;
 	float: left;
-	margin-top: 5%;
+	margin-top: 2%;
 	cursor: pointer;
 }
 .button{
 	height: 50px;
 }
-.box{
-	background-color: transparent;
+
+video{
+	width: 100%;
+	height: 100%;
+	opacity: 0;
 }
+
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
 and (min-width : 320px) 
 and (max-width : 479px) {
-	body{overflow-y: hidden;}
-	article{width: 100%;padding-top: 7%;}
-	.box{width: 100%;height: 300px;margin: 25%  auto 15% auto;}
-	#title-video{width: 85%;left: 7%;top: -10%;}
-	#play-video{width: 25%;top: 37%;left: 39%;}
-	.button{width: 52%;margin: 5% 3% 7% auto;float: right;font-size: 20px;line-height: 20px;}
-	#share-video{width: 85%;left: 10%;bottom: -11%;}
+	#title-video{width: 86%;left: 8%;top: 11%;}
+	#play-video{width: 30%;top: 37%;left: 35%;}
+	.button{width: 52%;margin: 2% 2% 7% auto;float: right;font-size: 20px;line-height: 20px;}
+	#share-video{width: 86%;left: 9%;bottom: 6%;}
 	.facebook-icon{margin-left: 3%;}
 }
 
@@ -62,8 +65,6 @@ and (max-width : 479px) {
 @media only screen 
 and (min-width : 480px) 
 and (max-width : 767px) {
-	article{width: 100%;padding-top: 7%;}
-	.box{width: 100%;height: 500px;margin: 3%  auto 0 auto;}
 	#title-video{width: 60%;left: 20%;top: 4%;}
 	#play-video{width: 21%;top: 28%;left: 39%;}
 	.button{width: 71%;margin: 5% 3% 7% auto;float: right;}
@@ -75,11 +76,9 @@ and (max-width : 767px) {
 @media only screen 
 and (min-width : 768px) 
 and (max-width : 1023px) {
-	article{width: 100%;padding-top: 7%;}
-	.box{width: 100%;height: 500px;margin: 3%  auto 0 auto;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
-	.button{width: 79%;margin: 5% auto 0 auto;float: right;}
+	.button{width: 79%;margin: 2% auto 0 auto;float: right;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
 }
 
@@ -87,11 +86,9 @@ and (max-width : 1023px) {
 @media only screen 
 and (min-width : 1024px) 
 and (max-width : 1223px){
-	article{width: 100%;padding-top: 7%;}
-	.box{width: 100%;height: 500px;margin: 3%  auto 0 auto;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
-	.button{width: 79%;margin: 5% auto 0 auto;float: right;}
+	.button{width: 79%;margin: 2% auto 0 auto;float: right;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
 }
 
@@ -99,21 +96,17 @@ and (max-width : 1223px){
 @media only screen 
 and (min-width : 1224px) 
 and (max-width : 1499px){
-	article{width: 70%;padding-top: 4%;}
-	.box{width: 100%;height: 540px;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
-	.button{width: 79%;margin: 5% auto 0 auto;float: right;}
+	.button{width: 79%;margin: 2% auto 0 auto;float: right;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
 }
 
 /* Large screens ----------- */
 @media only screen 
 and (min-width : 1500px) {
-	article{width: 57%;padding-top: 4%;}
-	.box{width: 100%;height: 540px;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
-	.button{width: 79%;margin: 5% auto 0 auto;float: right;}
+	.button{width: 79%;margin: 2% auto 0 auto;float: right;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
 }

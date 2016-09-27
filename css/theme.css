@@ -7,23 +7,6 @@ body:before{
 	bottom: 0;
 }
 
-
-body.gray{
-	background-image: url(../img/body-gray-bg.png);
-	background-color: #e6e6e6;
-}
-
-
-body.gray::before{
-	background: -moz-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* ff3.6+ */
-	background: -webkit-gradient(radial, 84% 46%, 0px, 84% 46%, 100%, color-stop(0%, rgba(168,168,168,0.75)), color-stop(100%, rgba(0,0,0,0))); /* safari4+,chrome */
-	background:-webkit-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* safari5.1+,chrome10+ */
-	background: -o-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* opera 11.10+ */
-	background: -ms-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* ie10+ */
-	background: radial-gradient(ellipse 84% 46%, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
-}
-
-
 body.white{
 	background-image: url(../img/body-white-bg.png);
 	background-color: #ffffff;
@@ -39,34 +22,20 @@ body.white::before{
 	background: radial-gradient(ellipse 84% 46%, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
 }
 
-body.orange{
-	background-image: url(../img/body-orange-bg.png);
-	background-color:#ff9c28; 
+body.gray{
+	background-image: url(../img/body-gray-bg.png);
+	background-color: #ececec;
 }
 
-body.orange::before{
-	background: -moz-radial-gradient(84% 46%, ellipse cover, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* ff3.6+ */
-	background: -webkit-gradient(radial, 84% 46%, 0px, 84% 46%, 100%, color-stop(0%, rgba(255,156,40,0.75)), color-stop(100%, rgba(0,0,0,0))); /* safari4+,chrome */
-	background:-webkit-radial-gradient(84% 46%, ellipse cover, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* safari5.1+,chrome10+ */
-	background: -o-radial-gradient(84% 46%, ellipse cover, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* opera 11.10+ */
-	background: -ms-radial-gradient(84% 46%, ellipse cover, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* ie10+ */
-	background: radial-gradient(ellipse 84% 46%, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
-}
 
-body.blue{
-	background-image: url(../img/body-blue-bg.png);
-	background-color: #43c3f6;
+body.gray::before{
+	background: -moz-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* ff3.6+ */
+	background: -webkit-gradient(radial, 84% 46%, 0px, 84% 46%, 100%, color-stop(0%, rgba(168,168,168,0.75)), color-stop(100%, rgba(0,0,0,0))); /* safari4+,chrome */
+	background:-webkit-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* safari5.1+,chrome10+ */
+	background: -o-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* opera 11.10+ */
+	background: -ms-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* ie10+ */
+	background: radial-gradient(ellipse 84% 46%, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
 }
-
-body.blue::before{
-	background: -moz-radial-gradient(84% 46%, ellipse cover, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* ff3.6+ */
-	background: -webkit-gradient(radial, 84% 46%, 0px, 84% 46%, 100%, color-stop(0%, rgba(67,195,246,0.75)), color-stop(100%, rgba(0,0,0,0))); /* safari4+,chrome */
-	background:-webkit-radial-gradient(84% 46%, ellipse cover, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* safari5.1+,chrome10+ */
-	background: -o-radial-gradient(84% 46%, ellipse cover, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* opera 11.10+ */
-	background: -ms-radial-gradient(84% 46%, ellipse cover, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* ie10+ */
-	background: radial-gradient(ellipse 84% 46%, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
-}
-
 
 #hashtag{
 	display: block;
@@ -89,9 +58,9 @@ body.blue::before{
 
 #shadows #shadow-top{
 	position: absolute;
-	top: 22px;
-	width: 84%;
-	left: 7%;
+	top: 21px;
+	width: 90%;
+	left: 5%;
 	height: 40%;
 	-webkit-box-shadow: 0 -25px 32px 4px rgba(50, 50, 50, 0.48);
 	-moz-box-shadow:    0 -25px 32px 4px rgba(50, 50, 50, 0.48);
@@ -136,11 +105,32 @@ body.blue::before{
 }
 
 .box{
+	width: 100%;
+	height: 80%;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
 	display: block;
-	box-shadow: inset 0px 0px 0px 6px #fff;
+	border: 5px solid #fff;
 	background-color: rgba(235, 3, 27, 0.29);
 	background-blend-mode: overlay;
+}
+
+
+#button-facebook{
+	text-align: center;
+	background-color: #0055a0;
+	color: #fff;
+	font-weight: 100;
+	font-family: sans-serif;
+	background-image: url(../img/facebook.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.hidden{
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	opacity: 0;
 }

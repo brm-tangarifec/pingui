@@ -22,7 +22,7 @@ html.no-js(lang='')
 		link(rel='stylesheet', href='css/main.css')
 		link(rel='stylesheet', href='css/404.css')
 		script(src='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')
-	body.orange
+	body.white
 		//if lt IE 8
 			p.browserupgrade
 				| You are using an 
@@ -34,12 +34,12 @@ html.no-js(lang='')
 			include svg/header-bg.jade
 		include svg/logo.jade
 		section
-			include svg/hot-air-balloon-white.jade
-			include svg/helicopter-white.jade
-			include svg/balloon-white.jade
-			include svg/camera-white.jade
-			include svg/car-white.jade
-			include svg/trolley-white.jade
+			include svg/hot-air-balloon-red.jade
+			include svg/helicopter-red.jade
+			include svg/balloon-red.jade
+			include svg/camera-red.jade
+			include svg/car-red.jade
+			include svg/trolley-red.jade
 			article
 				#message-404
 					include svg/hashtag.jade
@@ -52,8 +52,6 @@ html.no-js(lang='')
 				.whatsapp-icon
 				p Al acceder a este sitio y a cualquier página del mismo te comprometes a cumplir con todos los términos y condiciones.<br> Copyright © 2016 Unilever.		
 			include svg/footer-bg.jade
-		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')
-		script.
-			window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\\/script>')
+		script(src='js/vendor/jquery.min.js')
 		script(src='js/vendor/drawfillsvg.min.js')
 		script(src='js/404.js')
