@@ -73,8 +73,8 @@ class manejaSession {
 	   return $data;
 	}
 	function write($id, $data) {
-		printVar($id);
-		printVar($data);
+		//printVar($id);
+		//printVar($data);
 		$session = DB_DataObject::Factory("TbSession");
    // Get unique key
 		//debug(1);
