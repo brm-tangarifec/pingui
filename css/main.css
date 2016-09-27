@@ -76,17 +76,17 @@ and (min-width : 320px)
 and (max-width : 479px) {
 
 	header{height: 9%;}
-	section{width: 100%;height: 83%;}
+	section{width: 100%;height: 80%;}
 	#logo-container{width: 80px;left: 5%;z-index: 1;}
 	#header-bg{width: 100%;margin-top: -20px;height: 100px;z-index: 1;}
-	footer{width: 100%;height: 8%;bottom: -1px;}
-	#footer-content{width: 100%;padding: 0 5%;top: 8px;}
+	footer{width: 100%;height: 11%;bottom: 0px;}
+	#footer-content{width: 100%;padding: 0 5%;top: 10px;}
 	#footer-bg{width: 100%;height: 100px;}
-	footer .facebook-icon,footer .whatsapp-icon,footer .twitter-icon{height: 30px;width: 30px;padding: 10px;margin: 0 10px 0 0;}
+	footer .facebook-icon,footer .whatsapp-icon,footer .twitter-icon{height: 30px;width: 30px;padding: 10px;margin: 7px 10px 0 0;}
 	footer .facebook-icon{background-size: 29%;}
 	footer .whatsapp-icon{background-size: 55%; display: block;}
-	footer background-size: 55%;
-	footer p{line-height: 13px;font-size: 10px;}
+	footer .twitter-icon{background-size: 55%; display: block;}
+	footer p{line-height: 9px;font-size: 10px;margin-top: 2px;font-weight: 200;}
 	
 }
 

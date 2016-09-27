@@ -53,10 +53,8 @@ var Sequencer = (function () {
 						config[prop] = customConfig[prop];
 				}
 
-				window.onload = function(){
-						configureBody();
-						Preloader.init(config, images, onImageLoaded, onPreloadComplete);
-				}
+				configureBody();
+				Preloader.init(config, images, onImageLoaded, onPreloadComplete);
 
 				window.addEventListener( 'resize', onWindowResize, false );
 		}
