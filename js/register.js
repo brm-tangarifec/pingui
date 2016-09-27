@@ -9,7 +9,7 @@
 })();
 
 jQuery(document).ready(function(){
-	console.log('hola, estoy ingresando');
+	//console.log('hola, estoy ingresando');
 	/*Registro*/
 //Validar letras con espacios y caracteres especiales//
   jQuery.validator.addMethod("letras", function(value, element)
@@ -138,7 +138,7 @@ jQuery(document).on('change','#lepas',function(){
 });
 
 jQuery('#confirmar').click(function(){
-  console.log('hola, soy un click');
+  //console.log('hola, soy un click');
 
   if(jQuery('#pinguino').valid()){
     //console.log('valido');
@@ -169,6 +169,49 @@ jQuery('#confirmar').click(function(){
               aceptar:aceptar,
               idR:idR,
               vrtCrt:'registrar'
+            },
+            success: function (data){
+              console.log(data);
+            }, 
+            error: function(result) {
+                      console.log(result,'error');
+              }
+            });
+            return false;
+  }
+});
+jQuery('#updateP').click(function(){
+  //console.log('hola, soy un click');
+
+  if(jQuery('#pinguino').valid()){
+    //console.log('valido');
+    //console.log('hola, es válido');
+    var nombre=jQuery('#name').val(),
+    apellido=jQuery('#apellido').val(),
+    email=jQuery('#email').val(),
+    provincia=jQuery('#provincia').val(),
+    ciudad=jQuery('#ciudad').val(),
+    lepas=jQuery('#lepas').val(),
+    lepasc=jQuery('#lepasc').val(),
+    aceptar=jQuery('#slideThree').val(),
+    idR=jQuery('#idRs').val(),
+    urlR='eventos.php';
+
+    jQuery.ajax({
+            url: urlR,
+            dataType:'json' ,
+            type: 'POST',
+            data:{
+              nombre:nombre,
+              apellido:apellido,
+              email:email,
+              provincia:provincia,
+              ciudad:ciudad,
+              lepas:lepas,
+              lepasc:lepasc,
+              aceptar:aceptar,
+              idR:idR,
+              vrtCrt:'actualizaP'
             },
             success: function (data){
               console.log(data);

@@ -15,7 +15,7 @@ if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!='' ){
 	$email=$datosUsuario[0]->email;
 	$provincia=$datosUsuario[0]->provincia;
 	$ciudad=$datosUsuario[0]->ciudad;
-	$pass=$datosUsuario[0]->contrasena;
+	$pass=base64_decode($datosUsuario[0]->contrasena);
 	$idFacebook=$datosUsuario[0]->idFacebook;
 
 	/*Asignar las variables al html*/

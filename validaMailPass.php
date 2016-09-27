@@ -20,7 +20,7 @@ printVar($dfecha);
 $afecha=date("Y-m-d H:i:s");
 printVar($afecha);
 if($dfecha < $afecha){
-header('location: registro.php');
+	header('location: registro.php');
 }else{
 
 	 if($protocol=="https://"){

@@ -141,9 +141,6 @@ class Registro {
 	}
 	function validaPassR($campos){
 		$passC=DB_DataObject::Factory('TbRemeberPass');
-
-
-		$passC->cantidadXS=$camiseta['cantidadXS'];
 		$passC->valido='N';
 		$passC-> whereAdd("mail='" . $campos['mail']."' AND keyMail='".$campos['hash']."' AND valido='S'");
 		$passC -> find();
@@ -152,6 +149,24 @@ class Registro {
 		$passC -> free();
 		return $ret;
 
+	}
+	/*Actualiza datos*/
+	function acutalizaPerfil($campos){
+
+		$inscr = DB_DataObject::Factory('TbUsuario');
+		$inscr ->nombre = $campos['nombre'];
+		$inscr ->apellido = $campos['apellido'];
+		$inscr ->email = $campos['email'];
+		$inscr ->provincia = $campos['provincia'];
+		$inscr ->ciudad = $campos['ciudad'];
+		$inscr ->contrasena = $campos['lepass'];
+		$inscr ->idFacebook = $campos['idR'];
+		$inscr ->fechaActualizacion = date("Y-m-d H:i:s");
+		$inscr-> whereAdd("id='" . $campos['idU']."'");
+		$inscr -> find();
+		$ret = $inscr -> update(DB_DATAOBJECT_WHEREADD_ONLY);
+		$inscr -> free();
+		return $ret;
 	}
 }
 ?>

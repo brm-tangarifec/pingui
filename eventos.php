@@ -7,6 +7,7 @@ $varPost=filter_input_array(INPUT_POST);
 $registrar= new Registro();
 $session= new manejaSession();
 $protocol=$session->site_protocol();
+$protected=$session->llamaPass();
     //printVar($protocol);
     if($protocol=="https://"){
     	$secure=true;
@@ -33,7 +34,7 @@ switch ($vrtCtr) {
 			$fecha=date('Y-m-d H:i:s');
 			$datoe=$mail."~".$idUsuarioL."~".$fecha;
 			//printVar($datoe);
-			$protected=$session->llamaPass();
+			
 			$datoCookie=$session->encryptS($datoe,$protected);
 		//die();
 			$campos['mail']=$mail;
@@ -89,8 +90,8 @@ switch ($vrtCtr) {
 	/*Registro de usuario*/
 	case 'registrar':
 		# code...
-		printVar($varPost);
-		setcookie('ywd_usui', "hola", time() + 1200, '/', $secure, $httponly);
+		//printVar($varPost);
+		//setcookie('ywd_usui', "hola", time() + 1200, '/', $secure, $httponly);
 		/*Datos de usauario*/
 		if(isset($varPost['email']) && $varPost['email']!='' && isset($varPost['aceptar']) && $varPost['aceptar']=='S' && isset($varPost['lepas']) && $varPost['lepas']!='' && isset($varPost['lepasc']) && $varPost['lepasc']=!'' && $varPost['lepas']==$varPost['lepasc'] ){
 
@@ -115,8 +116,11 @@ switch ($vrtCtr) {
 			$creaSessionU=$session->write($guardaUsu,$dato,$host);
 			//printvar($creaSessionU,'holaCU');
 			$createCookieU=$session->start_session('ywd_usu',true);
+			$datoCookie=$session->encryptS($guardaUsu,$protected);
+
 			//printvar($createCookieU,'holaC');
 			/*Se crea cookie de usuario*/
+			setcookie('ywd_fr',$datoCookie, time() + 1200, '/');
 			setcookie('ywd_usu', $creaSessionU, time() + 1200, '/', $secure, $httponly);
 		//}
 		
@@ -131,7 +135,48 @@ switch ($vrtCtr) {
 	}
 		echo json_encode($mensaje);
 		break;
-	/*Valida código de redención*/
+	/*Actualiza perfil*/
+	case 'actualizaP':
+		# code...
+		//printVar($varPost);
+		//setcookie('ywd_usui', "hola", time() + 1200, '/', $secure, $httponly);
+		/*Datos de usauario*/
+		if(isset($varPost['email']) && $varPost['email']!='' && isset($varPost['lepas']) && $varPost['lepas']!='' && isset($varPost['lepasc']) && $varPost['lepasc']=!'' && $varPost['lepas']==$varPost['lepasc'] ){
+
+			if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!=''){
+				$idUser=$session->decryptS($_COOKIE['ywd_fr'],$protected);
+				printVar($idUser);
+				$campos['nombre']=utf8_decode($varPost['nombre']);
+				$campos['apellido']=utf8_decode($varPost['apellido']);
+				$campos['email']=strtolower($varPost['email']);
+				$campos['provincia']=utf8_decode($varPost['provincia']);
+				$campos['ciudad']=utf8_decode($varPost['ciudad']);
+				$campos['lepass']=base64_encode($varPost['lepas']);
+				$campos['idR']=$varPost['idR'];
+				$campos['idU']=$idUser;
+
+				$actualizaP=$registrar->acutalizaPerfil($campos);
+			printVar($actualizaP,'Hola actualizar');
+			//printVar($guardaUsu,'Respuesta insert');
+			/*Creación y lectura de cookie*/
+			//if($guardaUsu!=''){
+			//}
+			
+			//die();
+				if($actualizaP>0){
+					$mensaje="exitoso";
+				}else{
+					$mensaje="noguarda";
+				}
+			}else{
+				$mensaje="Registro no v&aacute;lido";
+			}
+		echo json_encode($mensaje);
+
+			}
+
+	
+		break;
 	
 	default:
 		# code...
