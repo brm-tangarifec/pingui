@@ -28,9 +28,22 @@ form p{
 	position: relative;
 }
 
+#idRs{ 
+	display:none;
+}
+
+#button-facebook{
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	background-size: 18px;
+	background-position: 4% 7px;
+	margin-bottom: 7%;
+}
+
 form .goup-left,
 form .goup-right,
-form .goup-middle{position: relative;display: block;}
+form .goup-middle{position: relative;display: block;overflow: hidden;}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
@@ -153,11 +166,11 @@ and (max-width : 1499px){
 @media only screen and (min-width: 1500px) {
 
 	#hot-air-balloon{width: 60px;top: 3%;left: 14%;position: absolute;}
-	#helicopter{width: 120px;top: 13%;right: 20%;}
+	#helicopter{width: 120px;top: 13%;right: 17%;}
 	#balloon{width: 80px;top: 42%;left: 18%;}
 	#camera{width: 90px;top: 41%;right: 9%;}
-	#car{width: 80px;bottom: 25%;right: 26%;}
-	#trolley{width: 80px;bottom: 28%;left: 28%;}
+	#car{width: 80px;bottom: 17%;right: 26%;}
+	#trolley{width: 80px;bottom: 28%;left: 2%;}
 	.button{width: 49%;margin-top: 20px;float: left;}
 	.button:nth-child(even){margin-right: 2%;background-color: #696969;}
 	#copy-register{width: 360px; margin: 0 auto 4% auto;}

@@ -8,7 +8,9 @@ $(document).ready(function(){
 
 	$('#play-video').click(function(){
 		$(this).hide();
-		$('#box').css('background', 'transparent');
+		$('#box').css('background-color', '#fff');
+		$('#share-video, #title-video').css('opacity', '0.2');
+		$('#video').css('opacity', '1');
 		$('#video').trigger('play');
 	});
 

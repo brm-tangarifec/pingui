@@ -19,6 +19,8 @@ var Sequencer = (function () {
 		var playInterval;
 		var playDir = 1;
 		var lastLoaded = -1;
+		var contFrameInterval=0;
+		var stopFrameInterval;
 
 		// configuration defaults
 		var config = {
@@ -64,6 +66,7 @@ var Sequencer = (function () {
 						showImage(e.id);
 						lastLoaded = e.id;
 				}
+				showImage(0);
 		}
 
 		function onPreloadComplete(e){
@@ -110,10 +113,36 @@ var Sequencer = (function () {
 						}
 						showImage(current);
 				} else {
-						showImage(++current % images.length); //loop
+						var nextId= (current === images.length-1) ? 0 : ++current; //loop
+						showImage(nextId); 
 				}
 		}
 
+		function previousImage(mode){
+				if (!mode) mode = config.playMode;
+				var previousId = (current === 0) ? images.length-1 : --current; //loop
+				showImage(previousId); 
+		}
+
+
+		function toFrame(id){
+
+				stopFrameInterval=(current <= id ) ? (id-current) : (current-id);
+
+				var frameInterval = setInterval(function(){ 
+					
+					contFrameInterval++;
+
+					(current <= id ) ? nextImage() : previousImage();
+
+					if (contFrameInterval == stopFrameInterval) {
+						clearInterval(frameInterval);
+						contFrameInterval=0;
+					}
+
+				}, 300);
+
+		}
 
 		function onMouseMove(e){
 				var t = images.length;
@@ -140,18 +169,18 @@ var Sequencer = (function () {
 		}
 
 		function onWindowResize(){
-				canvas.height = document.getElementById("box").offsetHeight;
-				canvas.width = document.getElementById("box").offsetWidth;
+				canvas.height = document.getElementById("box-action").offsetHeight;
+				canvas.width = document.getElementById("box-action").offsetWidth;
 				showImage(current);
 		}
 
 		function configureBody(){
 				canvas = document.createElement('canvas');
-				canvas.height = document.getElementById("box").offsetHeight;
-				canvas.width = document.getElementById("box").offsetWidth;
+				canvas.height = document.getElementById("box-action").offsetHeight;
+				canvas.width = document.getElementById("box-action").offsetWidth;
 				canvas.style.display = "block";
 				context = canvas.getContext('2d');
-				document.getElementById("box").appendChild(canvas);
+				document.getElementById("box-action").appendChild(canvas);
 		}
 
 		function showImage(id){
@@ -185,14 +214,18 @@ var Sequencer = (function () {
 						var ox = canvas.width/2 - iw/2;
 						var oy = canvas.height/2 - ih/2;
 						context.drawImage(img, 0, 0, img.width, img.height, Math.round(ox), Math.round(oy), Math.round(iw), Math.round(ih));
+						current = id;
 				}
 		}
 
 		return {
 				init : init,
 				nextImage : nextImage,
+				previousImage : previousImage,
 				setPlayMode : setPlayMode,
 				play : play,
+				showImage : showImage,
+				toFrame : toFrame,
 				stop : stop
 		};
 })();
@@ -277,7 +310,7 @@ var Preloader = (function(){
 				bgbox.style.left = "0";
 				bgbox.id = "bgbox";
 				bgbox.style.zIndex = 40;
-				document.getElementById("box").appendChild(bgbox);
+				document.getElementById("box-action").appendChild(bgbox);
 
 				if (config.progressMode == "circle"){
 						progress = document.createElement('div');
@@ -326,7 +359,7 @@ var Preloader = (function(){
 		function removeProgress(){
 				if (progress) {
 						document.body.removeChild(progress);
-						document.getElementById("box").removeChild(bgbox);
+						document.getElementById("box-action").removeChild(bgbox);
 						progress = null;
 				}
 		}

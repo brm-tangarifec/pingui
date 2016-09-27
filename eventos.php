@@ -34,7 +34,7 @@ switch ($vrtCtr) {
 			$fecha=date('Y-m-d H:i:s');
 			$datoe=$mail."~".$idUsuarioL."~".$fecha;
 			//printVar($datoe);
-			
+
 			$datoCookie=$session->encryptS($datoe,$protected);
 		//die();
 			$campos['mail']=$mail;

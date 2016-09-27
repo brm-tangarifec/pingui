@@ -22,34 +22,20 @@ body.white::before{
 	background: radial-gradient(ellipse 84% 46%, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
 }
 
-body.orange{
-	background-image: url(../img/body-orange-bg.png);
-	background-color:#ff9c28; 
+body.gray{
+	background-image: url(../img/body-gray-bg.png);
+	background-color: #ececec;
 }
 
-body.orange::before{
-	background: -moz-radial-gradient(84% 46%, ellipse cover, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* ff3.6+ */
-	background: -webkit-gradient(radial, 84% 46%, 0px, 84% 46%, 100%, color-stop(0%, rgba(255,156,40,0.75)), color-stop(100%, rgba(0,0,0,0))); /* safari4+,chrome */
-	background:-webkit-radial-gradient(84% 46%, ellipse cover, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* safari5.1+,chrome10+ */
-	background: -o-radial-gradient(84% 46%, ellipse cover, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* opera 11.10+ */
-	background: -ms-radial-gradient(84% 46%, ellipse cover, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* ie10+ */
-	background: radial-gradient(ellipse 84% 46%, rgba(255,156,40,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
-}
 
-body.blue{
-	background-image: url(../img/body-blue-bg.png);
-	background-color: #43c3f6;
+body.gray::before{
+	background: -moz-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* ff3.6+ */
+	background: -webkit-gradient(radial, 84% 46%, 0px, 84% 46%, 100%, color-stop(0%, rgba(168,168,168,0.75)), color-stop(100%, rgba(0,0,0,0))); /* safari4+,chrome */
+	background:-webkit-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* safari5.1+,chrome10+ */
+	background: -o-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* opera 11.10+ */
+	background: -ms-radial-gradient(84% 46%, ellipse cover, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* ie10+ */
+	background: radial-gradient(ellipse 84% 46%, rgba(168,168,168,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
 }
-
-body.blue::before{
-	background: -moz-radial-gradient(84% 46%, ellipse cover, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* ff3.6+ */
-	background: -webkit-gradient(radial, 84% 46%, 0px, 84% 46%, 100%, color-stop(0%, rgba(67,195,246,0.75)), color-stop(100%, rgba(0,0,0,0))); /* safari4+,chrome */
-	background:-webkit-radial-gradient(84% 46%, ellipse cover, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* safari5.1+,chrome10+ */
-	background: -o-radial-gradient(84% 46%, ellipse cover, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* opera 11.10+ */
-	background: -ms-radial-gradient(84% 46%, ellipse cover, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* ie10+ */
-	background: radial-gradient(ellipse 84% 46%, rgba(67,195,246,0.75) 0%, rgba(0,0,0,0) 100%); /* w3c */
-}
-
 
 #hashtag{
 	display: block;
@@ -72,13 +58,13 @@ body.blue::before{
 
 #shadows #shadow-top{
 	position: absolute;
-	top: 20px;
-	width: 80%;
-	left: 10%;
+	top: 21px;
+	width: 90%;
+	left: 5%;
 	height: 40%;
 	-webkit-box-shadow: 0 -25px 32px 4px rgba(50, 50, 50, 0.48);
 	-moz-box-shadow:    0 -25px 32px 4px rgba(50, 50, 50, 0.48);
-	box-shadow: 0 -25px 32px 4px rgba(50, 50, 50, 0.48);
+	box-shadow: 0 -25px 32px 4px rgba(50, 50, 50, 0.28);
 	background-color: white;
 }
 
@@ -91,13 +77,13 @@ body.blue::before{
 	height: 40%;
 	-webkit-box-shadow: 59px 60px 30px -45px rgba(0,0,0,0.48);
 	-moz-box-shadow: 59px 60px 30px -45px rgba(0,0,0,0.48);
-	box-shadow: 59px 57px 50px -53px rgba(0,0,0,0.48);
+	box-shadow: 59px 57px 50px -53px rgba(0,0,0,0.28);
 }
 #shadows #shadow-left{
 	content: "";
 	-webkit-box-shadow: -59px 60px 30px -45px rgba(0,0,0,0.48);
 	-moz-box-shadow: -59px 60px 30px -45px rgba(0,0,0,0.48);
-	box-shadow: -59px 57px 50px -53px rgba(0,0,0,0.48);
+	box-shadow: -59px 57px 50px -53px rgba(0,0,0,0.28);
 	position: absolute;
 	width: 30%;
 	left: 0;
@@ -119,11 +105,138 @@ body.blue::before{
 }
 
 .box{
+	width: 100%;
+	height: 80%;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
 	display: block;
-	box-shadow: inset 0px 0px 0px 15px #fff;
+	border: 5px solid #fff;
 	background-color: rgba(235, 3, 27, 0.29);
 	background-blend-mode: overlay;
+}
+
+
+#button-facebook{
+	text-align: center;
+	background-color: #0055a0;
+	color: #fff;
+	font-weight: 100;
+	font-family: sans-serif;
+	background-image: url(../img/facebook.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	box-shadow: 2px 3px 4px 2px rgba(204, 204, 204, 0.48);
+}
+
+.hidden{
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	opacity: 0;
+}
+
+
+
+.menu {
+	line-height: 1;
+	position: absolute;
+	top: 8px;
+	right: 0;
+}
+
+.menu-list {
+	position: relative;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.menu-item {
+	display: block;
+	margin: 1em 0;
+}
+
+.menu-link {
+	font-size: 1.05em;
+	display: block;
+	padding: 1em;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-khtml-user-select: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	font-family: stick;
+	letter-spacing: 5px;
+	text-decoration: none;
+}
+
+.menu-link:hover,
+.menu-link:focus {
+	outline: none;
+}
+
+.menu-iris .menu-item {
+	margin: 0 1em;
+}
+
+.menu-iris .menu-link {
+	position: relative;
+	text-align: center;
+	color: #ffffff;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.menu-iris .menu-link:hover,
+.menu-iris .menu-link:focus {
+	color: #7b0a08;
+}
+
+.menu-iris .menu-item-current .menu-link {
+	color: #ffffff;
+}
+
+.menu-iris .menu-link::before,
+.menu-iris .menu-link::after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	opacity: 0;
+	border: 2px solid #7b0a08;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.17, 0.67, 0.05, 1.29);
+	transition-timing-function: cubic-bezier(0.17, 0.67, 0.05, 1.29);
+}
+
+.menu-iris .menu-link::before {
+	top: 0;
+	left: 0;
+	border-width: 2px 0 0 2px;
+	-webkit-transform: translate3d(10px, 10px, 0);
+	transform: translate3d(10px, 10px, 0);
+}
+
+.menu-iris .menu-link::after {
+	right: 0;
+	bottom: 0;
+	border-width: 0 2px 2px 0;
+	-webkit-transform: translate3d(-10px, -10px, 0);
+	transform: translate3d(-10px, -10px, 0);
+}
+
+.menu-iris .menu-item-current .menu-link::before,
+.menu-iris .menu-item-current .menu-link::after {
+	opacity: 1;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
 }

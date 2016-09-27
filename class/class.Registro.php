@@ -150,6 +150,7 @@ class Registro {
 		return $ret;
 
 	}
+
 	/*Actualiza datos*/
 	function acutalizaPerfil($campos){
 
@@ -168,5 +169,6 @@ class Registro {
 		$inscr -> free();
 		return $ret;
 	}
+
 }
 ?>

@@ -1,92 +1,58 @@
-doctype html
-//if lt IE 7
-	html.no-js.lt-ie9.lt-ie8.lt-ie7(lang='')  
-//if IE 7
-	html.no-js.lt-ie9.lt-ie8(lang='')  
-//if IE 8
-	html.no-js.lt-ie9(lang='')  
-// [if gt IE 8] <!
-html.no-js(lang='')
-	// <![endif]
-	head
-		meta(charset='utf-8')
-		meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-		title
-		meta(name='description', content='')
-		meta(name='viewport', content='width=device-width, initial-scale=1')
-		link(rel='apple-touch-icon', href='apple-touch-icon.png')
-		link(rel='stylesheet', href='css/animate.css')
-		link(rel='stylesheet', href='css/base.css')
-		link(rel='stylesheet', href='css/theme.css')
-		link(rel='stylesheet', href='css/state.css')
-		link(rel='stylesheet', href='css/main.css')
+include master/general/doctype.jade
+	include master/general/head.jade
 		link(rel='stylesheet', href='css/form.css')
 		link(rel='stylesheet', href='css/register.css')
-		script(src='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')
-	body.gray
-		//if lt IE 8
-			p.browserupgrade
-				| You are using an 
-				strong outdated
-				|  browser. Please 
-				a(href='http://browsehappy.com/') upgrade your browser
-				|  to improve your experience.
-		header
-			include svg/header-bg.jade
-		include svg/logo.jade
+	body.white
+		include master/general/header.jade
 		section
-			include svg/hot-air-balloon-red.jade
-			include svg/helicopter-red.jade
-			include svg/balloon-red.jade
-			include svg/camera-red.jade
-			include svg/car-red.jade
-			include svg/trolley-red.jade
+			include master/svg/hot-air-balloon-red.jade
+			include master/svg/helicopter-red.jade
+			include master/svg/balloon-red.jade
+			include master/svg/camera-red.jade
+			include master/svg/car-red.jade
+			include master/svg/trolley-red.jade
 			article
-				form(autocomple="off")
-					include svg/copy-register.jade
-
+				form(autocomple="off" id="pinguino" name="pinguino")
+					include master/svg/copy-register.jade
+					#button-facebook Ingresa con Facebook
+					input(type="text" id="idRs" name="idRs")
 					.goup-left
 						label(for="name") Nombres
-						input(type="name" id="name" name="name")
+						input(type="text" id="name" name="name" tabindex="1")
 
 						label(for="name") Email
-						input(type="name" id="name" name="name")
+						input(type="email" id="email" name="email" tabindex="3")
 
 						label(for="name") Provincia
-						input(type="name" id="name" name="name")
+						input(type="text" id="provincia" name="provincia" tabindex="5")
 
 					.goup-right
 						label(for="name") Apellidos
-						input(type="name" id="name" name="name")
+						input(type="text" id="apellido" name="apellido" tabindex="2")
 
 						label(for="name") Ciudad
-						input(type="name" id="name" name="name")
+						input(type="text" id="ciudad" name="ciudad" tabindex="4")
 
 						label(for="name") Contraseña
-						input(type="name" id="name" name="name")
+						input(type="password" id="lepas" name="lepas" abindex="6")
 
 					.goup-middle
 						label(for="name") Confirma tu contraseña
-						input(type="name" id="name" name="name")
+						input(type="password" id="lepasc" name="lepasc" tabindex="7")
 						#terms
-							.slideThree
-								input(type="checkbox" value="None" id="slideThree" name="check")
-								label(for="slideThree")
+							.checkbox
+								input(type="checkbox" value="S" id="check-terms" name="check")
+								label(for="check-terms")
 							p He leído y estoy de acuerdo con los términos y condiciones y con las políticas y tratamiento de datos personales.
-						.button volver
-						.button confirmar
-	
-		footer
-			#footer-content
-				.facebook-icon
-				.whatsapp-icon
-				p Al acceder a este sitio y a cualquier página del mismo te comprometes a cumplir con todos los términos y condiciones. <br> Copyright © 2016 Unilever.		
-			include svg/footer-bg.jade
-<<<<<<< HEAD
-		script(src="js/vendor/jquery.min.js")
-		script(src="js/vendor/jquery.validate.js")
-=======
-		script(src='js/vendor/jquey.min.js')
->>>>>>> 7f8cfc0eab238590357bf9f9636992a13b807cb5
-		script(src='js/vendor/drawfillsvg.min.js')
+						.button(id="volver") volver
+						.button(id="confirmar") confirmar
+		include master/general/footer.jade
+		include master/general/scripts.jade
+		script(src="js/vendor/jquery.validate.min.js")
+		script(src="js/vendor/additional-methods.min.js")
+		script(src='js/registroFb.js')
 		script(src='js/register.js')
+
+
+
+

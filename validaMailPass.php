@@ -11,7 +11,7 @@ $protected=$session->llamaPass();
 $idUser=$session->decryptS($url,$protected);
 //printVar($idUser);
 $separar=explode("~", $idUser);
-var_dump($separar);
+//var_dump($separar);
 
 $fechaO=$separar[2];
 $dfecha=date("Y-m-d H:i:s", strtotime($fechaO."+1 days"));
@@ -20,7 +20,9 @@ $dfecha=date("Y-m-d H:i:s", strtotime($fechaO."+1 days"));
 $afecha=date("Y-m-d H:i:s");
 //printVar($afecha);
 if($dfecha < $afecha){
+
 	header('location: registro.php');
+
 }else{
 
 	 if($protocol=="https://"){
