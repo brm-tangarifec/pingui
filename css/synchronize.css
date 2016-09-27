@@ -85,6 +85,20 @@ article.phone-desktop #action{
 	top: 18px;
 }
 
+#code-phone{
+	display: none;
+}
+#code-desktop{
+	display: none;
+	position: absolute;
+	top: 40%;
+	font-family: stick;
+	color: #fff;
+	font-size: 80px;
+	letter-spacing: 10px;
+	left: calc(50% - 104px);
+}
+
 #action-one{
 	background-position: 0px;
 	background-image: url(../img/action-one.png);
