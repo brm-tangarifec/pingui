@@ -1,7 +1,7 @@
 (function() {
 	new DrawFillSVG({elementId: "helicopter"});
 	new DrawFillSVG({elementId: "hot-air-balloon"});
-	new DrawFillSVG({elementId: "copy-register"});
+	new DrawFillSVG({elementId: "copy-edit-profile"});
 	new DrawFillSVG({elementId: "balloon"});
 	new DrawFillSVG({elementId: "camera"});
 	new DrawFillSVG({elementId: "car"});

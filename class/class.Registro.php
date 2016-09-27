@@ -127,5 +127,31 @@ class Registro {
 		//Libera el objeto DBO
 		return $ret;
 	}
+	/*Función para restringir el acceso al cambio de contraseña desde mail*/
+	function mailC($campos){
+		$passC=DB_DataObject::Factory('TbRemeberPass');
+		$passC->mail=$campos['mail'];
+		$passC->keyMail=$campos['hash'];
+		$passC ->fecha = date("Y-m-d H:i:s");
+		$insert = $passC -> insert();
+		$passC -> free();
+		return $insert;
+
+
+	}
+	function validaPassR($campos){
+		$passC=DB_DataObject::Factory('TbRemeberPass');
+
+
+		$passC->cantidadXS=$camiseta['cantidadXS'];
+		$passC->valido='N';
+		$passC-> whereAdd("mail='" . $campos['mail']."' AND keyMail='".$campos['hash']."' AND valido='S'");
+		$passC -> find();
+		$ret = $passC -> update(DB_DATAOBJECT_WHEREADD_ONLY);
+		//printVar($ret);
+		$passC -> free();
+		return $ret;
+
+	}
 }
 ?>

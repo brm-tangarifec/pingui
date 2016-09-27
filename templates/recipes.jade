@@ -1,109 +1,73 @@
-doctype html
-//if lt IE 7
-	html.no-js.lt-ie9.lt-ie8.lt-ie7(lang='')  
-//if IE 7
-	html.no-js.lt-ie9.lt-ie8(lang='')  
-//if IE 8
-	html.no-js.lt-ie9(lang='')  
-// [if gt IE 8] <!
-html.no-js(lang='')
-	// <![endif]
-	head
-		meta(charset='utf-8')
-		meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-		title
-		meta(name='description', content='')
-		meta(name='viewport', content='width=device-width, initial-scale=1')
-		link(rel='apple-touch-icon', href='apple-touch-icon.png')
-		link(rel='stylesheet', href='css/animate.css')
-		link(rel='stylesheet', href='css/base.css')
-		link(rel='stylesheet', href='css/theme.css')
-		link(rel='stylesheet', href='css/state.css')
-		link(rel='stylesheet', href='css/main.css')
+include master/general/doctype.jade
+	include master/general/head.jade
 		link(rel='stylesheet', href='css/recipes.css')
-		script(src='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')
 	body.white
-		//if lt IE 8
-			p.browserupgrade
-				| You are using an 
-				strong outdated
-				|  browser. Please 
-				a(href='http://browsehappy.com/') upgrade your browser
-				|  to improve your experience.
-		header
-			include svg/header-bg.jade
-		include svg/logo.jade
+		include master/general/header.jade
 		section
 			article#init
-				include svg/hot-air-balloon-red.jade
-				include svg/helicopter-red.jade
-				include svg/welcome.jade
-				include svg/hashtag.jade
+				include master/svg/hot-air-balloon-red.jade
+				include master/svg/helicopter-red.jade
+				include master/svg/welcome.jade
+				include master/svg/hashtag.jade
 				div#cream-jar
 					img(src="img/cream-jar.png")
 				span#name Carlos Alberto
-				include svg/message.jade
-				include svg/balloon-red.jade
-				include svg/camera-red.jade
+				include master/svg/message.jade
+				include master/svg/balloon-red.jade
+				include master/svg/camera-red.jade
 			article#recipes
-				include svg/line-up.jade
-				include svg/arrow-up.jade
+				include master/svg/line-up.jade
+				include master/svg/arrow-up.jade
 				#videos
-					div(class="mix category-1")
-						include svg/square-video-1.jade
-					div(class="mix category-1")
-						include svg/square-video-2.jade
-					div(class="mix category-1")
-						include svg/square-video-3.jade
-					div(class="mix category-1")
-						include svg/square-video-4.jade
-					div(class="mix category-1")
-						include svg/square-video-5.jade
+					div(class="mix category-1" data="video-1")
+						include master/svg/square-video-1.jade
+					div(class="mix category-1" data="video-2")
+						include master/svg/square-video-2.jade
+					div(class="mix category-1" data="video-3")
+						include master/svg/square-video-3.jade
+					div(class="mix category-1" data="video-4")
+						include master/svg/square-video-4.jade
+					div(class="mix category-1" data="video-5")
+						include master/svg/square-video-5.jade
 
 					div(class="mix category-1 category-2 category-3 category-4")
-						include svg/square-sponsor.jade
+						include master/svg/square-sponsor.jade
 
-					div(class="mix category-2")
-						include svg/square-video-6.jade
-					div(class="mix category-2")
-						include svg/square-video-7.jade
-					div(class="mix category-2")
-						include svg/square-video-8.jade
-					div(class="mix category-2")
-						include svg/square-video-9.jade		
-					div(class="mix category-2")
-						include svg/square-video-10.jade
+					div(class="mix category-2" data="video-6")
+						include master/svg/square-video-6.jade
+					div(class="mix category-2" data="video-7")
+						include master/svg/square-video-7.jade
+					div(class="mix category-2" data="video-8")
+						include master/svg/square-video-8.jade
+					div(class="mix category-2" data="video-9")
+						include master/svg/square-video-9.jade		
+					div(class="mix category-2" data="video-10")
+						include master/svg/square-video-10.jade
 
-					div(class="mix category-3")
-						include svg/square-video-11.jade
-					div(class="mix category-3")
-						include svg/square-video-12.jade
-					div(class="mix category-3")
-						include svg/square-video-13.jade
-					div(class="mix category-3")
-						include svg/square-video-14.jade		
-					div(class="mix category-3")
-						include svg/square-video-15.jade
+					div(class="mix category-3" data="video-11")
+						include master/svg/square-video-11.jade
+					div(class="mix category-3" data="video-12")
+						include master/svg/square-video-12.jade
+					div(class="mix category-3" data="video-13")
+						include master/svg/square-video-13.jade
+					div(class="mix category-3" data="video-14")
+						include master/svg/square-video-14.jade		
+					div(class="mix category-3" data="video-15")
+						include master/svg/square-video-15.jade
 
-					div(class="mix category-4")
-						include svg/square-video-16.jade
-					div(class="mix category-4")
-						include svg/square-video-17.jade
-					div(class="mix category-4")
-						include svg/square-video-18.jade
-					div(class="mix category-4")
-						include svg/square-video-19.jade		
+					div(class="mix category-4" data="video-16")
+						include master/svg/square-video-16.jade
+					div(class="mix category-4" data="video-17")
+						include master/svg/square-video-17.jade
+					div(class="mix category-4" data="video-18")
+						include master/svg/square-video-18.jade
+					div(class="mix category-4" data="video-19")
+						include master/svg/square-video-19.jade		
 
-				include svg/line-down.jade
-				include svg/arrow-down.jade
-		footer
-			#footer-content
-				.facebook-icon
-				.whatsapp-icon
-				p Al acceder a este sitio y a cualquier página del mismo te comprometes a cumplir con todos los términos y condiciones.<br> Copyright © 2016 Unilever.		
-			include svg/footer-bg.jade
-		script.
-		script(src='js/vendor/jquery-1.11.2.min.js')
-		script(src='js/vendor/drawfillsvg.min.js')
+				include master/svg/line-down.jade
+				include master/svg/arrow-down.jade
+
+		include master/general/footer.jade
+		include master/general/scripts.jade
 		script(src='js/vendor/mixitup.min.js')
 		script(src='js/recipes.js')

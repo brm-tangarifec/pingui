@@ -3,7 +3,7 @@ input[type=checkbox] {
 	visibility: hidden;
 }
 
-.slideThree {
+.checkbox {
 	width: 80px;
 	float: left;
 	margin-top: 20px;
@@ -20,7 +20,7 @@ input[type=checkbox] {
 	display: block;
 }
 
-.slideThree:after {
+.checkbox:after {
 	content: 'NO';
 	font: 12px/26px Arial, sans-serif;
 	color: #fff;
@@ -32,7 +32,7 @@ input[type=checkbox] {
 	top: 0;
 }
 
-.slideThree:before {
+.checkbox:before {
 	content: 'SI';
 	font: 12px/26px Arial, sans-serif;
 	color: #f9f9f9;
@@ -42,7 +42,7 @@ input[type=checkbox] {
 	font-weight: bold;
 }
 
-.slideThree label {
+.checkbox label {
 	display: block;
 	width: 34px;
 	height: 20px;
@@ -65,7 +65,7 @@ input[type=checkbox] {
 	background: #940603;
 }
 
-.slideThree input[type=checkbox]:checked + label {
+.checkbox input[type=checkbox]:checked + label {
 	left: 43px;
 }
 
@@ -74,7 +74,6 @@ form{
 	display: table-cell;
 	position: relative;
 	vertical-align: middle;
-	overflow: hidden;
 }
 form label{
 	font-family: stick;
