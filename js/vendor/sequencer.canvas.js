@@ -169,18 +169,18 @@ var Sequencer = (function () {
 		}
 
 		function onWindowResize(){
-				canvas.height = document.getElementById("box").offsetHeight;
-				canvas.width = document.getElementById("box").offsetWidth;
+				canvas.height = document.getElementById("box-action").offsetHeight;
+				canvas.width = document.getElementById("box-action").offsetWidth;
 				showImage(current);
 		}
 
 		function configureBody(){
 				canvas = document.createElement('canvas');
-				canvas.height = document.getElementById("box").offsetHeight;
-				canvas.width = document.getElementById("box").offsetWidth;
+				canvas.height = document.getElementById("box-action").offsetHeight;
+				canvas.width = document.getElementById("box-action").offsetWidth;
 				canvas.style.display = "block";
 				context = canvas.getContext('2d');
-				document.getElementById("box").appendChild(canvas);
+				document.getElementById("box-action").appendChild(canvas);
 		}
 
 		function showImage(id){
@@ -310,7 +310,7 @@ var Preloader = (function(){
 				bgbox.style.left = "0";
 				bgbox.id = "bgbox";
 				bgbox.style.zIndex = 40;
-				document.getElementById("box").appendChild(bgbox);
+				document.getElementById("box-action").appendChild(bgbox);
 
 				if (config.progressMode == "circle"){
 						progress = document.createElement('div');
@@ -359,7 +359,7 @@ var Preloader = (function(){
 		function removeProgress(){
 				if (progress) {
 						document.body.removeChild(progress);
-						document.getElementById("box").removeChild(bgbox);
+						document.getElementById("box-action").removeChild(bgbox);
 						progress = null;
 				}
 		}

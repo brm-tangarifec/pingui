@@ -6,7 +6,9 @@ include master/general/doctype.jade
 		include master/general/header.jade
 		section
 			article
-				#box(style="background-image: url('img/recipes/1.png');" class="box")
+				#box-synchronize(style="background-image: url('img/recipes/1.png');" class="box")
+					input(type="text" id="code-phone" name="code-phone")
+					span(id="code-desktop" name="code-desktop")
 					include master/svg/copy-up-synchronize.jade
 					#shadows
 						#shadow-top
@@ -14,8 +16,20 @@ include master/general/doctype.jade
 						#shadow-right
 					include master/svg/icon-synchronize.jade
 					include master/svg/copy-down-synchronize.jade
-					.button(id="btnSync") sincroniza con tu móvil
-					.button(id="btnNoExp") continuar sin experiencia móvil
+					.button(id="btn-sync" data-action="1") sincroniza con tu móvil
+					.button(id="btn-no-sync" data-action="1") continuar sin experiencia móvil
+				#box-action(class="box")
+					include master/svg/title-video.jade
+					#bg-distort
+					#shadows
+						#shadow-top
+						#shadow-left
+						#shadow-right
+				#action
+					span#action-text
+					.sprite
 		include master/general/footer.jade
 		include master/general/scripts.jade
+		script(type="text/javascript" src="js/vendor/sequencer.canvas.js")
+		script(type="text/javascript" src="js/vendor/sequencer.benchmark.js")
 		script(src='js/synchronize.js')
