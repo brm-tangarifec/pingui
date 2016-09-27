@@ -10,6 +10,9 @@
 
 jQuery(document).ready(function(){
 
+	//Validar letras con espacios y caracteres especiales//
+  jQuery.validator.addMethod("letras", function(value, element){ return this.optional(element) || /^[a-z" "ñÑáéíóúÁÉÍÓÚ,.;]+$/i.test(value); });
+
  showerrors(jQuery('#pinguino'));
 
 	/*Registro*/

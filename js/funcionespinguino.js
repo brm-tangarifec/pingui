@@ -55,10 +55,6 @@ top.location.href = self.location.href;
             console.log("Storage Failed. Try refreshing");
         }
     });
-
-	//Validar letras con espacios y caracteres especiales//
-  jQuery.validator.addMethod("letras", function(value, element){ return this.optional(element) || /^[a-z" "ñÑáéíóúÁÉÍÓÚ,.;]+$/i.test(value); });
-
 });
 
 
