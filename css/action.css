@@ -69,28 +69,27 @@ article.phone-desktop #action{
 	text-align: center;
 	color: #fff;
 	font-family: stick;
-	display: none;
 }
 
 .sprite{
 	left: calc(50% - 73px);
 	position: absolute;
 	top: 18px;
-	animation: play 2s steps(1) infinite;
-	display: none;
 }
 
 #action-one{
 	background-position: 0px;
 	background-image: url(../img/action-one.png);
-	width: 146px;
+	width: 102px;
 	height: 80px;
+	animation: play 2s steps(1) infinite;
 }
 #action-two{
 	background-position: 0px;
 	background-image: url(../img/action-two.png);
 	width: 146px;
 	height: 80px;
+	animation: play 2s steps(1) infinite;
 }
 
 canvas{
