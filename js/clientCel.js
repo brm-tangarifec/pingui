@@ -29,7 +29,7 @@ function realizaAccion(x){
             porcentaje:porcentaje
         }
         socket.emit('realizaAccion', data); 
-    }else if(estadoSincro==0 && device="mobile"){
+    }else if(estadoSincro==0 && device=="mobile"){
 
       moveframe(porcentaje,syncCAjax( localStorage.getItem("video") ,'desc'),2);
 
