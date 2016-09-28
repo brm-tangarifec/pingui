@@ -1,7 +1,7 @@
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (max-width: 479px) and (min-width: 320px) {
 	body{overflow-y: hidden;}
-	article{width: 100%;padding-top: 7%;}
+	article{width: 100%;padding-top: 24%;}
 }
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 

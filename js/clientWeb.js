@@ -22,11 +22,13 @@ if (screen.width >= 1280)
     
     //Paso 6 - Muestra alerta si se sincroniza correctamente
     socket.on('sincronizaWeb', function (data) {
+        $("#message").html("Se sincronizó correctamente");
         createcanvas(device);
     });
     
     //Paso 10 - Recibe y realiza la acción a enviada desde el cel
     socket.on('realizaAccion', function (data) {
+        console.log(data.x);
         $("#movimiento").text(data.x); 
     });
 }

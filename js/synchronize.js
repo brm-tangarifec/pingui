@@ -56,8 +56,9 @@ function createcanvas(device,action){
 	$("#box-synchronize").remove();	
 	$("#action").show();
 
-	var text,textdesktop,textmobile,from,to,folder,baseName,ext,direction,playMode;
+	var text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null;
 
+	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
 		
 		textdesktop=data[action].text.desktop;
@@ -74,13 +75,14 @@ function createcanvas(device,action){
 
 	switch(action) {
 
-	    case 2: actionone(); break;
+	    case 2: gestureswipe(); break;
 	}
 
 	switch(device) {
 
 	    case "phone-desktop":
 					
+
 					if (mobile) { 
 						$("#box-action").remove();
 						$("article").addClass(device); 
@@ -97,8 +99,10 @@ function createcanvas(device,action){
 
 	    case "phone":
 
+
+
 					$("#box-action").show(); 
-					Sequencer.init({from:0, to: 123, folder:folder, baseName:basename, ext:ext});
+					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});
 					text=textmobile;
 
 	    break;
@@ -106,7 +110,7 @@ function createcanvas(device,action){
 	    case "desktop":
 
 					$("#box-action").show(); 
-					Sequencer.init({from:0, to: 123, folder:folder, baseName:basename, ext:ext, direction:direction, playMode:playmode});
+					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext, direction:direction, playMode:playmode});
 					text=textdesktop;
 
 	    break;
@@ -119,11 +123,11 @@ function createcanvas(device,action){
 }
 
 
-function actionone(){
+function gestureswipe(){
 	
 	if (mobile) { 
 
-	  var box1 = document.getElementById('box1')
+	  var box1 = document.getElementById('gesture-content')
 	  var startx = 0
 	  var dist = 0
 	  box1.addEventListener('touchstart', function(e){
