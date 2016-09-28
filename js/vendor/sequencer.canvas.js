@@ -142,6 +142,10 @@ var Sequencer = (function () {
 
 		}
 
+		function getCurrent(){
+			return current;
+		}
+
 		function onMouseMove(e){
 				var t = images.length;
 				var m, w;
@@ -224,6 +228,7 @@ var Sequencer = (function () {
 				play : play,
 				showImage : showImage,
 				toFrame : toFrame,
+				getCurrent : getCurrent,
 				stop : stop
 		};
 })();

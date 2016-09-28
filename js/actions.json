@@ -1,4 +1,17 @@
 {
+	"1":{
+		"from":0,
+		"to":162,
+		"folder":"img/action-one",
+		"basename":"action-one-",
+		"ext":"jpg",
+		"direction":"y",
+		"playmode":"mouse",
+		"text":{
+			"phone":"Desliza tu dedo arriba o abajo",
+			"desktop":"Mover mouse arriba o abajo"
+		}
+	},
 	"2":{
 		"from":0,
 		"to":135,
