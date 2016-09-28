@@ -36,8 +36,8 @@ if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!='' || isset($_COOKIE['ywd_
 		$descripcion=$recetas[$i]->descripcion;
 		//printVar($id,"nombre[$id]");
 		$smarty->assign("id-[$id]",$id);
-		$smarty->assign("nombre[$id]",$nombre);
-		$smarty->assign("descripcion[$id]",$descripcion);
+		$smarty->assign("nombre-[$id]",$nombre);
+		$smarty->assign("descripcion-[$id]",$descripcion);
 	}
 
 	//printVar($recetas);
