@@ -31,32 +31,6 @@ top.location.href = self.location.href;
 
 /*Fin función para XSF*/
 /*=====================================================*/
-
-
-    localStorage.clear();
-    $(".mix").on("click", function() {
-    	var videoi=jQuery(this).attr('data');
-    	console.log(videoi);
-        if(window.localStorage!==undefined) {
-            var fields = videoi;
-            console.log(fields);
-
-            localStorage.setItem("video", JSON.stringify( fields ));
-            //alert("Stored Succesfully");
-            $(this).find("input").val(""); //this ONLY clears input fields, you also need to reset other fields like select boxes,...
-            window.location="https://planpinguino-vlasquez.c9users.io/sync#"+fields;
-            /*$.ajax({
-               type: "POST",
-               url: "backend.php",
-               data: {data: fields},
-               success: function(data) {
-                  $('#output').html(data);
-               }*/
-            //});
-        } else {
-            console.log("Storage Failed. Try refreshing");
-        }
-    });
 });
 
 

@@ -138,7 +138,7 @@ var Sequencer = (function () {
 						contFrameInterval=0;
 					}
 
-				}, 300);
+				}, 200);
 
 		}
 

@@ -54,7 +54,7 @@ jQuery(document).ready(function(){
   });
 
   jQuery('#rememberB').click(function(){
-  	console.log('hola');
+  	//console.log('hola');
   	if(jQuery('#remember').valid()){
     //console.log('valido');
     //console.log('hola, es válido');
