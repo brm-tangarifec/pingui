@@ -8,7 +8,7 @@
 		"direction":"y",
 		"playmode":"mouse",
 		"text":{
-			"phone":"Desliza tu dedo arriba o abajo",
+			"mobile":"Desliza tu dedo arriba o abajo",
 			"desktop":"Mover mouse arriba o abajo"
 		}
 	},
@@ -21,7 +21,7 @@
 		"direction":"x",
 		"playmode":"mouse",
 		"text":{
-			"phone":"Desliza tu dedo izquierda o derecha",
+			"mobile":"Desliza tu dedo izquierda o derecha",
 			"desktop":"Mover mouse izquierda o derecha"
 		}
 	}

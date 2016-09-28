@@ -4,7 +4,7 @@ var estadoSincro = 0;
 
 // Paso 4 - Se envía el código para comparar
 function comparaCodigo(){
-    codigo = $("#code-phone").val();
+    codigo = $("#code-mobile").val();
     if (codigo != "") {
         var data={
             id: id,

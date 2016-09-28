@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 		$("#btn-sync").html("sincroniza con tu PC");
 		$("#btn-no-sync").html("continuar sin experiencia full screen");
-		device="phone"; 
+		device="mobile"; 
 
 	} else { 
 
@@ -28,18 +28,18 @@ $(document).ready(function(){
 
 	$('#btn-sync').click(function(){
 
-		device="phone-desktop";
+		device="mobile-desktop";
 
 		$("#icon-synchronize").hide();
 
 		if (mobile) {
 			comparaCodigo();
-			$("#code-phone").show();
+			$("#code-mobile").show();
 			$("#code-desktop").hide();
 			$("#btn-no-sync").hide();
 		}else{
 			peticionCodigo();
-			$("#code-phone").hide();
+			$("#code-mobile").hide();
 			$("#code-desktop").show();
 			$("#btn-sync").hide();
 			$("#btn-no-sync").hide();
@@ -51,11 +51,11 @@ $(document).ready(function(){
 		createcanvas(device,2);
 	});
 
-	$('#code-phone').focus( function() {
+	$('#code-mobile').focus( function() {
 	  $("body").addClass('active-code');
 	});
 
-	$('#code-phone').blur( function() {
+	$('#code-mobile').blur( function() {
 	  $("body").removeClass('active-code');
 	});
 
@@ -83,9 +83,6 @@ function createcanvas(device,action){
 
 	});
 	
-	console.log(textdesktop);
-	console.log(textmobile);
-
 	switch(action) {
 
 	    case 2: gestureswipe(to); break;
@@ -93,7 +90,7 @@ function createcanvas(device,action){
 
 	switch(device) {
 
-	    case "phone-desktop":
+	    case "mobile-desktop":
 
 					if (mobile) { 
 						$("#box-action").remove();
@@ -109,7 +106,7 @@ function createcanvas(device,action){
 
 	    break;
 
-	    case "phone":
+	    case "mobile":
 
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});
@@ -183,5 +180,5 @@ function moveframe(percentage,action,iterations){
 }
 
 function unlock(){
-
-}
+	window.location="video.php";
+}	
