@@ -45,8 +45,8 @@ if($dfecha < $afecha){
 			//printvar($datoCookie,'holaC');
 			//printvar($httponly,'holaC');
 			/*Se crea cookie de usuario*/
-	   		setcookie('ywd_fr',$datoCookie, time() + 1200, '/');
-			setcookie('ywd_usu', $creaSessionU, time() + 1200, '/', $secure, $httponly);
+	   		setcookie('ywd_fr',$datoCookie, time() + 86400, '/');
+			setcookie('ywd_usu', $creaSessionU, time() + 86400, '/', $secure, $httponly);
 			
 			header('location: recuperarContrasenia.php');
     }
