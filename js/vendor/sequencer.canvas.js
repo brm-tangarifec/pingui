@@ -126,6 +126,7 @@ var Sequencer = (function () {
 		function toFrame(id){
 
 				stopFrameInterval=(current <= id ) ? (id-current) : (current-id);
+				if (stopFrameInterval < 0) {stopFrameInterval=0}
 
 				var frameInterval = setInterval(function(){ 
 					
