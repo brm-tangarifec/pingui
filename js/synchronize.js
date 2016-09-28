@@ -67,7 +67,6 @@ function createcanvas(device,action){
 	
 	$("#box-synchronize").remove();	
 	$("#action").show();
-	$("article").addClass(device); 
 
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
@@ -93,6 +92,7 @@ function createcanvas(device,action){
 
 					if (mobile) { 
 						$("#box-action").remove();
+						$("article").addClass(device); 
 					}
 
 					if (!mobile) { 
@@ -107,6 +107,7 @@ function createcanvas(device,action){
 
 	    case "mobile":
 
+					$("article").addClass(device); 
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});
 					text=textmobile;
