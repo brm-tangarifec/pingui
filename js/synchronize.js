@@ -56,7 +56,7 @@ $('#btn-no-sync').click(function(){
 function createcanvas(device){
 
 	$("#box-synchronize").remove();
-
+	$("#action").show();
 	var action="";
 
 	switch(device) {
@@ -64,7 +64,7 @@ function createcanvas(device){
 	    case "phone-desktop":
 					
 					if (mobile) { $("article").addClass(device); }
-					if (!mobile) { $("#box-action").show(); $("#action").show(); }
+					if (!mobile) { $("#box-action").show();  }
 	    		action="Desliza tu dedo izquierda o derecha";
 					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});
 
@@ -73,7 +73,6 @@ function createcanvas(device){
 	    case "phone":
 
 					$("#box-action").show(); 
-					$("#action").show();
 	    		action="Desliza tu dedo izquierda o derecha";
 					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});
 
@@ -82,7 +81,6 @@ function createcanvas(device){
 	    case "desktop":
 
 					$("#box-action").show(); 
-					$("#action").show();
 	    		action="Mover mouse izquierda o derecha";
 					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg", direction:"x", playMode:"mouse"});
 

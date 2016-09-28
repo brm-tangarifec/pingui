@@ -142,7 +142,7 @@ body.gray::before{
 	line-height: 1;
 	position: absolute;
 	top: 8px;
-	right: 0;
+	right: 5%;
 	z-index: 5;
 }
 
@@ -159,7 +159,6 @@ body.gray::before{
 
 .menu-item {
 	display: block;
-	margin: 1em 0;
 }
 
 .menu-link {
@@ -240,4 +239,47 @@ body.gray::before{
 	opacity: 1;
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
+}
+
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 320px) 
+and (max-width : 479px) {
+	.menu-iris .menu-item {margin: 0 .1em;}
+	.menu-link {font-size: .8em;letter-spacing: 3px;}
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 480px) 
+and (max-width : 767px) {
+	.menu-iris .menu-item {margin: 0 .1em;}
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1023px) {
+	.menu-iris .menu-item {margin: 0 .1em;}
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1024px) 
+and (max-width : 1223px){
+}
+
+/* Desktops and laptops 2 ----------- */
+@media only screen 
+and (min-width : 1224px) 
+and (max-width : 1499px){
+}
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1500px) {
 }
