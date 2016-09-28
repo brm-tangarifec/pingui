@@ -240,7 +240,76 @@ body.gray::before{
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 }
-
+#action-one{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-desliza100.png);
+	width: 100px;
+	height: 100px;
+	animation: playSiete 2s steps(1) infinite;
+}
+#action-two{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-desliza100.png);
+	width: 100px;
+	height: 100px;
+	animation: playCinco 2s steps(1) infinite;
+}
+#action-three{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-Pellizcar100.png);
+	width: 100px;
+	height: 100px;
+	animation: playCinco 2s steps(1) infinite;
+}
+#action-four{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-Rotar100.png);
+	width: 100px;
+	height: 100px;
+	animation: playDiez 2s steps(1) infinite;
+}
+#action-five{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-tap100.png);
+	width: 100px;
+	height: 100px;
+	animation: playCinco 2s steps(1) infinite;
+}
+#action-six{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-desliza280.png);
+	width: 280px;
+	height: 280px;
+	animation: playSix 2s steps(1) infinite;
+}
+#action-seven{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-Doubletap280.png);
+	width: 280px;
+	height: 280px;
+	animation: playSeven 2s steps(1) infinite;
+}
+#action-eight{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-Pellizcar280.png);
+	width: 280px;
+	height: 280px;
+	animation: playEight 2s steps(1) infinite;
+}
+#action-nine{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-Rotar280.png);
+	width: 280px;
+	height: 280px;
+	animation: playNine 2s steps(1) infinite;
+}
+#action-ten{
+	background-position: 0px;
+	background-image: url(../img/sprite/Sprite-tap280.png);
+	width: 280px;
+	height: 280px;
+	animation: playTen 2s steps(1) infinite;
+}
 
 
 /* Smartphones (portrait and landscape) ----------- */
