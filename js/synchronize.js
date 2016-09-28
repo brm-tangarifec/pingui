@@ -5,7 +5,7 @@
 })();
 
 var mobile = false,device="",complete=0,toframe=0,contmove=0,direction=""; //initiate as false
-var text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null;
+var text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null;
 
 $(document).ready(function(){
 
@@ -34,12 +34,12 @@ $(document).ready(function(){
 		$("#icon-synchronize").hide();
 
 		if (mobile) {
-			//comparaCodigo();
+			comparaCodigo();
 			$("#code-mobile").show();
 			$("#code-desktop").hide();
 			$("#btn-no-sync").hide();
 		}else{
-			//peticionCodigo();
+			peticionCodigo();
 			$("#code-mobile").hide();
 			$("#code-desktop").show();
 			$("#btn-sync").hide();
@@ -102,6 +102,7 @@ function createcanvas(device,action){
 					}
 
 					text=textmobile;
+					sprite="small";
 
 	    break;
 
@@ -110,6 +111,7 @@ function createcanvas(device,action){
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});
 					text=textmobile;
+					sprite="big";
 
 	    break;
 
@@ -118,14 +120,13 @@ function createcanvas(device,action){
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext, direction:direction, playMode:playmode});
 					text=textdesktop;
+					sprite="big";
 
 	    break;
 	}
-	console.log(text);
 
 	$("#action-text").html(text);
-
-	$(".sprite").attr("id","action-two");
+	$(".sprite").attr("id","action-"+action+"-"+sprite);
 
 }
 

@@ -2,7 +2,7 @@
 	"1":{
 		"from":0,
 		"to":162,
-		"folder":"img/action-one",
+		"folder":"_data/action-one",
 		"basename":"action-one-",
 		"ext":"jpg",
 		"direction":"y",
@@ -15,7 +15,7 @@
 	"2":{
 		"from":0,
 		"to":135,
-		"folder":"img/action-two",
+		"folder":"_data/action-two",
 		"basename":"action-two-",
 		"ext":"jpg",
 		"direction":"x",
