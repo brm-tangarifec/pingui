@@ -1,20 +1,34 @@
 <?php
-    require("db/requires.php");
+if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!='' ){
+	require("db/requires.php");
+	$varPost=filter_input_array(INPUT_POST);
+	$registrar= new Registro();
+	$session= new manejaSession();
+	$protected=$session->llamaPass();
+	$idUser=$session->decryptS($_COOKIE['ywd_fr'],$protected);
+	//printVar($idUser);
+	$datosUsuario=$registrar->perfil($idUser);
+	//printVar($datosUsuario);
+	$nobmre=$datosUsuario[0]->nombre;
+	$apellido=$datosUsuario[0]->apellido;
+	$email=$datosUsuario[0]->email;
+	$provincia=$datosUsuario[0]->provincia;
+	$ciudad=$datosUsuario[0]->ciudad;
+	$pass=base64_decode($datosUsuario[0]->contrasena);
+	$idFacebook=$datosUsuario[0]->idFacebook;
 
-    //$receta=5;
-	/*if(isset($_COOKIE['ywd_in'])){
-		printVar("existe");
-		$mensajeSis=$session->decryptS($_COOKIE['youth_msj'],$protected);
-		echo '<div class="mensajes-sistema">'.$mensajeSis.'</div>';
-	}else{
-		/*Creación y lectura de cookie*
-		$session= new manejaSession();
-		$host=$_SERVER['SERVER_NAME'];
-		$dato=$receta."~".$host.'~4591';
-		$creaSession=$session->write($receta,$dato,$host);
-		$createCookie=$session->start_session('ywd_in',true);
-		/*Se crea cookie de usuario*
-		setcookie('ywd_in', $creaSession, time() + 1200, '/', $secure, $httponly);
-	}*/
-  $smarty->display("remember-password.html");
+	/*Asignar las variables al html*/
+	$smarty->assign("nombre",$nobmre);
+	$smarty->assign("apellido",$apellido);
+	$smarty->assign("email",$email);
+	$smarty->assign("provincia",$provincia);
+	$smarty->assign("ciudad",$ciudad);
+	$smarty->assign("pwd",$pass);
+	$smarty->assign("idFb",$idFacebook);
+	$smarty->display("remember-password-alert.html");
+}else{
+	 $smarty->display("remember-password.html");
+}
+
+ 
 ?>

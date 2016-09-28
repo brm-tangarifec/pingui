@@ -156,7 +156,7 @@ switch ($vrtCtr) {
 				$campos['idU']=$idUser;
 
 				$actualizaP=$registrar->acutalizaPerfil($campos);
-			printVar($actualizaP,'Hola actualizar');
+			//printVar($actualizaP,'Hola actualizar');
 			//printVar($guardaUsu,'Respuesta insert');
 			/*Creación y lectura de cookie*/
 			//if($guardaUsu!=''){
