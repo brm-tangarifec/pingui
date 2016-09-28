@@ -293,10 +293,10 @@ jQuery(document).on('click','#login-submit',function(){
   }*/
 }
 });
-jQuery(document).on('change','#elingreso',function(){
+jQuery(document).on('change','#lepas',function(){
 
 
-    jQuery("#elingreso").each(function () {
+    jQuery("#lepas").each(function () {
         var validated =  true;
         if(this.value.length < 8){
           console.log('menor');
@@ -476,7 +476,7 @@ var Base64 = {
   jQuery('#confirmPass').val(codi);
 });*/
 
-jQuery(document).on('focus','#elingreso',function(){
+jQuery(document).on('focus','#lepass',function(){
 
   jQuery('.mensajes-pass p').remove('p')
 });

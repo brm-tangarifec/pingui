@@ -18,16 +18,17 @@ jQuery(document).ready(function(){
   /*Cambio de contraseña*/
   jQuery("#changeP").click(function(){
     console.log("Hola");
-    var pass=jQuery("#lepas").val(),
-    passc=jQuery("#lepasc").val();
+    var lepas=jQuery("#lepas").val(),
+    lepasc=jQuery("#lepasc").val();
     urlR='eventos.php';
-
+                 
     jQuery.ajax({
             url: urlR,
             dataType:'json' ,
             type: 'POST',
             data:{
-              email:email,
+              lepas:lepas,
+              lepasc:lepasc,
               vrtCrt:'changeP'
             },
             success: function (data){
@@ -41,4 +42,5 @@ jQuery(document).ready(function(){
             });
             return false;
 
+    });
 });
