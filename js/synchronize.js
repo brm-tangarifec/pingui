@@ -28,17 +28,21 @@ $('#btn-sync').click(function(){
 	device="phone-desktop";
 
 	$("#icon-synchronize").hide();
-	$("article").addClass(device);
 
 	if (mobile) {
+
 		comparaCodigo();
-		$("#box-action").remove();
 		$("#code-phone").show();
 		$("#code-desktop").hide();
+		$("#btn-no-sync").hide();
+
 	}else{
+
 		peticionCodigo();
 		$("#code-phone").hide();
 		$("#code-desktop").show();
+		$("#btn-sync").hide();
+		$("#btn-no-sync").hide();
 	}
 
 });
@@ -49,28 +53,46 @@ $('#btn-no-sync').click(function(){
 
 function createcanvas(device){
 
-	$("#box-synchronize").remove();
-	$("#box-action").show();
+	$("#box-synchronize").remove();	
 	$("#action").show();
-
 	var action="";
 
 	switch(device) {
+
 	    case "phone-desktop":
+					
+					if (mobile) { 
+						$("#box-action").remove();
+						$("article").addClass(device); 
+					}
+
+					if (!mobile) { 
+						$("#box-action").show();
+						Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});  
+					}
+
 	    		action="Desliza tu dedo izquierda o derecha";
-					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});
+
 	    break;
+
 	    case "phone":
+
+					$("#box-action").show(); 
 	    		action="Desliza tu dedo izquierda o derecha";
 					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});
+
 	    break;
+
 	    case "desktop":
+
+					$("#box-action").show(); 
 	    		action="Mover mouse izquierda o derecha";
 					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg", direction:"x", playMode:"mouse"});
+
 	    break;
 	}
 
 	$(".sprite").attr("id","action-two");
-	document.getElementById("action-text").innerHTML = action;
+	$("#action-text").html(action);
 
 }
