@@ -63,14 +63,13 @@ $(document).ready(function(){
 });
 
 function createcanvas(device,action){
-
+	console.log("act"+action);
 	$("#box-synchronize").remove();	
 	$("#action").show();
-	$("article").addClass(device); 
+
 
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
-		
 		textdesktop=data[action].text.desktop;
 		textmobile=data[action].text.mobile;
 		from=data[action].from;
@@ -83,9 +82,10 @@ function createcanvas(device,action){
 
 	});
 
+
 	switch(action) {
 
-	    case 2: gestureswipe(); break;
+	    case 2: gestureswipe(to); break;
 	}
 
 	switch(device) {
@@ -94,6 +94,7 @@ function createcanvas(device,action){
 
 					if (mobile) { 
 						$("#box-action").remove();
+						$("article").addClass(device); 
 					}
 
 					if (!mobile) { 
@@ -149,6 +150,7 @@ function gestureswipe(){
 	      var touchobj = e.changedTouches[0] // reference first touch point for this event
 	      endx= parseInt(touchobj.clientX)
 	      longMovi = endx-startx;
+	      console.log(longMovi);
 	      realizaAccion(longMovi)
 	      e.preventDefault()
 	  }, false)

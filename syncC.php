@@ -35,8 +35,9 @@ switch ($vrtCtr) {
 	break;
 	/*Actualiza perfil*/
 	case 'desc':
-	$data=$varPost['data'];
-	$desc=$session->decrypS($data,$protected);
+	$data=$varPost['video'];
+	$desc=$session->decryptS($data,$protected);
+	echo json_encode($desc);
 	break;
 	
 	default:
