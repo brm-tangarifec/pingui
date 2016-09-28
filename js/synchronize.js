@@ -51,11 +51,31 @@ $('#btn-no-sync').click(function(){
 	createcanvas(device);
 });
 
-function createcanvas(device){
+function createcanvas(device,action){
 
 	$("#box-synchronize").remove();	
 	$("#action").show();
-	var action="";
+
+	var text,textdesktop,textmobile,from,to,folder,baseName,ext,direction,playMode;
+
+	$.getJSON( "js/actions.json", function( data ) {
+		
+		textdesktop=data[action].text.desktop;
+		textmobile=data[action].text.mobile;
+		from=data[action].from;
+		to=data[action].to;
+		folder=data[action].folder;
+		basename=data[action].basename;
+		ext=data[action].ext;
+		direction=data[action].direction;
+		playmode=data[action].playmode;
+
+	});
+
+	switch(action) {
+
+	    case 2: actionone(); break;
+	}
 
 	switch(device) {
 
@@ -68,31 +88,63 @@ function createcanvas(device){
 
 					if (!mobile) { 
 						$("#box-action").show();
-						Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});  
+						Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});  
 					}
 
-	    		action="Desliza tu dedo izquierda o derecha";
+					text=textmobile;
 
 	    break;
 
 	    case "phone":
 
 					$("#box-action").show(); 
-	    		action="Desliza tu dedo izquierda o derecha";
-					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});
+					Sequencer.init({from:0, to: 123, folder:folder, baseName:basename, ext:ext});
+					text=textmobile;
 
 	    break;
 
 	    case "desktop":
 
 					$("#box-action").show(); 
-	    		action="Mover mouse izquierda o derecha";
-					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg", direction:"x", playMode:"mouse"});
+					Sequencer.init({from:0, to: 123, folder:folder, baseName:basename, ext:ext, direction:direction, playMode:playmode});
+					text=textdesktop;
 
 	    break;
 	}
 
+	$("#action-text").html(text);
+
 	$(".sprite").attr("id","action-two");
-	$("#action-text").html(action);
+
+}
+
+
+function actionone(){
+	
+	if (mobile) { 
+
+	  var box1 = document.getElementById('box1')
+	  var startx = 0
+	  var dist = 0
+	  box1.addEventListener('touchstart', function(e){
+	      var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger)
+	      startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser
+	      realizaAccion(startx)
+	      e.preventDefault()
+	  }, false)
+
+	  box1.addEventListener('touchmove', function(e){
+	      var touchobj = e.changedTouches[0] // reference first touch point for this event
+	      var dist = parseInt(touchobj.clientX) - startx
+	      realizaAccion(dist)
+	      e.preventDefault()
+	  }, false)
+
+	  box1.addEventListener('touchend', function(e){
+	      var touchobj = e.changedTouches[0] // reference first touch point for this event
+	      realizaAccion(touchobj.clientX)
+	      e.preventDefault()
+	  }, false)
+	}
 
 }

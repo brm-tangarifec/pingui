@@ -1,0 +1,15 @@
+{
+	"2":{
+		"from":0,
+		"to":123,
+		"folder":"img/action-two",
+		"basename":"action-two-",
+		"ext":"jpg",
+		"direction":"x",
+		"playmode":"mouse",
+		"text":{
+			"phone":"Desliza tu dedo izquierda o derecha",
+			"desktop":"Mover mouse izquierda o derecha"
+		}
+	}
+}
