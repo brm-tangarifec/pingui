@@ -143,6 +143,7 @@ body.gray::before{
 	position: absolute;
 	top: 8px;
 	right: 0;
+	z-index: 5;
 }
 
 .menu-list {
