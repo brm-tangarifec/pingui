@@ -49,7 +49,8 @@ $(document).ready(function(){
 	});
 
 	$('#btn-no-sync').click(function(){
-		createcanvas(device,2);
+		//createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
+		createcanvas(device,"2");
 	});
 
 	$('#code-mobile').focus( function() {
@@ -63,10 +64,10 @@ $(document).ready(function(){
 });
 
 function createcanvas(device,action){
-	console.log("act"+action);
+	
 	$("#box-synchronize").remove();	
 	$("#action").show();
-
+	$("article").addClass(device); 
 
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
@@ -82,9 +83,8 @@ function createcanvas(device,action){
 
 	});
 
-
 	switch(action) {
-	    case 2,"2": gestureswipe(to); break;
+	    case "2": gestureswipe(); break;
 	}
 
 	switch(device) {
@@ -93,7 +93,6 @@ function createcanvas(device,action){
 
 					if (mobile) { 
 						$("#box-action").remove();
-						$("article").addClass(device); 
 					}
 
 					if (!mobile) { 
@@ -148,6 +147,7 @@ function gestureswipe(){
 	      var touchobj = e.changedTouches[0] // reference first touch point for this event
 	      endx= parseInt(touchobj.clientX)
 	      longMovi = endx-startx;
+				console.log(longMovi,"longMovi");
 	      realizaAccion(longMovi)
 	      e.preventDefault()
 	  }, false)
