@@ -25,23 +25,24 @@ if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!='' || isset($_COOKIE['ywd_
 	//setcookie('ywd_usud', $creaSessionU, time() + 1200, '/', $secure, $httponly);
 	$randoR=array("1","8","13");
 	$recetasDesb=array_rand($randoR);
-	printVar($recetasDesb);
+	//printVar($recetasDesb);
 	$recetas=$registro->recetasPing();
 	$cuentar=count($recetas);
 	for ($i=0; $i < $cuentar; $i++) {
 		# code...
-		printVar($recetas[$i]);
+		//printVar($recetas[$i]);
 		$id=$recetas[$i]->id;
 		$nombre=$recetas[$i]->nombre;
 		$descripcion=$recetas[$i]->descripcion;
-		printVar($id,"nombre[$id]");
-		$smarty->assign("id[$id]",$id);
+		//printVar($id,"nombre[$id]");
+		$smarty->assign("id-[$id]",$id);
 		$smarty->assign("nombre[$id]",$nombre);
 		$smarty->assign("descripcion[$id]",$descripcion);
 	}
 
 	//printVar($recetas);
+	$smarty->display("recipes.html");
 }
 
-$smarty->display("recipes.html");
+
 ?>
