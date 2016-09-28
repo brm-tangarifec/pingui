@@ -49,3 +49,5 @@ db/requires.php
 db/requires.php
 
 db/DBO.php
+
+.DS_Store
