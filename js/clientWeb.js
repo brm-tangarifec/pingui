@@ -5,8 +5,7 @@ var idVideo;
 function peticionCodigo()
 {
     var videoEnc = localStorage.getItem("video");
-    var data = syncCAjax(videoEnc,'desc');
-    idVideo = 2;
+    var idVideo = syncCAjax(videoEnc,'desc');
     var data={
         id: idSocket,
         idVideo: idVideo
@@ -36,6 +35,6 @@ if (screen.width >= 1280)
     //Paso 10 - Recibe y realiza la acción a enviada desde el cel
     socket.on('realizaAccion', function (data) {
         console.log(data.porcentaje);
-        moveframe(data.porcentaje,2,2);
+        moveframe(data.porcentaje,data.idVideo,2);
     });
 }
