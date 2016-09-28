@@ -29,18 +29,22 @@ $('#btn-sync').click(function(){
 
 	$("#icon-synchronize").hide();
 
-	$("#btn-sync").hide();
-	$("#btn-no-sync").hide();
-
 	if (mobile) {
+
 		comparaCodigo();
 		$("#box-action").remove();
 		$("#code-phone").show();
 		$("#code-desktop").hide();
+		$("#btn-no-sync").hide();
+
 	}else{
+
 		peticionCodigo();
 		$("#code-phone").hide();
 		$("#code-desktop").show();
+
+		$("#btn-sync").hide();
+		$("#btn-no-sync").hide();
 	}
 
 });
