@@ -146,7 +146,7 @@ function gestureswipe(){
 }
 function moveframe(percentage,action,iterations){
 
-	var to=null;
+	var to=null,contmove=null;
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) { to=data[action].to });
 
@@ -160,7 +160,16 @@ function moveframe(percentage,action,iterations){
 	var framesmove=Math.Round( ( (to/iterations)*percentage/100 ) );
 	console.log(framesmove,"framesmove");
 
-	var toframe=(framesmove >= 0) ? (Sequencer.getCurrent() + framesmove) % to : to - (framesmove*-1);
+	var toframe=0;
+
+	if (Sequencer.getCurrent()==0 && framesmove < 0) {
+		toframe=0;
+	}else if(framesmove > 0 ){
+		toframe=(Sequencer.getCurrent() + framesmove) % to;
+	}else if(framesmove < 0){
+		toframe=Sequencer.getCurrent() - (framesmove*-1)
+	}
+
 	console.log(toframe,"toframe");
 
 	Sequencer.toFrame(toframe);
