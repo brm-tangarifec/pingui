@@ -48,7 +48,7 @@ if($dfecha < $afecha){
 	   		setcookie('ywd_fr',$datoCookie, time() + 1200, '/');
 			setcookie('ywd_usu', $creaSessionU, time() + 1200, '/', $secure, $httponly);
 			
-			header('location: perfil.php');
+			header('location: recuperarContrasenia.php');
     }
 
 }
