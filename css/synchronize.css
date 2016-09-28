@@ -83,11 +83,11 @@ article.phone-desktop #action #action-text{bottom: 26%;top: inherit;}
 
 
 
-#code-phone:focus{
+#code-mobile:focus{
 	outline:none;
 }
 
-#code-phone{
+#code-mobile{
 	display: none;
 	width: 40%;
 	padding: 1% 3%;
