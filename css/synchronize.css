@@ -3,17 +3,16 @@ article{
 	height: 100%;
 	position: relative;
 }
-article.phone-desktop #action{
+article.mobile-desktop #action{
 	width: 240px;
 	bottom: calc(50% - 120px);
 	left: calc(50% - 120px);
 	height: 240px;
 }
 
-article.phone-desktop #action .sprite{
+article.mobile-desktop #action .sprite{
 }
-article.phone-desktop #action #action-text{bottom: 26%;top: inherit;}
-
+article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 
 #title-video{
 	display: block;

@@ -1,13 +1,84 @@
-@keyframes play {
+@keyframes playSiete {
   0% { background-position: 0px; }
-  14% { background-position: -103px; }
-  28% {background-position: -203px;}
-  42% {background-position: -333px;}
-  56% {background-position: -453px;}
-  70% {background-position: -573px;}
-  84% {background-position: -683px;}
-  100% {background-position: -1020px;}
+  14% { background-position: -100px; }
+  28% {background-position: -200px;}
+  42% {background-position: -300px;}
+  56% {background-position: -400px;}
+  70% {background-position: -500px;}
+  84% {background-position: -600px;}
+  100% {background-position: -700px;}
 }
+
+@keyframes playCinco {
+  0% { background-position: 0px; }
+  20% { background-position: -100px; }
+  40% {background-position: -200px;}
+  60% {background-position: -300px;}
+  80% {background-position: -400px;}
+  100% {background-position: -500px;}
+}
+@keyframes playDiez {
+  0% { background-position: 0px; }
+  10% { background-position: -100px; }
+  20% {background-position: -200px;}
+  30% {background-position: -300px;}
+  40% {background-position: -400px;}
+  50% {background-position: -500px;}
+  60% {background-position: -600px;}
+  70% {background-position: -700px;}
+  80% {background-position: -800px;}
+  90% {background-position: -900px;}
+  100% {background-position: -1000px;}
+}
+
+@keyframes playSix{
+  0% { background-position: 0px; }
+  14% { background-position: -285px; }
+  28% {background-position: -566px;}
+  42% {background-position: -853px;}
+  56% {background-position: -1127px;}
+  70% {background-position: -1403px;}
+  84% {background-position: -1674px;}
+  100% {background-position: 0px;}
+}
+@keyframes playSeven{
+   0% { background-position: 0px; }
+  20% { background-position: -280px; }
+  40% {background-position: -560px;}
+  60% {background-position: -839px;}
+  80% {background-position: -1115px;}
+  100% {background-position: 0px;}
+}
+@keyframes playEight{
+   0% { background-position: 0px; }
+  20% { background-position: -280px; }
+  40% {background-position: -560px;}
+  60% {background-position: -839px;}
+  80% {background-position: -1115px;}
+  100% {background-position: 0px;}
+}
+@keyframes playNine{
+  0% { background-position: 0px; }
+  10% { background-position: -281px; }
+  20% {background-position: -559px;}
+  30% {background-position: -838px;}
+  40% {background-position: -1116px;}
+  50% {background-position: -1400px;}
+  60% {background-position: -1676px;}
+  70% {background-position: -1953px;}
+  80% {background-position: -2232px;}
+  90% {background-position: -2511px;}
+  100% {background-position: 0px;}
+}
+@keyframes playTen{
+   0% { background-position: 0px; }
+  20% { background-position: -280px; }
+  40% {background-position: -560px;}
+  60% {background-position: -839px;}
+  80% {background-position: -1115px;}
+  100% {background-position: 0px;}
+}
+
 
 @-webkit-keyframes hashtagAnim {
   50% {
