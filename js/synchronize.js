@@ -84,8 +84,7 @@ function createcanvas(device,action){
 
 
 	switch(action) {
-
-	    case 2: gestureswipe(to); break;
+	    case 2,"2": gestureswipe(to); break;
 	}
 
 	switch(device) {
@@ -132,7 +131,6 @@ function createcanvas(device,action){
 
 
 function gestureswipe(){
-	
 	if (mobile) { 
 
 	  var box1 = document.getElementById('gesture-content')
@@ -182,5 +180,6 @@ function moveframe(percentage,action,iterations){
 }
 
 function unlock(){
-	window.location="video.php";
+	var videoEnc = localStorage.getItem("video");
+	window.location="video.php?"+videoEnc;
 }	
