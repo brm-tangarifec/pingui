@@ -170,5 +170,26 @@ class Registro {
 		return $ret;
 	}
 
+	/*Función para traer recetas*/
+	 function recetasPing(){
+	 	//printVar($desc);
+	 	//DB_DataObject::debugLevel(1);
+	 	$ping= DB_DataObject::Factory('TbReceta');
+	 	$ping->selectAdd();
+	 	$ping->selectAdd('id,nombreReceta,descripcion,activo');
+	 	$ping->whereAdd('activo="S"');
+	 	$ping->find();
+	 	$cpint=0;
+	 	while ($ping->fetch()) {
+	 		$rec[$cpint]->id=$ping->id;
+	 		$rec[$cpint]->nombre=$ping->nombreReceta;
+	 		$rec[$cpint]->descripcion=$ping->descripcion;
+	 		$cpint++;
+	 	}
+
+	 	return $rec;
+	 	$ping->free();
+	 }
+
 }
 ?>
