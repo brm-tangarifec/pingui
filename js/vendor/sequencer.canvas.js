@@ -123,23 +123,25 @@ var Sequencer = (function () {
 		}
 
 
-		function toFrame(id){
+		function toFrame(id,direction){
 
 				stopFrameInterval=(current <= id ) ? (id-current) : (current-id);
-				if (stopFrameInterval < 0) {stopFrameInterval=0}
 
 				var frameInterval = setInterval(function(){ 
 					
 					contFrameInterval++;
 
-					(current <= id ) ? nextImage() : previousImage();
+					switch(direction){
+						case "right": nextImage(); break;
+						case "left": previousImage(); break;
+					}
 
 					if (contFrameInterval == stopFrameInterval) {
 						clearInterval(frameInterval);
 						contFrameInterval=0;
 					}
 
-				}, 200);
+				}, 100);
 
 		}
 
