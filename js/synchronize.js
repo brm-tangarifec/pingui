@@ -32,7 +32,6 @@ $('#btn-sync').click(function(){
 	if (mobile) {
 
 		comparaCodigo();
-		$("#box-action").remove();
 		$("#code-phone").show();
 		$("#code-desktop").hide();
 		$("#btn-no-sync").hide();
@@ -42,7 +41,6 @@ $('#btn-sync').click(function(){
 		peticionCodigo();
 		$("#code-phone").hide();
 		$("#code-desktop").show();
-
 		$("#btn-sync").hide();
 		$("#btn-no-sync").hide();
 	}
@@ -55,7 +53,7 @@ $('#btn-no-sync').click(function(){
 
 function createcanvas(device){
 
-	$("#box-synchronize").remove();
+	$("#box-synchronize").remove();	
 	$("#action").show();
 	var action="";
 
@@ -63,10 +61,17 @@ function createcanvas(device){
 
 	    case "phone-desktop":
 					
-					if (mobile) { $("article").addClass(device); }
-					if (!mobile) { $("#box-action").show();  }
+					if (mobile) { 
+						$("#box-action").remove();
+						$("article").addClass(device); 
+					}
+
+					if (!mobile) { 
+						$("#box-action").show();
+						Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});  
+					}
+
 	    		action="Desliza tu dedo izquierda o derecha";
-					Sequencer.init({from:0, to: 123, folder:"img/action-two", baseName:"action-two-", ext:"jpg"});
 
 	    break;
 

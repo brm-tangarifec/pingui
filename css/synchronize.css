@@ -9,17 +9,25 @@ article.phone-desktop #action{
 	left: calc(50% - 120px);
 	height: 240px;
 }
+
+article.phone-desktop #action .sprite{
+}
+article.phone-desktop #action #action-text{bottom: 26%;top: inherit;}
+
+
 #title-video{
 	display: block;
 	margin: 0 auto;
 	z-index: 50;
 	position: absolute;
 }
+
 #play-video{
 	display: block;
 	margin: 0 auto;
 	position: absolute;
 }
+
 #share-video{
 	display: block;
 	margin: 0 auto;
@@ -73,11 +81,7 @@ article.phone-desktop #action{
 	font-family: stick;
 }
 
-.sprite{
-	left: calc(50% - 73px);
-	position: absolute;
-	top: 18px;
-}
+
 
 #code-phone:focus{
 	outline:none;
@@ -114,6 +118,11 @@ article.phone-desktop #action{
 	left: calc(50% - 104px);
 }
 
+.sprite{
+	left: calc(50% - 73px);
+	position: absolute;
+	top: 18px;
+}
 #action-one{
 	background-position: 0px;
 	background-image: url(../img/action-one.png);
