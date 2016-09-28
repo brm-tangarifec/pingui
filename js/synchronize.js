@@ -34,12 +34,12 @@ $(document).ready(function(){
 		$("#icon-synchronize").hide();
 
 		if (mobile) {
-			comparaCodigo();
+			//comparaCodigo();
 			$("#code-mobile").show();
 			$("#code-desktop").hide();
 			$("#btn-no-sync").hide();
 		}else{
-			peticionCodigo();
+			//peticionCodigo();
 			$("#code-mobile").hide();
 			$("#code-desktop").show();
 			$("#btn-sync").hide();
@@ -66,7 +66,7 @@ function createcanvas(device,action){
 
 	$("#box-synchronize").remove();	
 	$("#action").show();
-
+	$("article").addClass(device); 
 
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
@@ -83,10 +83,9 @@ function createcanvas(device,action){
 
 	});
 
-
 	switch(action) {
 
-	    case 2: gestureswipe(to); break;
+	    case 2: gestureswipe(); break;
 	}
 
 	switch(device) {
@@ -95,7 +94,6 @@ function createcanvas(device,action){
 
 					if (mobile) { 
 						$("#box-action").remove();
-						$("article").addClass(device); 
 					}
 
 					if (!mobile) { 

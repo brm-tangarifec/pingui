@@ -2,6 +2,8 @@
 @media only screen and (max-width: 479px) and (min-width: 320px) {
 	body{overflow-y: hidden;}
 	article{width: 100%;padding-top: 7%;}
+	article.mobile{width: 100%;padding-top: 27%;}
+	article.mobile .box{ height: 85%; }
 }
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
@@ -31,4 +33,4 @@ and (max-width : 1499px){
 @media only screen 
 and (min-width : 1500px) {
 	article{width: 57%;padding-top: 4%;}
-}
+}	
