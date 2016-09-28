@@ -5,6 +5,7 @@
 })();
 
 var mobile = false,device="",complete=0,toframe=0,contmove=0,direction=""; //initiate as false
+var text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null;
 
 $(document).ready(function(){
 
@@ -66,7 +67,6 @@ function createcanvas(device,action){
 	$("#box-synchronize").remove();	
 	$("#action").show();
 
-	var text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null;
 
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
@@ -82,7 +82,8 @@ function createcanvas(device,action){
 		playmode=data[action].playmode;
 
 	});
-	
+
+
 	switch(action) {
 
 	    case 2: gestureswipe(to); break;
@@ -122,6 +123,7 @@ function createcanvas(device,action){
 
 	    break;
 	}
+	console.log(text);
 
 	$("#action-text").html(text);
 
