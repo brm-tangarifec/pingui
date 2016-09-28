@@ -148,7 +148,6 @@ function gestureswipe(){
 	      var touchobj = e.changedTouches[0] // reference first touch point for this event
 	      endx= parseInt(touchobj.clientX)
 	      longMovi = endx-startx;
-	      console.log(longMovi);
 	      realizaAccion(longMovi)
 	      e.preventDefault()
 	  }, false)
@@ -163,10 +162,10 @@ function moveframe(percentage,action,iterations){
 
 	complete+=percentage;
 
-	if (complete==100) { complete=0; contmove++; }
+	if (complete>=100) { complete=0; contmove++; }
 	if (contmove==iterations) { unlock() }
 
-	var framesmove=Math.round( ( (to/iterations)*percentage/100 ) );
+	var framesmove=Math.round(to*percentage/100);
 
 	if(framesmove > 0 ){
 		toframe=(Sequencer.getCurrent() + framesmove);

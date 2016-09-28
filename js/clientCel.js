@@ -18,14 +18,21 @@ function comparaCodigo(){
 
 // Paso 8 - Se reciben los datos y se realiza la accion
 function realizaAccion(x){
+
+		var tamanoDevice = screen.width;
+		var porcentaje=x*100/tamanoDevice;
+
     if (estadoSincro==1) {
-       var tamanoDevice = screen.width;
-        var porcentaje=x*100/tamanoDevice;
+
         var data={
             codigo:codigo,
             porcentaje:porcentaje
         }
         socket.emit('realizaAccion', data); 
+    }else if(estadoSincro==0 && device="mobile"){
+
+      moveframe(porcentaje,syncCAjax( localStorage.getItem("video") ,'desc'),2);
+
     }
 }
 
