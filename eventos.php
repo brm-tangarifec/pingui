@@ -145,7 +145,7 @@ switch ($vrtCtr) {
 
 			if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!=''){
 				$idUser=$session->decryptS($_COOKIE['ywd_fr'],$protected);
-				printVar($idUser);
+				//printVar($idUser);
 				$campos['nombre']=utf8_decode($varPost['nombre']);
 				$campos['apellido']=utf8_decode($varPost['apellido']);
 				$campos['email']=strtolower($varPost['email']);
@@ -176,6 +176,27 @@ switch ($vrtCtr) {
 			}
 
 	
+		break;
+
+		/*cambiar contraseña*/
+		case "changeP":
+		if(isset($varPost['lepas']) && $varPost['lepas']!='' && isset($varPost['lepasc']) && $varPost['lepasc']=!'' && $varPost['lepas']==$varPost['lepasc'] ){
+			if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!=''){
+				$idUser=$session->decryptS($_COOKIE['ywd_fr'],$protected);
+				$campos['lepass']=base64_encode($varPost['lepas']);
+				$campos['idU']=$idUser;
+				$actualizaP=$registrar->acutalizaPerfil($campos);
+				if($actualizaP>0){
+					$mensaje="exitoso";
+				}else{
+					$mensaje="noguarda";
+				}
+			}else{
+				$mensaje="No se pudo actualizar";
+			}
+
+		}
+
 		break;
 	
 	default:

@@ -76,8 +76,10 @@ jQuery(document).ready(function(){
             error: function(result) {
                       console.log(result,'error');
               }
+
             });
             return false;
   }
   });
+
 });

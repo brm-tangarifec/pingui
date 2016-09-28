@@ -123,20 +123,6 @@ article.phone-desktop #action #action-text{bottom: 26%;top: inherit;}
 	position: absolute;
 	top: 18px;
 }
-#action-one{
-	background-position: 0px;
-	background-image: url(../img/action-one.png);
-	width: 102px;
-	height: 80px;
-	animation: play 2s steps(1) infinite;
-}
-#action-two{
-	background-position: 0px;
-	background-image: url(../img/action-two.png);
-	width: 146px;
-	height: 80px;
-	animation: play 2s steps(1) infinite;
-}
 
 #content-message{
 	display: none;

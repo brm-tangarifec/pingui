@@ -82,6 +82,9 @@ function createcanvas(device,action){
 		playmode=data[action].playmode;
 
 	});
+	
+	console.log(textdesktop);
+	console.log(textmobile);
 
 	switch(action) {
 
