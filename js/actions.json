@@ -1,5 +1,6 @@
 {
 	"1":{
+		"namevideo":"one.mp4",
 		"from":0,
 		"to":162,
 		"folder":"_data/action-one",
@@ -13,6 +14,7 @@
 		}
 	},
 	"2":{
+		"namevideo":"two.mp4",
 		"from":0,
 		"to":135,
 		"folder":"_data/action-two",

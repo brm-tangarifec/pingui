@@ -4,8 +4,7 @@
   new DrawFillSVG({elementId: "copy-down-synchronize"});
 })();
 
-var mobile = false,device="",complete=0,toframe=0,contmove=0,direction=""; //initiate as false
-var text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null;
+var mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null;
 
 $(document).ready(function(){
 
@@ -18,6 +17,7 @@ $(document).ready(function(){
 		$("#btn-sync").html("sincroniza con tu PC");
 		$("#btn-no-sync").html("continuar sin experiencia full screen");
 		device="mobile"; 
+	
 
 	} else { 
 
@@ -28,8 +28,9 @@ $(document).ready(function(){
 	}
 
 	$('#btn-sync').click(function(){
-
+	
 		device="mobile-desktop";
+		
 
 		$("#icon-synchronize").hide();
 
@@ -49,8 +50,9 @@ $(document).ready(function(){
 	});
 
 	$('#btn-no-sync').click(function(){
-		//createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
-		createcanvas(device,"2");
+	
+		createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
+		//createcanvas(device,"2");
 	});
 
 	$('#code-mobile').focus( function() {
@@ -64,7 +66,7 @@ $(document).ready(function(){
 });
 
 function createcanvas(device,action){
-	
+	console.log(action,"action");
 	$("#box-synchronize").remove();	
 	$("#action").show();
 
@@ -89,7 +91,7 @@ function createcanvas(device,action){
 	switch(device) {
 
 	    case "mobile-desktop":
-
+					interval=10;
 					if (mobile) { 
 						$("#box-action").remove();
 						$("article").addClass(device); 
@@ -106,7 +108,7 @@ function createcanvas(device,action){
 	    break;
 
 	    case "mobile":
-
+					interval=10;
 					$("article").addClass(device); 
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});
@@ -116,11 +118,17 @@ function createcanvas(device,action){
 	    break;
 
 	    case "desktop":
-
+					interval=1;
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext, direction:direction, playMode:playmode});
 					text=textdesktop;
 					sprite="big";
+
+
+	
+					if (Sequencer.getCurrent()==to) { contmove++ }
+					if(contmove >= 2){  unlock() }
+
 
 	    break;
 	}
@@ -157,16 +165,13 @@ function gestureswipe(){
 }
 function moveframe(percentage,action,iterations){
 
-	var to=null;
-	$.ajaxSetup({ async: false });
-	$.getJSON( "js/actions.json", function( data ) { to=data[action].to });
-
 	complete+=percentage;
 
-	if (complete>=100) { complete=0; contmove++; }
+	if (complete >= 100) { complete=0; contmove++; }
 	if (contmove==iterations) { unlock() }
 
-	var framesmove=Math.round(to*percentage/100);
+	var framesmove=Math.round((to/interval)*percentage/100);
+
 
 	if(framesmove > 0 ){
 		toframe=(Sequencer.getCurrent() + framesmove);
@@ -175,12 +180,15 @@ function moveframe(percentage,action,iterations){
 		toframe=Sequencer.getCurrent() - (framesmove*-1);
 		direction="left";
 	}
-
-	Sequencer.toFrame(toframe,direction);
+	console.log(framesmove,"framesmove");
+	console.log(Sequencer.getCurrent(),"Sequencer.getCurrent()");
+	console.log(contmove,"contmove");
+	console.log(complete,"complete");
+	console.log(percentage,"percentage");
+	Sequencer.toFrame(toframe,direction,interval);
 
 }
 
 function unlock(){
-	var videoEnc = localStorage.getItem("video");
-	window.location="video.php?"+videoEnc;
+	window.location="video.php";
 }	
