@@ -12,12 +12,17 @@ include master/general/doctype.jade
 					input(type="number" id="code-mobile" name="code-mobile" maxLength="5")
 					span(id="code-desktop" name="code-desktop")
 					include master/svg/copy-up-synchronize.jade
+					include master/svg/copy-steps-synchronize.jade
 					#shadows
 						#shadow-top
 						#shadow-left
 						#shadow-right
-					include master/svg/icon-mobile-synchronize.jade
-					include master/svg/icon-desktop-synchronize.jade
+					#options
+						#synchronize
+							include master/svg/icon-mobile-synchronize.jade
+							include master/svg/steps-synchronize.jade
+						#no-synchronize
+							include master/svg/icon-desktop-synchronize.jade
 				#box-action(class="box")
 					include master/svg/title-video.jade
 					#bg-distort
@@ -32,8 +37,8 @@ include master/general/doctype.jade
 		include master/general/scripts.jade
 		script(type="text/javascript" src="js/vendor/sequencer.canvas.js")
 		script(type="text/javascript" src="js/vendor/sequencer.benchmark.js")
-		script(src='js/lsc.js')
-		script(src='https://pinguino-julian10404.c9users.io/socket.io/socket.io.js')
-		script(src='js/clientWeb.js')
-		script(src='js/clientCel.js')
+		//script(src='https://pinguino-julian10404.c9users.io/socket.io/socket.io.js')
+		//script(src='js/lsc.js')
+		//script(src='js/clientWeb.js')
+		//script(src='js/clientCel.js')
 		script(src='js/synchronize.js')

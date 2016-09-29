@@ -1,12 +1,10 @@
-(function() {
-	new DrawFillSVG({elementId: "copy-up-synchronize"});
-  new DrawFillSVG({elementId: "icon-synchronize"});
-  new DrawFillSVG({elementId: "copy-down-synchronize"});
-})();
-
 var mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null;
 
 $(document).ready(function(){
+
+	new DrawFillSVG({elementId: "copy-up-synchronize"});
+  new DrawFillSVG({elementId: "icon-mobile-synchronize"});
+  new DrawFillSVG({elementId: "icon-desktop-synchronize"});
 
 	// device detection
 	if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent) 
@@ -27,20 +25,28 @@ $(document).ready(function(){
 
 	}
 
-	$('#btn-sync').click(function(){
+	$('#synchronize').click(function(){
+
+		$(this).addClass("active");
+		$('#no-synchronize').remove();
+		$('#copy-up-synchronize').remove();
+		$('#copy-steps-synchronize').show();
+		$('#steps-synchronize').show();
+
+	  new DrawFillSVG({elementId: "copy-steps-synchronize"});
+	  new DrawFillSVG({elementId: "steps-synchronize"});
 	
 		device="mobile-desktop";
 		
-
 		$("#icon-synchronize").hide();
 
 		if (mobile) {
-			comparaCodigo();
+			//comparaCodigo();
 			$("#code-mobile").show();
 			$("#code-desktop").hide();
 			$("#btn-no-sync").hide();
 		}else{
-			peticionCodigo();
+			//peticionCodigo();
 			$("#code-mobile").hide();
 			$("#code-desktop").show();
 			$("#btn-sync").hide();
@@ -49,7 +55,7 @@ $(document).ready(function(){
 
 	});
 
-	$('#btn-no-sync').click(function(){
+	$('#no-synchronize').click(function(){
 	
 		createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
 		//createcanvas(device,"2");

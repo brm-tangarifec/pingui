@@ -112,7 +112,6 @@ body.gray::before{
 	position: relative;
 	display: block;
 	border: 5px solid #fff;
-	background-color: rgba(235, 3, 27, 0.29);
 	background-blend-mode: overlay;
 }
 
