@@ -9,14 +9,15 @@ $(document).ready(function(){
     var idVideo = syncCAjax(videoEnc,'desc');
     if (idVideo != undefined && idVideo > 0) {
     	$.ajaxSetup({ async: false });
-    	var videoStatus = videoEnc+"St";
+    	var confirgE=window.btoa("st");
+    	var videoStatus = videoEnc+confirgE;
 		localStorage.setItem('videost', videoStatus);
 		$.getJSON( "js/actions.json", function( data ) { video=data[idVideo].namevideo });
 		$("#video")[0].src="_data/videos/"+video;
     }else{
         window.location="/";
     }
-
+	// Envía al home- Todas las recetas
 	$('#play-video').click(function(){
 		$(this).hide();
 		$('#box').css('background-color', '#fff');
@@ -24,7 +25,7 @@ $(document).ready(function(){
 		$('#video').css('opacity', '1');
 		$('#video').trigger('play');
 	});
-	
+	// Envía al home- Todas las recetas
 	$('#go-recipes').click(function(){
 		window.location="/";
 	});

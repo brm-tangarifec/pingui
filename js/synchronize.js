@@ -51,8 +51,8 @@ $(document).ready(function(){
 
 	$('#btn-no-sync').click(function(){
 	
-		//createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
-		createcanvas(device,"2");
+		createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
+		//createcanvas(device,"2");
 	});
 
 	$('#code-mobile').focus( function() {

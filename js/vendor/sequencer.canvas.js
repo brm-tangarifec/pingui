@@ -84,8 +84,9 @@ var Sequencer = (function () {
 		function play(){
 				stop();
 				if (config.playMode === 'mouse'){
-						document.addEventListener('mousemove', onMouseMove, false);
-						document.ontouchmove = function(e){
+						var disVideo = document.getElementById("box-action");
+						disVideo.addEventListener('mousemove', onMouseMove, false);
+						disVideo.ontouchmove = function(e){
 								onMouseMove(e.touches[0]);
 								return false;
 						}
@@ -143,6 +144,7 @@ var Sequencer = (function () {
 		}
 
 		function onMouseMove(e){
+			console.log(e);
 				var t = images.length;
 				var m, w;
 				if (config.direction == "x") {
@@ -160,24 +162,32 @@ var Sequencer = (function () {
 				}
 
 				var id = Math.min(t, Math.max(0, Math.floor(m / w * t)));
-				
+				var widthVideo=document.getElementById("box-action").offsetWidth;
 				if (id != current){
 						showImage(id);
 						current = id;
 				}
 				// Moviento hasta la izquierda
-				if (m <= (30) && endMove==1) {
-					endMove = 0;
-					startMove = 1;
-				}
+				//if (m <= (widthVideo) && endMove==1) {
+				//	console.log();
+				//	endMove = 0;
+				//	startMove = 1;
+				//	console.log("asd");
+				//}
+				totalVideo = document.getElementById("box-action").offsetWidth;
+				totalVideo
+				console.log(document.getElementById("box-action").offsetWidth);
 				// Moviento hasta la derecha
-				if (m >= (w-30) && startMove==1) {
+				if (m >= (widthVideo-10) && startMove==1) {
 					startMove=0;
 					endMove = 1;
 					countMove++;
+					console.log("asd 2");
 				}
+				console.log(widthVideo,"widthVideo");
+				console.log(m,"m");
 				// Total de movimiento cumplidos - realiza acción
-				if (countMove==maxCountMove) {	unlock();  }
+			//	if (countMove==maxCountMove) {	unlock();  }
 		}
 
 		function onWindowResize(){
