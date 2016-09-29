@@ -167,27 +167,29 @@ var Sequencer = (function () {
 						showImage(id);
 						current = id;
 				}
+
+				var withVideo = document.getElementById("box-action").offsetWidth;
+				var halfVideo = (withVideo/2);
+				var halfScreen = (w/2);
+				var maxLetfVideo = (halfScreen - halfVideo + (halfVideo/2));
+				var maxRightVideo = (halfScreen + halfVideo - (halfVideo/2));
+				
 				// Moviento hasta la izquierda
-				//if (m <= (widthVideo) && endMove==1) {
-				//	console.log();
-				//	endMove = 0;
-				//	startMove = 1;
-				//	console.log("asd");
-				//}
-				totalVideo = document.getElementById("box-action").offsetWidth;
-				totalVideo
-				console.log(document.getElementById("box-action").offsetWidth);
+				if (m <= (maxLetfVideo) && endMove==1) {
+					console.log();
+					endMove = 0;
+					startMove = 1;
+				}
+				
 				// Moviento hasta la derecha
-				if (m >= (widthVideo-10) && startMove==1) {
+				if (m >= (maxRightVideo) && startMove==1) {
 					startMove=0;
 					endMove = 1;
 					countMove++;
-					console.log("asd 2");
 				}
-				console.log(widthVideo,"widthVideo");
-				console.log(m,"m");
+
 				// Total de movimiento cumplidos - realiza acción
-			//	if (countMove==maxCountMove) {	unlock();  }
+				if (countMove==maxCountMove) {	unlock();  }
 		}
 
 		function onWindowResize(){
