@@ -6,11 +6,15 @@ function peticionCodigo()
 {
     var videoEnc = localStorage.getItem("video");
     var idVideo = syncCAjax(videoEnc,'desc');
-    var data={
-        id: idSocket,
-        idVideo: idVideo
-    };
-    socket.emit('generaCodigo', data);
+    if (idVideo != undefined && idVideo > 0) {
+        var data={
+            id: idSocket,
+            idVideo: idVideo
+        };
+        socket.emit('generaCodigo', data);
+    }else{
+        window.location="/";
+    }
 }
 
 if (screen.width >= 1280) 

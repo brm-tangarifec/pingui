@@ -5,6 +5,18 @@
 
 $(document).ready(function(){
 //	$(this).prop("controls", true);
+	
+	
+	var videoEnc = localStorage.getItem("video");
+    var idVideo = syncCAjax(videoEnc,'desc');
+    if (idVideo != undefined && idVideo > 0) {
+    	$.ajaxSetup({ async: false });
+		$.getJSON( "js/actions.json", function( data ) { video=data[idVideo].namevideo });
+		$("#video")[0].src="_data/videos/"+video
+    }else{
+        window.location="/";
+    }
+    
 
 	$('#play-video').click(function(){
 		$(this).hide();

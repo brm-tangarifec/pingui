@@ -98,42 +98,29 @@ var Sequencer = (function () {
 				}
 		}
 
-		function nextImage(mode){
-				if (!mode) mode = config.playMode;
-				if(mode === 'pong') {
-						current += playDir;
-						if (current >= images.length-1) { //current could ev. change by other playmodes, so extra-checks are necessary
-								playDir = -1;
-								current = images.length-1;
-						} else if (current <= 0){
-								playDir = 1;
-								current = 0;
-						}
-						showImage(current);
-				} else {
-						var nextId= (current === images.length-1) ? 0 : ++current; //loop
-						showImage(nextId); 
-				}
+		function nextImage(interval){
+			var nextId= (current >= images.length-1) ? 0 : ++current; //loop
+			showImage(nextId+interval); 
 		}
 
-		function previousImage(mode){
-				if (!mode) mode = config.playMode;
-				var previousId = (current === 0) ? images.length-1 : --current; //loop
-				showImage(previousId); 
+		function previousImage(interval){
+			var previousId = (current <= 0) ? images.length-1 : --current; //loop
+			showImage(previousId-interva); 
+			
 		}
 
 
-		function toFrame(id,direction){
+		function toFrame(to,direction,interval){
 
-				stopFrameInterval=(current <= id ) ? (id-current) : (current-id);
+				stopFrameInterval=(current <= to ) ? (to-current) : (current-to);
 
 				var frameInterval = setInterval(function(){ 
 					
 					contFrameInterval++;
 
 					switch(direction){
-						case "right": nextImage(); break;
-						case "left": previousImage(); break;
+						case "right": nextImage(interval); break;
+						case "left": previousImage(interval); break;
 					}
 
 					if (contFrameInterval == stopFrameInterval) {

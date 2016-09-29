@@ -4,8 +4,7 @@
   new DrawFillSVG({elementId: "copy-down-synchronize"});
 })();
 
-var mobile = false,device="",complete=0,toframe=0,contmove=0,direction=""; //initiate as false
-var text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null;
+var mobile = false,device="",complete=0,toframe=0,contmove=0,interval=0,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null;
 
 $(document).ready(function(){
 
@@ -18,13 +17,14 @@ $(document).ready(function(){
 		$("#btn-sync").html("sincroniza con tu PC");
 		$("#btn-no-sync").html("continuar sin experiencia full screen");
 		device="mobile"; 
+		interval=10;
 
 	} else { 
 
 		$("#btn-sync").html("sincroniza con tu móvil");
 		$("#btn-no-sync").html("continuar sin experiencia móvil");
 		device="desktop";
-
+		interval=0;
 	}
 
 	$('#btn-sync').click(function(){
@@ -157,16 +157,13 @@ function gestureswipe(){
 }
 function moveframe(percentage,action,iterations){
 
-	var to=null;
-	$.ajaxSetup({ async: false });
-	$.getJSON( "js/actions.json", function( data ) { to=data[action].to });
-
 	complete+=percentage;
 
 	if (complete>=100) { complete=0; contmove++; }
 	if (contmove==iterations) { unlock() }
 
-	var framesmove=Math.round(to*percentage/100);
+	var framesmove=Math.round((to/interval)*percentage/100);
+
 
 	if(framesmove > 0 ){
 		toframe=(Sequencer.getCurrent() + framesmove);
@@ -176,11 +173,10 @@ function moveframe(percentage,action,iterations){
 		direction="left";
 	}
 
-	Sequencer.toFrame(toframe,direction);
+	Sequencer.toFrame(toframe,direction,interval);
 
 }
 
 function unlock(){
-	var videoEnc = localStorage.getItem("video");
-	window.location="video.php?"+videoEnc;
+	window.location="video.php";
 }	
