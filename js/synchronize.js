@@ -4,7 +4,7 @@
   new DrawFillSVG({elementId: "copy-down-synchronize"});
 })();
 
-var mobile = false,device="",complete=0,toframe=0,contmove=0,interval=0,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null;
+var mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null;
 
 $(document).ready(function(){
 
@@ -17,19 +17,20 @@ $(document).ready(function(){
 		$("#btn-sync").html("sincroniza con tu PC");
 		$("#btn-no-sync").html("continuar sin experiencia full screen");
 		device="mobile"; 
-		interval=10;
+	
 
 	} else { 
 
 		$("#btn-sync").html("sincroniza con tu móvil");
 		$("#btn-no-sync").html("continuar sin experiencia móvil");
 		device="desktop";
-		interval=0;
+
 	}
 
 	$('#btn-sync').click(function(){
-
+	
 		device="mobile-desktop";
+		
 
 		$("#icon-synchronize").hide();
 
@@ -49,6 +50,7 @@ $(document).ready(function(){
 	});
 
 	$('#btn-no-sync').click(function(){
+	
 		//createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
 		createcanvas(device,"2");
 	});
@@ -64,7 +66,7 @@ $(document).ready(function(){
 });
 
 function createcanvas(device,action){
-	
+	console.log(action,"action");
 	$("#box-synchronize").remove();	
 	$("#action").show();
 
@@ -89,7 +91,7 @@ function createcanvas(device,action){
 	switch(device) {
 
 	    case "mobile-desktop":
-
+					interval=10;
 					if (mobile) { 
 						$("#box-action").remove();
 						$("article").addClass(device); 
@@ -106,7 +108,7 @@ function createcanvas(device,action){
 	    break;
 
 	    case "mobile":
-
+					interval=10;
 					$("article").addClass(device); 
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});
@@ -116,11 +118,17 @@ function createcanvas(device,action){
 	    break;
 
 	    case "desktop":
-
+					interval=1;
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext, direction:direction, playMode:playmode});
 					text=textdesktop;
 					sprite="big";
+
+
+	
+					if (Sequencer.getCurrent()==to) { contmove++ }
+					if(contmove >= 2){  unlock() }
+
 
 	    break;
 	}
@@ -159,7 +167,7 @@ function moveframe(percentage,action,iterations){
 
 	complete+=percentage;
 
-	if (complete>=100) { complete=0; contmove++; }
+	if (complete >= 100) { complete=0; contmove++; }
 	if (contmove==iterations) { unlock() }
 
 	var framesmove=Math.round((to/interval)*percentage/100);
@@ -172,7 +180,11 @@ function moveframe(percentage,action,iterations){
 		toframe=Sequencer.getCurrent() - (framesmove*-1);
 		direction="left";
 	}
-
+	console.log(framesmove,"framesmove");
+	console.log(Sequencer.getCurrent(),"Sequencer.getCurrent()");
+	console.log(contmove,"contmove");
+	console.log(complete,"complete");
+	console.log(percentage,"percentage");
 	Sequencer.toFrame(toframe,direction,interval);
 
 }

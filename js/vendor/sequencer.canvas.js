@@ -21,6 +21,10 @@ var Sequencer = (function () {
 		var lastLoaded = -1;
 		var contFrameInterval=0;
 		var stopFrameInterval;
+		var startMove=1;
+		var endMove=0;
+		var countMove=0;
+		var maxCountMove=2;
 
 		// configuration defaults
 		var config = {
@@ -100,12 +104,14 @@ var Sequencer = (function () {
 
 		function nextImage(interval){
 			var nextId= (current >= images.length-1) ? 0 : ++current; //loop
+			console.log(nextId+interval,"nextId+interval");
 			showImage(nextId+interval); 
 		}
 
 		function previousImage(interval){
 			var previousId = (current <= 0) ? images.length-1 : --current; //loop
-			showImage(previousId-interva); 
+			console.log(previousId-interval,"previousId-interval");
+			showImage(previousId-interval); 
 			
 		}
 
@@ -154,10 +160,24 @@ var Sequencer = (function () {
 				}
 
 				var id = Math.min(t, Math.max(0, Math.floor(m / w * t)));
+				
 				if (id != current){
 						showImage(id);
 						current = id;
 				}
+				// Moviento hasta la izquierda
+				if (m <= (30) && endMove==1) {
+					endMove = 0;
+					startMove = 1;
+				}
+				// Moviento hasta la derecha
+				if (m >= (w-30) && startMove==1) {
+					startMove=0;
+					endMove = 1;
+					countMove++;
+				}
+				// Total de movimiento cumplidos - realiza acción
+				if (countMove==maxCountMove) {	unlock();  }
 		}
 
 		function onWindowResize(){
