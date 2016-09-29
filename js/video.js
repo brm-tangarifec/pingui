@@ -4,7 +4,7 @@
 })();
 
 $(document).ready(function(){
-	//$(this).prop("controls", true);
+	$(this).prop("controls", true);
 	var videoEnc = localStorage.getItem("video");
     var idVideo = syncCAjax(videoEnc,'desc');
     if (idVideo != undefined && idVideo > 0) {
@@ -17,19 +17,17 @@ $(document).ready(function(){
     }else{
         window.location="/";
     }
-	// Envía al home- Todas las recetas
-	$('#play-video').click(function(){
-		$(this).hide();
-		$('#box').css('background-color', '#fff');
-		$('#share-video, #title-video').css('opacity', '0.2');
-		$('#video').css('opacity', '1');
-		$('#video').trigger('play');
-	});
+    
+	// Play video automático
+	$('#play-video').hide();
+	$('#box').css('background-color', '#fff');
+	$('#share-video, #title-video').css('opacity', '0.2');
+	$('#video').css('opacity', '1');
+	$('#video').trigger('play');
+
 	// Envía al home- Todas las recetas
 	$('#go-recipes').click(function(){
 		window.location="/";
 	});
-
-
-
+	
 });

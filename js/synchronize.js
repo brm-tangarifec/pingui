@@ -85,13 +85,14 @@ function createcanvas(device,action){
 	});
 
 	switch(action) {
-	    case "2": gestureswipe(); break;
+		case "1": gestureswipe("y"); break;
+	    case "2": gestureswipe("x"); break;
 	}
 
 	switch(device) {
 
 	    case "mobile-desktop":
-					interval=10;
+					interval=5;
 					if (mobile) { 
 						$("#box-action").remove();
 						$("article").addClass(device); 
@@ -138,27 +139,28 @@ function createcanvas(device,action){
 
 }
 
+/* Acciones */
 
-function gestureswipe(){
+// Realiza la accion de swipe para el eje X y Y
+function gestureswipe(eje){
 	if (mobile) { 
-
 	  var box1 = document.getElementById('gesture-content')
-	  var startx = 0
-	  var endx = 0
+	  var start = 0
+	  var end = 0
 	  var dist = 0
+	  // Inicia el evento swipe
 	  box1.addEventListener('touchstart', function(e){
 	      var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger)
-	      startx = parseInt(touchobj.clientX) // get x position of touch point relative to left edge of browser
-	      e.preventDefault()
+	      start=(eje=="x") ?  parseInt(touchobj.clientX) :  parseInt(touchobj.clientY);
+	      e.preventDefault();
 	  }, false)
-
+	  // Finaliza el evento swipe
 	  box1.addEventListener('touchend', function(e){
 	      var touchobj = e.changedTouches[0] // reference first touch point for this event
-	      endx= parseInt(touchobj.clientX)
-	      longMovi = endx-startx;
-				console.log(longMovi,"longMovi");
-	      realizaAccion(longMovi)
-	      e.preventDefault()
+	      end=(eje=="x") ?  parseInt(touchobj.clientX) :  parseInt(touchobj.clientY);
+	      longMovi = end-start;
+	      realizaAccion(longMovi);
+	      e.preventDefault();
 	  }, false)
 	}
 
