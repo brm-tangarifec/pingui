@@ -74,7 +74,7 @@ function synchronize(){
 
 		}else{
 
-			$(this).addClass("active");
+			$("#synchronize").addClass("active");
 			$('#no-synchronize').remove();
 			$('#copy-up-synchronize').remove();
 			$('#copy-steps-synchronize').show();
