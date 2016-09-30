@@ -39,6 +39,17 @@ switch ($vrtCtr) {
 	$desc=$session->decryptS($data,$protected);
 	echo json_encode($desc);
 	break;
+	case 'rec':
+		//printVar($varPost);
+		$receta=$varPost['video'];
+		$separar=explode('"', $receta);
+		//printVar($separar);
+		$recetad=base64_decode($separar[2]);
+		if($recetad=="st"){
+			$video=$session->decryptS($separar[1],$protected);
+			echo json_encode('enviarR');
+		}
+		break;
 	
 	default:
 		# code...
