@@ -147,6 +147,9 @@ jQuery('#confirmar').click(function(){
 						},
 						success: function (data){
 							console.log(data);
+              if(data=="exitoso"){
+                window.location="perfil.php"
+              }
 						}, 
 						error: function(result) {
 											console.log(result,'error');

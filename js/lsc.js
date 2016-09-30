@@ -3,19 +3,29 @@ jQuery(document).ready(function() {
     //console.log('hola');
     //localStorage.clear();
     $(".mix").on("click", function() {
+        /*Comprobación de video*/
+         var videost = localStorage.getItem('videost');
+        if(videost!== null){
+            loadAjax(videost,'rec');
+        }else{
+            
+       
         var videoi = jQuery(this).attr('data');
         var data = syncCAjax(videoi,'enc');
         if (window.localStorage !== undefined) {
             var fields = videoi;
-            console.log(fields);
+            //console.log(fields);
             localStorage.setItem("video", JSON.stringify(data));
             window.location = "preparacion.php";
         } else {
             console.log("Storage Failed. Try refreshing");
         }
-        return false;
+        
         //console.log(videoi);
+        }
+        return false;
     });
+    
 });
 
 function syncCAjax(videoi,vrtCrt) {
@@ -33,7 +43,7 @@ function syncCAjax(videoi,vrtCrt) {
             vrtCrt: vrtCrt
         },
         success: function(dataResult) {
-            console.log(dataResult);
+            //console.log(dataResult,"idAccion");
             result = dataResult;
         },
         error: function(result) {
@@ -41,4 +51,24 @@ function syncCAjax(videoi,vrtCrt) {
         }
     });
     return result;
+}
+
+function loadAjax(videost,vrtCrt){
+    var urlV = 'syncC.php';
+    var result;
+  jQuery.ajax({ 
+  url: urlV,
+  dataType: 'json',
+  type: 'POST',
+  data: {
+            video: videost,
+            vrtCrt: vrtCrt
+        },
+    success:function(data){
+     console.log(data);
+     if(data=='enviarR'){
+         window.location='registro.php';
+     }
+    }
+  });
 }

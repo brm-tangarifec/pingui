@@ -1,4 +1,4 @@
-var mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null,arrayAction=[],numAction=0,datacurrent=null,idactioncurrent=null,devicecurrent=null;
+var actionglob=0;mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null,arrayAction=[],numAction=0,datacurrent=null,idactioncurrent=null,devicecurrent=null;
 
 $(document).ready(function(){
 
@@ -44,11 +44,39 @@ $(document).ready(function(){
 	});
 
 	$('#no-synchronize').click(function(){
-	
 		createcanvas(syncCAjax( localStorage.getItem("video") ,'desc'));
 	});
 
 });
+
+
+function createmobilearea(){
+
+		$("#code-synchronize").remove();
+		$("#desktop-mobile-area").show();
+		$("#action").show();
+}
+
+function createsprite(action){
+
+	switch(device) {
+	    case "mobile-desktop":
+					text=textmobile;
+					sprite="small";
+	    break;
+	    case "mobile":
+					text=textmobile;
+					sprite="big";
+	    break;
+	    case "desktop":
+					text=textdesktop;
+					sprite="big";
+	    break;
+	}
+	$("#action-text").html(text);
+	$(".sprite").attr("id","action-"+action+"-"+sprite);
+
+}
 
 
 function synchronize(){
@@ -72,19 +100,21 @@ function synchronize(){
 
 		}
 
-
 }
 
-function createcanvas(action){
-	
-	idactioncurrent=action;
-	$("#box-synchronize").remove();	
+function setconfigcanvas(action){
 
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
-		arrayAction = data[action].action;
-		console.log(numAction,"numAction");
-		datacurrent = arrayAction[numAction];
+
+		actions = data[action].action;
+		datacurrent = actions[numAction];
+
+		$("#steps-action").html("");
+		for (var i = 1; i < actions.length+1; i++) {
+			$("#steps-action").append("<div class='step' id='step-"+i+"'> <span> 0/"+actions.length+"</span></div>");
+		}
+
 		textdesktop=datacurrent.text.desktop;
 		textmobile=datacurrent.text.mobile;
 		from=datacurrent.from;
@@ -94,8 +124,25 @@ function createcanvas(action){
 		ext=datacurrent.ext;
 		direction=datacurrent.direction;
 		playmode=datacurrent.playmode;
-
 	});
+
+}
+
+function getaction(){
+	return actionglob;
+}
+
+function setaction(action){
+	actionglob=action;
+}
+
+function createcanvas(action){
+
+	setconfigcanvas(action);
+	setaction(action);
+	idactioncurrent=action;
+
+	$("#box-synchronize").remove();	
 
 	switch(action) {
 			case "1": gestureswipe("y"); break;
@@ -107,18 +154,12 @@ function createcanvas(action){
 	    case "mobile-desktop":
 
 					interval=5;
-					if (mobile) { 
-						$("#box-action").remove();
-						$("article").addClass(device); 
-					}
+					if (mobile) { $("#box-action").remove(); }
 
 					if (!mobile) { 
 						$("#box-action").show();
 						Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});  
 					}
-
-					text=textmobile;
-					sprite="small";
 
 	    break;
 
@@ -128,8 +169,6 @@ function createcanvas(action){
 					$("article").addClass(device); 
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});
-					text=textmobile;
-					sprite="big";
 
 	    break;
 
@@ -138,14 +177,11 @@ function createcanvas(action){
 					interval=1;
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext, direction:direction, playMode:playmode});
-					text=textdesktop;
-					sprite="big";
 	
 	    break;
 	}
 
-	$("#action-text").html(text);
-	$(".sprite").attr("id","action-"+action+"-"+sprite);
+	createsprite(action);
 
 }
 
@@ -203,6 +239,7 @@ function unlock(){
 		//window.location="video.php";
 	}else{
 		numAction++;
+		$("#step-"+ (numAction+1) ).addClass("unlock");
 		$("#box-action canvas").remove();
 		createcanvas(idactioncurrent);
 	}

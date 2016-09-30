@@ -11,6 +11,7 @@ function comparaCodigo(){
             codigo: codigo
         }
         socket.emit('comparaCodigo', data);
+        createmobilearea();
     }else{
         $("#message").html("Ingrése el código");
     }
@@ -48,8 +49,6 @@ if (screen.width<1280)
             // Sincronizo correctamente
             estadoSincro=1;
             $("#message").html("Se sincronizó correctamente");
-            alert(device);
-            alert(data.idVideo);
             createcanvas(data.idVideo);
         }else if (data.estadoCodigo==2){
             // El código ya está en uso

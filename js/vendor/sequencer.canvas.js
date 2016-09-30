@@ -186,6 +186,10 @@ var Sequencer = (function () {
 					startMove=0;
 					endMove = 1;
 					countMove++;
+					console.log( getaction() ,"getaction");
+					console.log(countMove,"countMove" );
+					console.log(maxCountMove,"maxCountMove" );
+					$("#step-"+ getaction() +" span" ).html(countMove+"/"+maxCountMove);
 				}
 
 				// Total de movimiento cumplidos - realiza acción

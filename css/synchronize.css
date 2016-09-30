@@ -180,7 +180,22 @@ canvas{
 	width: 60px;
 	height: 60px;
 	background-size: cover;
-	margin-bottom: 12%;
+	margin-bottom: 25%;
+	position: relative;
+	display: block;
+}
+#steps-action .step span{
+	color: #fff;
+	font-family: stick;
+	letter-spacing: 1px;
+	text-align: center;
+	display: block;
+	position: absolute;
+	top: -19%;
+	left: 26%;
+	background-color: #e42e27;
+	border-radius: 5px;
+	padding: 2% 8%;
 }
 
 #steps-action .step.lock{
@@ -200,8 +215,21 @@ canvas{
 #code-synchronize span{font-family: stick;color: #e53027;font-size: 37px;display: block;text-align: center;margin-bottom: 4%;}
 
 
-#desktop-mobile-area{}
-#desktop-mobile-area span{}
+#desktop-mobile-area{
+	width: 100%;
+	height: 80%;
+	background: #fff;
+	border: 5px solid #dadada;
+}
+#desktop-mobile-area span{
+	font-size: 25px;
+	font-family: stick;
+	color:  rgb(230, 42, 54);
+	letter-spacing: 5px;
+	display: block;
+	text-align: center;
+	margin-top: 40%;
+}
 
 .active-code #copy-up-synchronize,
 .active-code #copy-down-synchronize,
