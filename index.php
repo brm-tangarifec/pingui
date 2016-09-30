@@ -22,8 +22,8 @@ if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!='' || isset($_COOKIE['ywd_
 	$creaSessionU=$session->write($idF,$dato);	
 	$protected=$session->llamaPass();
 	$createCookieU=$session->start_session('ywd_usud',true);
-	//$datoCookie=$session->encryptS($idUsuarioL,$protected);
-	//setcookie('ywd_usud', $creaSessionU, time() + 1200, '/', $secure, $httponly);
+	$datoCookie=$session->encryptS($idUsuarioL,$protected);
+	setcookie('ywd_usud', $creaSessionU, time() + 1200, '/', $secure, $httponly);
 	$randoR=array("1","8","13");
 	$recetasDesb=array_rand($randoR);
 	//printVar($recetasDesb);
