@@ -8,9 +8,10 @@ include master/general/doctype.jade
 		include master/general/header.jade
 		section#gesture-content
 			article
+				#code-synchronize
+					span Ingresa el codigo
+					input(type="number" id="code-mobile" name="code-mobile" maxlength="5")
 				#box-synchronize(style="background-image: url('img/recipes/1.png');" class="box")
-					input(type="number" id="code-mobile" name="code-mobile" maxLength="5")
-					span(id="code-desktop" name="code-desktop")
 					include master/svg/copy-up-synchronize.jade
 					include master/svg/copy-steps-synchronize.jade
 					#shadows
@@ -20,10 +21,16 @@ include master/general/doctype.jade
 					#options
 						#synchronize
 							include master/svg/icon-mobile-synchronize.jade
+							include master/svg/icon-desktop-synchronize-2.jade
 							include master/svg/steps-synchronize.jade
 						#no-synchronize
 							include master/svg/icon-desktop-synchronize.jade
+							include master/svg/icon-mobile-synchronize-2.jade
 				#box-action(class="box")
+					#steps-action
+						.step#step-1
+						.step#step-2
+						.step#step-3
 					include master/svg/title-video.jade
 					#bg-distort
 					#shadows

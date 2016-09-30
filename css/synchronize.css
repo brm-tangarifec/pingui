@@ -40,7 +40,9 @@ article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 }
 
 #icon-mobile-synchronize,
-#icon-desktop-synchronize{
+#icon-desktop-synchronize,
+#icon-mobile-synchronize-2,
+#icon-desktop-synchronize-2{
 	position: absolute;
 	z-index: 1;
 }
@@ -51,6 +53,7 @@ article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 	width: 100%;
 	height: 100%;
 	top: 0;
+	cursor: pointer;
 }
 
 #copy-steps-synchronize{
@@ -63,8 +66,8 @@ article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 	position: absolute;
 	width: 50%;
 	height: 100%;
-	cursor: pointer;
 	transition: background-color 0.5s linear;
+	cursor: pointer;
 }
 
 
@@ -190,6 +193,27 @@ canvas{
 	height: 100%;
 }
 
+#steps-action{
+	position: absolute;
+	right: -27px;
+	z-index: 45;
+}
+#steps-action .step{
+	background-image: url(../img/steps-lock-unlock.png);
+	width: 60px;
+	height: 60px;
+	background-size: cover;
+	margin-bottom: 12%;
+}
+
+#steps-action .step.lock{
+	background-position: 0 0;
+}
+
+#steps-action .step.unlock{
+	background-position: 62px 0;
+}
+
 #steps-synchronize{
 	position:absolute;
 }
@@ -200,10 +224,23 @@ canvas{
 #steps-synchronize,
 #box-action,
 #synchronize.active #icon-mobile-synchronize,
-#no-synchronize.active #icon-desktop-synchronize{ display: none; }
+#no-synchronize.active #icon-desktop-synchronize,
+#synchronize.active #icon-mobile-synchronize-2,
+#no-synchronize.active #icon-desktop-synchronize-2{ 
+	display: none; 
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (max-width: 479px) and (min-width: 320px) {
+	#steps-action{right: 0px;top: 25px;}
+	#steps-action .step{width: 40px;height: 40px;}
+	#synchronize,#no-synchronize{width: 100%;height: 50%;}
+	#no-synchronize{ bottom: 0;}
+	#synchronize{ top: 0; }
+	#copy-up-synchronize{top: 42%;width: 50%;left: 25%;}
+	#icon-mobile-synchronize-2{width: 30%;bottom:1%;left: 35%;}
+	#icon-desktop-synchronize-2{width: 44%;top: 1%;right: 28%;}
+	#steps-synchronize{width: 96%;left: 2%;top: 32%;}
 	#title-video{width: 70%;left: 15%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
@@ -216,6 +253,15 @@ canvas{
 @media only screen 
 and (min-width : 480px) 
 and (max-width : 767px) {
+	#steps-action{right: 0px;top: 25px;}
+	#steps-action .step{width: 40px;height: 40px;}
+	#synchronize,#no-synchronize{width: 100%;height: 50%;}
+	#no-synchronize{ bottom: 0;}
+	#synchronize{ top: 0; }
+	#copy-up-synchronize{top: 40%;width: 44%;left: 28%;}
+	#icon-mobile-synchronize-2{width: 22%;bottom: 1%;left: 38%;}
+	#icon-desktop-synchronize-2{width: 30%;top: 1%;right: 35%;}
+	#steps-synchronize{width: 96%;left: 2%;top: 32%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
@@ -227,6 +273,10 @@ and (max-width : 767px) {
 @media only screen 
 and (min-width : 768px) 
 and (max-width : 1023px) {
+	.copy-synchronize{width: 46%;left: 26%;top: -7%;}
+	#steps-synchronize{width: 90%;left: 5%;top: 25%;}
+	#icon-mobile-synchronize-2{width: 50%;top: 30%;left: 25%;}
+	#icon-desktop-synchronize-2{width: 64%;top: 29%;right: 21%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
@@ -238,6 +288,10 @@ and (max-width : 1023px) {
 @media only screen 
 and (min-width : 1024px) 
 and (max-width : 1223px){
+	.copy-synchronize{width: 30%;left: 35%;top: -10%;}
+	#steps-synchronize{width: 72%;left: 14%;top: 20%;}
+	#icon-mobile-synchronize{width: 46%;top: 27%;left: 27%;}
+	#icon-desktop-synchronize{width: 40%;top: 25%;right: 30%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
@@ -251,7 +305,10 @@ and (max-width : 1223px){
 @media only screen 
 and (min-width : 1224px) 
 and (max-width : 1499px){
-	#icon-synchronize{width: 280px;top: calc(50% - 97px);left: calc(50% - 140px);}
+	.copy-synchronize{width: 38%;left: 32%;top: -10%;}
+	#steps-synchronize{width: 82%;left: 9%;top: 24%;}
+	#icon-mobile-synchronize{width: 50%;top: 30%;left: 25%;}
+	#icon-desktop-synchronize{width: 45%;top: 29%;right: 27%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
@@ -264,11 +321,7 @@ and (max-width : 1499px){
 /* Large screens ----------- */
 @media only screen and (min-width: 1500px) {
 	.copy-synchronize{width: 40%;left: 30%;top: -10%;}
-	#steps-synchronize{
-	width: 90%;
-	left: 5%;
-	top: 20%;
-}
+	#steps-synchronize{ width: 78%; left: 12%; top: 24%; }
 	#icon-mobile-synchronize{width: 50%;top: 30%;left: 25%;}
 	#icon-desktop-synchronize{width: 45%;top: 29%;right: 27%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}

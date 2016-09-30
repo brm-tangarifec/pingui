@@ -105,13 +105,11 @@ var Sequencer = (function () {
 
 		function nextImage(interval){
 			var nextId= (current >= images.length-1) ? 0 : ++current; //loop
-			console.log(nextId+interval,"nextId+interval");
 			showImage(nextId+interval); 
 		}
 
 		function previousImage(interval){
 			var previousId = (current <= 0) ? images.length-1 : --current; //loop
-			console.log(previousId-interval,"previousId-interval");
 			showImage(previousId-interval); 
 			
 		}
@@ -383,6 +381,7 @@ var Preloader = (function(){
 
 		function removeProgress(){
 				if (progress) {
+						$("#action").show();
 						document.body.removeChild(progress);
 						document.getElementById("box-action").removeChild(bgbox);
 						progress = null;
