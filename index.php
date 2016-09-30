@@ -13,7 +13,7 @@ $protected=$session->llamaPass();
     	$httponly=false;
     }
 if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!='' || isset($_COOKIE['ywd_usud']) && $_COOKIE['ywd_usud']!=''  ){
-	printVar($_COOKIE['ywd_usud']);
+	//printVar($_COOKIE['ywd_usud']);
 	/*Aqui va lo del usuario registado*/
 	$smarty->display("recipes.html");
 }else{
