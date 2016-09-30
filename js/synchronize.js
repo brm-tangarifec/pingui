@@ -36,6 +36,9 @@ $(document).ready(function(){
 	}
 
 	$('#send-code').click(function(){
+		$("#code-synchronize").remove();
+		$("#desktop-mobile-area").show();
+		$("#action").show();
 		comparaCodigo();
 	});
 
