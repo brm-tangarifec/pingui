@@ -68,7 +68,7 @@ function synchronize(){
 
 		if (mobile) {
 
-			$("#code-mobile").show();
+			$("#code-synchronize").show();
 			$('#box-synchronize').remove();
 
 		}else{
