@@ -1,11 +1,21 @@
 var socket = io.connect('https://pinguino-julian10404.c9users.io/');
 var idSocket;
+var idVideo;
 // Paso 1 - Enviamos la petición del código al servidor
 function peticionCodigo()
 {
-    socket.emit('generaCodigo', idSocket);   
+    var videoEnc = localStorage.getItem("video");
+    var idVideo = syncCAjax(videoEnc,'desc');
+    if (idVideo != undefined && idVideo > 0) {
+        var data={
+            id: idSocket,
+            idVideo: idVideo
+        };
+        socket.emit('generaCodigo', data);
+    }else{
+        window.location="/";
+    }
 }
-
 
 if (screen.width >= 1280) 
 {    
@@ -23,12 +33,12 @@ if (screen.width >= 1280)
     //Paso 6 - Muestra alerta si se sincroniza correctamente
     socket.on('sincronizaWeb', function (data) {
         $("#message").html("Se sincronizó correctamente");
-        createcanvas(device);
+        createcanvas(device,data.idVideo);
     });
     
     //Paso 10 - Recibe y realiza la acción a enviada desde el cel
     socket.on('realizaAccion', function (data) {
-        console.log(data.x);
-        $("#movimiento").text(data.x); 
+        console.log(data.porcentaje);
+        moveframe(data.porcentaje,data.idVideo,2);
     });
 }

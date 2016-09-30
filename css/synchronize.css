@@ -3,17 +3,16 @@ article{
 	height: 100%;
 	position: relative;
 }
-article.phone-desktop #action{
+article.mobile-desktop #action{
 	width: 240px;
 	bottom: calc(50% - 120px);
 	left: calc(50% - 120px);
 	height: 240px;
 }
 
-article.phone-desktop #action .sprite{
+article.mobile-desktop #action .sprite{
 }
-article.phone-desktop #action #action-text{bottom: 26%;top: inherit;}
-
+article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 
 #title-video{
 	display: block;
@@ -34,29 +33,79 @@ article.phone-desktop #action #action-text{bottom: 26%;top: inherit;}
 	position: absolute;
 	bottom: 0;
 }
-#box-action{
-	display: none;
-}
+
 #copy-up-synchronize{
 	position: absolute;
 	z-index: 1;
 }
 
-#icon-synchronize{
-	position: relative;
+#icon-mobile-synchronize,
+#icon-desktop-synchronize,
+#icon-mobile-synchronize-2,
+#icon-desktop-synchronize-2{
 	position: absolute;
-}
-#copy-down-synchronize{
-	position: absolute;
+	z-index: 1;
 }
 
-.button{
+#options{
+	content: "";
 	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	cursor: pointer;
 }
 
-#box-action{
-	background-color: transparent;
+#copy-steps-synchronize{
+	position: absolute;
+	z-index: 1;
 }
+
+#synchronize,
+#no-synchronize{
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	transition: background-color 0.5s linear;
+	cursor: pointer;
+}
+
+
+#synchronize.active,
+#no-synchronize.active{
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+  width:100%;
+}
+
+#synchronize.active{
+	background-color: rgba(70, 194, 246, 1);
+}
+#no-synchronize.active{
+	background-color: rgba(235, 3, 27, 1);
+}
+
+
+
+#synchronize{
+	background-color: rgba(70, 194, 246, 0.48);
+	left: 0;
+}
+#no-synchronize{
+	background-color: rgba(235, 3, 27, 0.29);
+	right: 0;
+}
+
+
+#synchronize:hover{
+	background-color: rgba(70, 194, 246, 1);
+}
+#no-synchronize:hover{
+	background-color: rgba(235, 3, 27, 1);
+}
+
 
 #action{
 	background-color: rgba(235, 3, 27, 0.85);
@@ -81,14 +130,11 @@ article.phone-desktop #action #action-text{bottom: 26%;top: inherit;}
 	font-family: stick;
 }
 
-
-
-#code-phone:focus{
+#code-mobile:focus{
 	outline:none;
 }
 
-#code-phone{
-	display: none;
+#code-mobile{
 	width: 40%;
 	padding: 1% 3%;
 	border: 0;
@@ -105,17 +151,6 @@ article.phone-desktop #action #action-text{bottom: 26%;top: inherit;}
 	left: 30%;
 	font-size: 38px;
 	text-align: center;
-}
-
-#code-desktop{
-	display: none;
-	position: absolute;
-	top: 40%;
-	font-family: stick;
-	color: #fff;
-	font-size: 80px;
-	letter-spacing: 10px;
-	left: calc(50% - 104px);
 }
 
 .sprite{
@@ -146,23 +181,63 @@ canvas{
 	height: 100%;
 }
 
+#steps-action{
+	position: absolute;
+	right: -27px;
+	z-index: 45;
+}
+#steps-action .step{
+	background-image: url(../img/steps-lock-unlock.png);
+	width: 60px;
+	height: 60px;
+	background-size: cover;
+	margin-bottom: 12%;
+}
+
+#steps-action .step.lock{
+	background-position: 0 0;
+}
+
+#steps-action .step.unlock{
+	background-position: 62px 0;
+}
+
+#steps-synchronize{
+	position:absolute;
+}
+
+#code-synchronize{ 
+}
+
 .active-code #copy-up-synchronize,
-.active-code #copy-down-synchronize{
-	display:none;
+.active-code #copy-down-synchronize,
+#copy-steps-synchronize,
+#steps-synchronize,
+#box-action,
+#synchronize.active #icon-mobile-synchronize,
+#no-synchronize.active #icon-desktop-synchronize,
+#synchronize.active #icon-mobile-synchronize-2,
+#no-synchronize.active #icon-desktop-synchronize-2,
+#code-synchronize{ 
+	display: none; 
 }
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (max-width: 479px) and (min-width: 320px) {
-	#copy-up-synchronize{width: 60%;left: 20%;top: 9%;}
-	#icon-synchronize{width: 50%;top: 42%;left: 24%;}
-	#copy-down-synchronize{width: 70%;bottom: 8%;left: 15%;}
-	.button{bottom: -11%;width: 96%;left: 2%;font-size: 16px;}
-	.button:nth-child(even){bottom: -22%;left: 2%;right: inherit;}
+	#steps-action{right: 0px;top: 25px;}
+	#steps-action .step{width: 40px;height: 40px;}
+	#synchronize,#no-synchronize{width: 100%;height: 50%;}
+	#no-synchronize{ bottom: 0;}
+	#synchronize{ top: 0; }
+	#copy-up-synchronize{top: 42%;width: 50%;left: 25%;}
+	#icon-mobile-synchronize-2{width: 30%;bottom:1%;left: 35%;}
+	#icon-desktop-synchronize-2{width: 44%;top: 1%;right: 28%;}
+	#icon-mobile-synchronize,#icon-desktop-synchronize{display: none;}
+	#steps-synchronize{width: 96%;left: 2%;top: 32%;}
 	#title-video{width: 70%;left: 15%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
 	#action{width: 210px;bottom: -86px;left: calc(50% - 105px);height: 200px;}
-	.facebook-icon{margin-left: 3%;}
 	#action span{bottom: 44%;width: 100%;letter-spacing: 1px;font-size: 15px;padding: 0 4%;}
 	#sprite{top: 6px;}
 }
@@ -171,11 +246,16 @@ canvas{
 @media only screen 
 and (min-width : 480px) 
 and (max-width : 767px) {
-	#copy-up-synchronize{width: 50%;left: 25%;top: -8%;}
-	#icon-synchronize{width: 40%;top: 35%;left: 30%;}
-	#copy-down-synchronize{width: 60%;bottom: 4%;left: 20%;}
-	.button{bottom: -12%;width: 80%;left: 10%;}
-	.button:nth-child(even){bottom: -23%;width: 80%;left: 10%;right: inherit;}
+	#steps-action{right: 0px;top: 25px;}
+	#steps-action .step{width: 40px;height: 40px;}
+	#synchronize,#no-synchronize{width: 100%;height: 50%;}
+	#no-synchronize{ bottom: 0;}
+	#synchronize{ top: 0; }
+	#copy-up-synchronize{top: 40%;width: 44%;left: 28%;}
+	#icon-mobile-synchronize-2{width: 22%;bottom: 1%;left: 38%;}
+	#icon-desktop-synchronize-2{width: 30%;top: 1%;right: 35%;}
+	#icon-mobile-synchronize,#icon-desktop-synchronize{display: none;}
+	#steps-synchronize{width: 96%;left: 2%;top: 32%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
@@ -187,25 +267,28 @@ and (max-width : 767px) {
 @media only screen 
 and (min-width : 768px) 
 and (max-width : 1023px) {
-	#copy-up-synchronize{width: 290px;left: calc(50% - 145px);top: -39px;}
-	#icon-synchronize{width: 242px;top: calc(50% - 84px);left: calc(50% - 121px);}
-	#copy-down-synchronize{width: 390px;bottom: 25px;left: calc(50% - 195px);}
+	.copy-synchronize{width: 46%;left: 26%;top: -7%;}
+	#steps-synchronize{width: 90%;left: 5%;top: 25%;}
+	#icon-mobile-synchronize-2{width: 50%;top: 30%;left: 25%;}
+	#icon-desktop-synchronize-2{width: 64%;top: 29%;right: 21%;}
+	#icon-mobile-synchronize{width: 50%;top: 30%;left: 25%;}
+	#icon-desktop-synchronize{width: 45%;top: 29%;right: 27%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
 	#action{width: 350px;bottom: -163px;left: calc(50% - 175px);height: 350px;}
 	#action span{top: 28%;width: 100%;letter-spacing: 1px;font-size: 35px;padding: 0 4%;}
-	.button{width: 49%;bottom: -15%;}
-	.button:nth-child(even){ right: 0;}
 }
 
 /* Desktops and laptops 1 ----------- */
 @media only screen 
 and (min-width : 1024px) 
 and (max-width : 1223px){
-	#copy-up-synchronize{width: 290px;left: calc(50% - 145px);top: -46px;}
-	#icon-synchronize{width: 242px;top: calc(50% - 84px);left: calc(50% - 121px);}
-	#copy-down-synchronize{width: 410px;bottom: 26px;left: calc(50% - 205px);}
+	.copy-synchronize{width: 30%;left: 35%;top: -10%;}
+	#steps-synchronize{width: 72%;left: 14%;top: 20%;}
+	#icon-mobile-synchronize-2,#icon-desktop-synchronize-2{display: none;}
+	#icon-mobile-synchronize{width: 46%;top: 27%;left: 27%;}
+	#icon-desktop-synchronize{width: 40%;top: 25%;right: 30%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
@@ -213,17 +296,17 @@ and (max-width : 1223px){
 	#action span{top: 27%;width: 100%;letter-spacing: 1px;font-size: 39px;padding: 0 4%;}
 	#code p{letter-spacing: 1px;font-size: 35px;line-height: 35px;}
 	#code strong{ font-size: 55px; letter-spacing: 10px;}
-	.button{width: 49%;bottom: -15%;}
-	.button:nth-child(even){ right: 0;}
 }
 
 /* Desktops and laptops 2 ----------- */
 @media only screen 
 and (min-width : 1224px) 
 and (max-width : 1499px){
-	#copy-up-synchronize{width: 300px;left: calc(50% - 150px);top: -50px;}
-	#icon-synchronize{width: 280px;top: calc(50% - 97px);left: calc(50% - 140px);}
-	#copy-down-synchronize{width: 430px;bottom: 25px;left: calc(50% - 215px);}
+	.copy-synchronize{width: 38%;left: 32%;top: -10%;}
+	#steps-synchronize{width: 82%;left: 9%;top: 24%;}
+	#icon-mobile-synchronize-2,#icon-desktop-synchronize-2{display: none;}
+	#icon-mobile-synchronize{width: 50%;top: 30%;left: 25%;}
+	#icon-desktop-synchronize{width: 45%;top: 29%;right: 27%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
@@ -231,16 +314,15 @@ and (max-width : 1499px){
 	#action span{top: 27%;width: 100%;letter-spacing: 1px;font-size: 39px;padding: 0 4%;}
 	#code p{letter-spacing: 1px;font-size: 30px;line-height: 30px;}
 	#code strong{font-size: 49px;letter-spacing: 10px;}
-	.button{width: 49%;bottom: -15%;}
-	.button:nth-child(even){ right: 0;}
 }
 
 /* Large screens ----------- */
-@media only screen 
-and (min-width : 1500px) {
-	#copy-up-synchronize{width: 300px;left: calc(50% - 150px);top: -50px;}
-	#icon-synchronize{width: 280px;top: calc(50% - 97px);left: calc(50% - 140px);}
-	#copy-down-synchronize{width: 430px;bottom: 25px;left: calc(50% - 215px);}
+@media only screen and (min-width: 1500px) {
+	.copy-synchronize{width: 40%;left: 30%;top: -10%;}
+	#steps-synchronize{ width: 78%; left: 12%; top: 24%; }
+	#icon-mobile-synchronize-2,#icon-desktop-synchronize-2{display: none;}
+	#icon-mobile-synchronize{width: 50%;top: 30%;left: 25%;}
+	#icon-desktop-synchronize{width: 45%;top: 29%;right: 27%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}
@@ -248,6 +330,4 @@ and (min-width : 1500px) {
 	#action span{top: 24%;width: 100%;letter-spacing: 1px;font-size: 50px;padding: 0 4%;}
 	#code p{letter-spacing: 1px;font-size: 35px;line-height: 35px;}
 	#code strong{ font-size: 55px; letter-spacing: 10px;}
-	.button{width: 49%;bottom: -15%;}
-	.button:nth-child(even){ right: 0;}
 }

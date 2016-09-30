@@ -21,6 +21,10 @@ var Sequencer = (function () {
 		var lastLoaded = -1;
 		var contFrameInterval=0;
 		var stopFrameInterval;
+		var startMove=1;
+		var endMove=0;
+		var countMove=0;
+		var maxCountMove=2;
 
 		// configuration defaults
 		var config = {
@@ -80,8 +84,9 @@ var Sequencer = (function () {
 		function play(){
 				stop();
 				if (config.playMode === 'mouse'){
-						document.addEventListener('mousemove', onMouseMove, false);
-						document.ontouchmove = function(e){
+						var disVideo = document.getElementById("box-action");
+						disVideo.addEventListener('mousemove', onMouseMove, false);
+						disVideo.ontouchmove = function(e){
 								onMouseMove(e.touches[0]);
 								return false;
 						}
@@ -98,42 +103,29 @@ var Sequencer = (function () {
 				}
 		}
 
-		function nextImage(mode){
-				if (!mode) mode = config.playMode;
-				if(mode === 'pong') {
-						current += playDir;
-						if (current >= images.length-1) { //current could ev. change by other playmodes, so extra-checks are necessary
-								playDir = -1;
-								current = images.length-1;
-						} else if (current <= 0){
-								playDir = 1;
-								current = 0;
-						}
-						showImage(current);
-				} else {
-						var nextId= (current === images.length-1) ? 0 : ++current; //loop
-						showImage(nextId); 
-				}
+		function nextImage(interval){
+			var nextId= (current >= images.length-1) ? 0 : ++current; //loop
+			showImage(nextId+interval); 
 		}
 
-		function previousImage(mode){
-				if (!mode) mode = config.playMode;
-				var previousId = (current === 0) ? images.length-1 : --current; //loop
-				showImage(previousId); 
+		function previousImage(interval){
+			var previousId = (current <= 0) ? images.length-1 : --current; //loop
+			showImage(previousId-interval); 
+			
 		}
 
 
-		function toFrame(id,direction){
+		function toFrame(to,direction,interval){
 
-				stopFrameInterval=(current <= id ) ? (id-current) : (current-id);
+				stopFrameInterval=(current <= to ) ? (to-current) : (current-to);
 
 				var frameInterval = setInterval(function(){ 
 					
 					contFrameInterval++;
 
 					switch(direction){
-						case "right": nextImage(); break;
-						case "left": previousImage(); break;
+						case "right": nextImage(interval); break;
+						case "left": previousImage(interval); break;
 					}
 
 					if (contFrameInterval == stopFrameInterval) {
@@ -150,6 +142,7 @@ var Sequencer = (function () {
 		}
 
 		function onMouseMove(e){
+			console.log(e);
 				var t = images.length;
 				var m, w;
 				if (config.direction == "x") {
@@ -167,10 +160,34 @@ var Sequencer = (function () {
 				}
 
 				var id = Math.min(t, Math.max(0, Math.floor(m / w * t)));
+				var widthVideo=document.getElementById("box-action").offsetWidth;
 				if (id != current){
 						showImage(id);
 						current = id;
 				}
+
+				var withVideo = document.getElementById("box-action").offsetWidth;
+				var halfVideo = (withVideo/2);
+				var halfScreen = (w/2);
+				var maxLetfVideo = (halfScreen - halfVideo + (halfVideo/2));
+				var maxRightVideo = (halfScreen + halfVideo - (halfVideo/2));
+				
+				// Moviento hasta la izquierda
+				if (m <= (maxLetfVideo) && endMove==1) {
+					console.log();
+					endMove = 0;
+					startMove = 1;
+				}
+				
+				// Moviento hasta la derecha
+				if (m >= (maxRightVideo) && startMove==1) {
+					startMove=0;
+					endMove = 1;
+					countMove++;
+				}
+
+				// Total de movimiento cumplidos - realiza acción
+				if (countMove==maxCountMove) {	unlock();  }
 		}
 
 		function onWindowResize(){
@@ -364,6 +381,7 @@ var Preloader = (function(){
 
 		function removeProgress(){
 				if (progress) {
+						$("#action").show();
 						document.body.removeChild(progress);
 						document.getElementById("box-action").removeChild(bgbox);
 						progress = null;

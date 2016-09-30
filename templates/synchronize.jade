@@ -2,25 +2,36 @@ include master/general/doctype.jade
 	include master/general/head.jade
 		link(rel='stylesheet', href='css/changing-box.css')
 		link(rel='stylesheet', href='css/synchronize.css')
-	body.white.active-code
+	body.white
 		#content-message
 			#message uiahsdasydvyuas dausdbhas duygauisgd
 		include master/general/header.jade
 		section#gesture-content
 			article
+				#code-synchronize
+					span Ingresa el codigo
+					input(type="number" id="code-mobile" name="code-mobile" maxlength="5")
+					.button#send-code Sincronizar
 				#box-synchronize(style="background-image: url('img/recipes/1.png');" class="box")
-					input(type="number" id="code-phone" name="code-phone" maxLength="5")
-					span(id="code-desktop" name="code-desktop")
 					include master/svg/copy-up-synchronize.jade
+					include master/svg/copy-steps-synchronize.jade
 					#shadows
 						#shadow-top
 						#shadow-left
 						#shadow-right
-					include master/svg/icon-synchronize.jade
-					include master/svg/copy-down-synchronize.jade
-					.button(id="btn-sync" data-action="1")
-					.button(id="btn-no-sync" data-action="1")
+					#options
+						#synchronize
+							include master/svg/icon-mobile-synchronize.jade
+							include master/svg/icon-desktop-synchronize-2.jade
+							include master/svg/steps-synchronize.jade
+						#no-synchronize
+							include master/svg/icon-desktop-synchronize.jade
+							include master/svg/icon-mobile-synchronize-2.jade
 				#box-action(class="box")
+					#steps-action
+						.step#step-1
+						.step#step-2
+						.step#step-3
 					include master/svg/title-video.jade
 					#bg-distort
 					#shadows
@@ -34,7 +45,8 @@ include master/general/doctype.jade
 		include master/general/scripts.jade
 		script(type="text/javascript" src="js/vendor/sequencer.canvas.js")
 		script(type="text/javascript" src="js/vendor/sequencer.benchmark.js")
-		script(src='https://pinguino-julian10404.c9users.io/socket.io/socket.io.js')
-		script(src='js/clientWeb.js')
-		script(src='js/clientCel.js')
+		//script(src='https://pinguino-julian10404.c9users.io/socket.io/socket.io.js')
+		//script(src='js/lsc.js')
+		//script(src='js/clientWeb.js')
+		//script(src='js/clientCel.js')
 		script(src='js/synchronize.js')
