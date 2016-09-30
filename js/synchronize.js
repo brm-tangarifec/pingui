@@ -115,6 +115,7 @@ function createcanvas(device,action){
 					interval=5;
 					if (mobile) { 
 						$("#box-action").remove();
+						$("#code-synchronize").remove();
 						$("article").addClass(device); 
 					}
 
