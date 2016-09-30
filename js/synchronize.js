@@ -1,4 +1,4 @@
-var mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null,arrayAction=[],numAction=0,datacurrent=null,idactioncurrent=null,devicecurrent=null;
+var actionglob=0;mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null,arrayAction=[],numAction=0,datacurrent=null,idactioncurrent=null,devicecurrent=null;
 
 $(document).ready(function(){
 
@@ -51,14 +51,13 @@ $(document).ready(function(){
 
 
 function createmobilearea(){
-	
+
 		$("#code-synchronize").remove();
 		$("#desktop-mobile-area").show();
 		$("#action").show();
 }
 
-function createsprite(){
-	console.log("entras");
+function createsprite(action){
 
 	switch(device) {
 	    case "mobile-desktop":
@@ -74,7 +73,6 @@ function createsprite(){
 					sprite="big";
 	    break;
 	}
-	console.log(text);
 	$("#action-text").html(text);
 	$(".sprite").attr("id","action-"+action+"-"+sprite);
 
@@ -108,9 +106,15 @@ function setconfigcanvas(action){
 
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
-		arrayAction = data[action].action;
-		console.log(numAction,"numAction");
-		datacurrent = arrayAction[numAction];
+
+		actions = data[action].action;
+		datacurrent = actions[numAction];
+
+		$("#steps-action").html("");
+		for (var i = 1; i < actions.length+1; i++) {
+			$("#steps-action").append("<div class='step' id='step-"+i+"'> <span> 0/"+actions.length+"</span></div>");
+		}
+
 		textdesktop=datacurrent.text.desktop;
 		textmobile=datacurrent.text.mobile;
 		from=datacurrent.from;
@@ -124,13 +128,19 @@ function setconfigcanvas(action){
 
 }
 
+function getaction(){
+	return actionglob;
+}
+
+function setaction(action){
+	actionglob=action;
+}
 
 function createcanvas(action){
-	console.log("asdasdasd");
+
 	setconfigcanvas(action);
-
+	setaction(action);
 	idactioncurrent=action;
-
 
 	$("#box-synchronize").remove();	
 
@@ -171,7 +181,7 @@ function createcanvas(action){
 	    break;
 	}
 
-	createsprite();
+	createsprite(action);
 
 }
 
@@ -229,6 +239,7 @@ function unlock(){
 		//window.location="video.php";
 	}else{
 		numAction++;
+		$("#step-"+ (numAction+1) ).addClass("unlock");
 		$("#box-action canvas").remove();
 		createcanvas(idactioncurrent);
 	}
