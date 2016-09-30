@@ -3,16 +3,6 @@ article{
 	height: 100%;
 	position: relative;
 }
-article.mobile-desktop #action{
-	width: 240px;
-	bottom: calc(50% - 120px);
-	left: calc(50% - 120px);
-	height: 240px;
-}
-
-article.mobile-desktop #action .sprite{
-}
-article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 
 #title-video{
 	display: block;
@@ -210,6 +200,9 @@ canvas{
 #code-synchronize span{font-family: stick;color: #e53027;font-size: 37px;display: block;text-align: center;margin-bottom: 4%;}
 
 
+#desktop-mobile-area{}
+#desktop-mobile-area span{}
+
 .active-code #copy-up-synchronize,
 .active-code #copy-down-synchronize,
 #copy-steps-synchronize,
@@ -219,7 +212,8 @@ canvas{
 #no-synchronize.active #icon-desktop-synchronize,
 #synchronize.active #icon-mobile-synchronize-2,
 #no-synchronize.active #icon-desktop-synchronize-2,
-#code-synchronize{ 
+#code-synchronize,
+#desktop-mobile-area{ 
 	display: none; 
 }
 
