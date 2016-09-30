@@ -36,9 +36,6 @@ $(document).ready(function(){
 	}
 
 	$('#send-code').click(function(){
-		$("#code-synchronize").remove();
-		$("#desktop-mobile-area").show();
-		$("#action").show();
 		comparaCodigo();
 	});
 
@@ -47,11 +44,41 @@ $(document).ready(function(){
 	});
 
 	$('#no-synchronize').click(function(){
-	
 		createcanvas(syncCAjax( localStorage.getItem("video") ,'desc'));
 	});
 
 });
+
+
+function createmobilearea(){
+	
+		$("#code-synchronize").remove();
+		$("#desktop-mobile-area").show();
+		$("#action").show();
+}
+
+function createsprite(){
+	console.log("entras");
+
+	switch(device) {
+	    case "mobile-desktop":
+					text=textmobile;
+					sprite="small";
+	    break;
+	    case "mobile":
+					text=textmobile;
+					sprite="big";
+	    break;
+	    case "desktop":
+					text=textdesktop;
+					sprite="big";
+	    break;
+	}
+	console.log(text);
+	$("#action-text").html(text);
+	$(".sprite").attr("id","action-"+action+"-"+sprite);
+
+}
 
 
 function synchronize(){
@@ -75,13 +102,9 @@ function synchronize(){
 
 		}
 
-
 }
 
-function createcanvas(action){
-	
-	idactioncurrent=action;
-	$("#box-synchronize").remove();	
+function setconfigcanvas(action){
 
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
@@ -97,8 +120,19 @@ function createcanvas(action){
 		ext=datacurrent.ext;
 		direction=datacurrent.direction;
 		playmode=datacurrent.playmode;
-
 	});
+
+}
+
+
+function createcanvas(action){
+	console.log("asdasdasd");
+	setconfigcanvas(action);
+
+	idactioncurrent=action;
+
+
+	$("#box-synchronize").remove();	
 
 	switch(action) {
 			case "1": gestureswipe("y"); break;
@@ -110,18 +144,12 @@ function createcanvas(action){
 	    case "mobile-desktop":
 
 					interval=5;
-					if (mobile) { 
-						$("#box-action").remove();
-						$("article").addClass(device); 
-					}
+					if (mobile) { $("#box-action").remove(); }
 
 					if (!mobile) { 
 						$("#box-action").show();
 						Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});  
 					}
-
-					text=textmobile;
-					sprite="small";
 
 	    break;
 
@@ -131,8 +159,6 @@ function createcanvas(action){
 					$("article").addClass(device); 
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext});
-					text=textmobile;
-					sprite="big";
 
 	    break;
 
@@ -141,14 +167,11 @@ function createcanvas(action){
 					interval=1;
 					$("#box-action").show(); 
 					Sequencer.init({from:from, to: to, folder:folder, baseName:basename, ext:ext, direction:direction, playMode:playmode});
-					text=textdesktop;
-					sprite="big";
 	
 	    break;
 	}
 
-	$("#action-text").html(text);
-	$(".sprite").attr("id","action-"+action+"-"+sprite);
+	createsprite();
 
 }
 

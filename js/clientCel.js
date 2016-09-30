@@ -11,6 +11,7 @@ function comparaCodigo(){
             codigo: codigo
         }
         socket.emit('comparaCodigo', data);
+        createmobilearea();
     }else{
         $("#message").html("Ingrése el código");
     }
