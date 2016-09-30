@@ -1,4 +1,4 @@
-var mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null;
+var mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null,arrayAction=[],numAction=0,datacurrent=null,idactioncurrent=null,devicecurrent=null;
 
 $(document).ready(function(){
 
@@ -38,8 +38,7 @@ $(document).ready(function(){
 	}
 
 	$('#send-code').click(function(){
-		comparaCodigo();
-		createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
+		//comparaCodigo();
 	});
 
 	$('#synchronize').click(function(){
@@ -49,6 +48,7 @@ $(document).ready(function(){
 	$('#no-synchronize').click(function(){
 	
 		createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
+		//createcanvas(device,"2");
 	});
 
 	$('#code-mobile').focus( function() {
@@ -68,7 +68,7 @@ function synchronize(){
 
 		if (mobile) {
 
-			$("#code-synchronize").show();
+			$("#code-mobile").show();
 			$('#box-synchronize').remove();
 
 		}else{
@@ -87,24 +87,29 @@ function synchronize(){
 }
 
 function createcanvas(device,action){
+	devicecurrent = device;
+	idactioncurrent=action;
 	$("#box-synchronize").remove();	
 
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
-		textdesktop=data[action].text.desktop;
-		textmobile=data[action].text.mobile;
-		from=data[action].from;
-		to=data[action].to;
-		folder=data[action].folder;
-		basename=data[action].basename;
-		ext=data[action].ext;
-		direction=data[action].direction;
-		playmode=data[action].playmode;
+		arrayAction = data[action].action;
+		console.log(numAction,"numAction");
+		datacurrent = arrayAction[numAction];
+		textdesktop=datacurrent.text.desktop;
+		textmobile=datacurrent.text.mobile;
+		from=datacurrent.from;
+		to=datacurrent.to;
+		folder=datacurrent.folder;
+		basename=datacurrent.basename;
+		ext=datacurrent.ext;
+		direction=datacurrent.direction;
+		playmode=datacurrent.playmode;
 
 	});
 
 	switch(action) {
-			case "1": gestureswipe("y"); break;
+		case "1": gestureswipe("y"); break;
 	    case "2": gestureswipe("x"); break;
 	}
 
@@ -158,7 +163,7 @@ function createcanvas(device,action){
 
 /* Acciones */
 
-// Realiza la accion de swipe para el eje X y Y
+// Realiza la acción de swipe para el eje X y Y
 function gestureswipe(eje){
 	if (mobile) { 
 	  var box1 = document.getElementById('gesture-content')
@@ -191,6 +196,7 @@ function moveframe(percentage,action,iterations){
 
 	var framesmove=Math.round((to/interval)*percentage/100);
 
+
 	if(framesmove > 0 ){
 		toframe=(Sequencer.getCurrent() + framesmove);
 		direction="right";
@@ -198,11 +204,17 @@ function moveframe(percentage,action,iterations){
 		toframe=Sequencer.getCurrent() - (framesmove*-1);
 		direction="left";
 	}
-
 	Sequencer.toFrame(toframe,direction,interval);
 
 }
 
 function unlock(){
-	window.location="video.php";
+	console.log(numAction +"=="+ (arrayAction.length-1));
+	if (numAction == (arrayAction.length-1)) {
+		window.location="video.php";
+	}else{
+		numAction++;
+		$("#box-action canvas").remove();
+		createcanvas(devicecurrent,idactioncurrent);
+	}
 }	
