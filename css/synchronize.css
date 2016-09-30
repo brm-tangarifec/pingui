@@ -206,6 +206,9 @@ canvas{
 	position:absolute;
 }
 
+#code-synchronize{ 
+}
+
 .active-code #copy-up-synchronize,
 .active-code #copy-down-synchronize,
 #copy-steps-synchronize,
@@ -283,6 +286,7 @@ and (min-width : 1024px)
 and (max-width : 1223px){
 	.copy-synchronize{width: 30%;left: 35%;top: -10%;}
 	#steps-synchronize{width: 72%;left: 14%;top: 20%;}
+	#icon-mobile-synchronize-2,#icon-desktop-synchronize-2{display: none;}
 	#icon-mobile-synchronize{width: 46%;top: 27%;left: 27%;}
 	#icon-desktop-synchronize{width: 40%;top: 25%;right: 30%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
@@ -300,6 +304,7 @@ and (min-width : 1224px)
 and (max-width : 1499px){
 	.copy-synchronize{width: 38%;left: 32%;top: -10%;}
 	#steps-synchronize{width: 82%;left: 9%;top: 24%;}
+	#icon-mobile-synchronize-2,#icon-desktop-synchronize-2{display: none;}
 	#icon-mobile-synchronize{width: 50%;top: 30%;left: 25%;}
 	#icon-desktop-synchronize{width: 45%;top: 29%;right: 27%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
@@ -315,6 +320,7 @@ and (max-width : 1499px){
 @media only screen and (min-width: 1500px) {
 	.copy-synchronize{width: 40%;left: 30%;top: -10%;}
 	#steps-synchronize{ width: 78%; left: 12%; top: 24%; }
+	#icon-mobile-synchronize-2,#icon-desktop-synchronize-2{display: none;}
 	#icon-mobile-synchronize{width: 50%;top: 30%;left: 25%;}
 	#icon-desktop-synchronize{width: 45%;top: 29%;right: 27%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}

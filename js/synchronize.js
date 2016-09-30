@@ -38,7 +38,8 @@ $(document).ready(function(){
 	}
 
 	$('#send-code').click(function(){
-		//comparaCodigo();
+		comparaCodigo();
+		createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
 	});
 
 	$('#synchronize').click(function(){
@@ -48,7 +49,6 @@ $(document).ready(function(){
 	$('#no-synchronize').click(function(){
 	
 		createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
-		//createcanvas(device,"2");
 	});
 
 	$('#code-mobile').focus( function() {
@@ -79,7 +79,7 @@ function synchronize(){
 			$('#copy-steps-synchronize').show();
 			$('#steps-synchronize').show();
 			$("#icon-synchronize").hide();
-			//peticionCodigo();
+			peticionCodigo();
 
 		}
 
@@ -190,7 +190,6 @@ function moveframe(percentage,action,iterations){
 
 	var framesmove=Math.round((to/interval)*percentage/100);
 
-
 	if(framesmove > 0 ){
 		toframe=(Sequencer.getCurrent() + framesmove);
 		direction="right";
@@ -198,11 +197,7 @@ function moveframe(percentage,action,iterations){
 		toframe=Sequencer.getCurrent() - (framesmove*-1);
 		direction="left";
 	}
-	console.log(framesmove,"framesmove");
-	console.log(Sequencer.getCurrent(),"Sequencer.getCurrent()");
-	console.log(contmove,"contmove");
-	console.log(complete,"complete");
-	console.log(percentage,"percentage");
+
 	Sequencer.toFrame(toframe,direction,interval);
 
 }
