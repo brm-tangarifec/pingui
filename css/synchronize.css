@@ -155,7 +155,6 @@ article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 }
 
 #code-desktop{
-	display: none;
 	position: absolute;
 	top: 40%;
 	font-family: stick;
@@ -240,6 +239,7 @@ canvas{
 	#copy-up-synchronize{top: 42%;width: 50%;left: 25%;}
 	#icon-mobile-synchronize-2{width: 30%;bottom:1%;left: 35%;}
 	#icon-desktop-synchronize-2{width: 44%;top: 1%;right: 28%;}
+	#icon-mobile-synchronize,#icon-desktop-synchronize{display: none;}
 	#steps-synchronize{width: 96%;left: 2%;top: 32%;}
 	#title-video{width: 70%;left: 15%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
@@ -261,6 +261,7 @@ and (max-width : 767px) {
 	#copy-up-synchronize{top: 40%;width: 44%;left: 28%;}
 	#icon-mobile-synchronize-2{width: 22%;bottom: 1%;left: 38%;}
 	#icon-desktop-synchronize-2{width: 30%;top: 1%;right: 35%;}
+	#icon-mobile-synchronize,#icon-desktop-synchronize{display: none;}
 	#steps-synchronize{width: 96%;left: 2%;top: 32%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
@@ -277,6 +278,8 @@ and (max-width : 1023px) {
 	#steps-synchronize{width: 90%;left: 5%;top: 25%;}
 	#icon-mobile-synchronize-2{width: 50%;top: 30%;left: 25%;}
 	#icon-desktop-synchronize-2{width: 64%;top: 29%;right: 21%;}
+	#icon-mobile-synchronize{width: 50%;top: 30%;left: 25%;}
+	#icon-desktop-synchronize{width: 45%;top: 29%;right: 27%;}
 	#title-video{width: 50%;left: 25%;top: -7%;}
 	#play-video{width: 16%;top: 35%;left: 42%;}
 	#share-video{width: 380px;left: calc(50% - 190px);bottom: 5%;}

@@ -37,7 +37,6 @@ $(document).ready(function(){
 
 	}
 
-
 	$('#send-code').click(function(){
 		//comparaCodigo();
 	});
