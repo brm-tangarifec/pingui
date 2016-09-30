@@ -11,7 +11,7 @@ include master/general/doctype.jade
 				#code-synchronize
 					span Ingresa el codigo
 					input(type="number" id="code-mobile" name="code-mobile" maxlength="5")
-					.button#send-code Sincronizar
+					.button#send-code Syncronizar
 				#box-synchronize(style="background-image: url('img/recipes/1.png');" class="box")
 					include master/svg/copy-up-synchronize.jade
 					include master/svg/copy-steps-synchronize.jade
@@ -30,14 +30,19 @@ include master/general/doctype.jade
 				#box-action(class="box")
 					#steps-action
 						.step#step-1
+							span 1/2
 						.step#step-2
+							span 1/2
 						.step#step-3
+							span 1/2
 					include master/svg/title-video.jade
 					#bg-distort
 					#shadows
 						#shadow-top
 						#shadow-left
 						#shadow-right
+				#desktop-mobile-area
+					span Área sensible
 				#action
 					span#action-text
 					.sprite
@@ -45,8 +50,8 @@ include master/general/doctype.jade
 		include master/general/scripts.jade
 		script(type="text/javascript" src="js/vendor/sequencer.canvas.js")
 		script(type="text/javascript" src="js/vendor/sequencer.benchmark.js")
-		//script(src='https://pinguino-julian10404.c9users.io/socket.io/socket.io.js')
-		//script(src='js/lsc.js')
-		//script(src='js/clientWeb.js')
-		//script(src='js/clientCel.js')
+		script(src='https://pinguino-julian10404.c9users.io/socket.io/socket.io.js')
+		script(src='js/lsc.js')
+		script(src='js/clientWeb.js')
+		script(src='js/clientCel.js')
 		script(src='js/synchronize.js')

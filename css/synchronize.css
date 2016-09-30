@@ -3,16 +3,6 @@ article{
 	height: 100%;
 	position: relative;
 }
-article.mobile-desktop #action{
-	width: 240px;
-	bottom: calc(50% - 120px);
-	left: calc(50% - 120px);
-	height: 240px;
-}
-
-article.mobile-desktop #action .sprite{
-}
-article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 
 #title-video{
 	display: block;
@@ -135,7 +125,7 @@ article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 }
 
 #code-mobile{
-	width: 40%;
+	width: 100%;
 	padding: 1% 3%;
 	border: 0;
 	-webkit-box-shadow: 1px 5px 11px 0px rgba(50, 50, 50, 0.48);
@@ -146,11 +136,10 @@ article.mobile-desktop #action #action-text{bottom: 26%;top: inherit;}
 	color: #9e9e9e;
 	font-family: stick;
 	font-weight: 100;
-	top: 47%;
-	position: absolute;
-	left: 30%;
+	position: relative;
 	font-size: 38px;
 	text-align: center;
+	margin-bottom: 6%;
 }
 
 .sprite{
@@ -206,8 +195,13 @@ canvas{
 	position:absolute;
 }
 
-#code-synchronize{ 
-}
+#code-synchronize{margin-top: 35%;}
+
+#code-synchronize span{font-family: stick;color: #e53027;font-size: 37px;display: block;text-align: center;margin-bottom: 4%;}
+
+
+#desktop-mobile-area{}
+#desktop-mobile-area span{}
 
 .active-code #copy-up-synchronize,
 .active-code #copy-down-synchronize,
@@ -218,7 +212,8 @@ canvas{
 #no-synchronize.active #icon-desktop-synchronize,
 #synchronize.active #icon-mobile-synchronize-2,
 #no-synchronize.active #icon-desktop-synchronize-2,
-#code-synchronize{ 
+#code-synchronize,
+#desktop-mobile-area{ 
 	display: none; 
 }
 

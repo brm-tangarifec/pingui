@@ -18,9 +18,6 @@ function comparaCodigo(){
 
 // Paso 8 - Se reciben los datos y se realiza la accion
 function realizaAccion(x){
-
-		console.log(x,"asdasd");
-
 		var tamanoDevice = screen.width;
 		var porcentaje=x*100/tamanoDevice;
 
@@ -51,7 +48,9 @@ if (screen.width<1280)
             // Sincronizo correctamente
             estadoSincro=1;
             $("#message").html("Se sincronizó correctamente");
-            createcanvas(device,data.idVideo);
+            alert(device);
+            alert(data.idVideo);
+            createcanvas(data.idVideo);
         }else if (data.estadoCodigo==2){
             // El código ya está en uso
             $("#message").html("El código ya se está usando");
