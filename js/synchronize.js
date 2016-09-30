@@ -47,7 +47,7 @@ $(document).ready(function(){
 
 	$('#no-synchronize').click(function(){
 	
-		createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
+		createcanvas(syncCAjax( localStorage.getItem("video") ,'desc'));
 		//createcanvas(device,"2");
 	});
 
@@ -86,8 +86,8 @@ function synchronize(){
 
 }
 
-function createcanvas(device,action){
-	devicecurrent = device;
+function createcanvas(action){
+	
 	idactioncurrent=action;
 	$("#box-synchronize").remove();	
 
@@ -191,10 +191,13 @@ function moveframe(percentage,action,iterations){
 	complete+=percentage;
 
 	if (complete >= 100) { complete=0; contmove++; }
-	if (contmove==iterations) { unlock() }
-
+	if (contmove==iterations) { 
+		contmove=0;
+		complete=0;
+		Sequencer.setCurrent(-1);
+		unlock();
+	}
 	var framesmove=Math.round((to/interval)*percentage/100);
-
 
 	if(framesmove > 0 ){
 		toframe=(Sequencer.getCurrent() + framesmove);
@@ -203,17 +206,19 @@ function moveframe(percentage,action,iterations){
 		toframe=Sequencer.getCurrent() - (framesmove*-1);
 		direction="left";
 	}
+	
+
 	Sequencer.toFrame(toframe,direction,interval);
 
 }
 
 function unlock(){
-	console.log(numAction +"=="+ (arrayAction.length-1));
 	if (numAction == (arrayAction.length-1)) {
-		window.location="video.php";
+		//window.location="video.php";
 	}else{
 		numAction++;
 		$("#box-action canvas").remove();
-		createcanvas(devicecurrent,idactioncurrent);
+		createcanvas(idactioncurrent);
+	
 	}
 }	
