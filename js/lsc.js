@@ -3,6 +3,13 @@ jQuery(document).ready(function() {
     //console.log('hola');
     //localStorage.clear();
     $(".mix").on("click", function() {
+        /*Comprobación de video*/
+         var videost = localStorage.getItem('videost');
+        if(videost!== null){
+            loadAjax(videost,'rec');
+        }else{
+            
+       
         var videoi = jQuery(this).attr('data');
         var data = syncCAjax(videoi,'enc');
         if (window.localStorage !== undefined) {
@@ -13,17 +20,12 @@ jQuery(document).ready(function() {
         } else {
             console.log("Storage Failed. Try refreshing");
         }
-        return false;
+        
         //console.log(videoi);
-    });
-    /*Comprobación de video*/
-    setTimeout(function(){
-        //console.log('se ejecuta esta vaina');
-        var videost = localStorage.getItem('videost');
-        if(videost!== null){
-            loadAjax(videost,'rec');
         }
- },2000);
+        return false;
+    });
+    
 });
 
 function syncCAjax(videoi,vrtCrt) {
