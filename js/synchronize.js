@@ -48,7 +48,8 @@ $(document).ready(function(){
 
 	$('#no-synchronize').click(function(){
 	
-		createcanvas(device,syncCAjax( localStorage.getItem("video") ,'desc'));
+		createcanvas(syncCAjax( localStorage.getItem("video") ,'desc'));
+
 	});
 
 	$('#code-mobile').focus( function() {
@@ -85,7 +86,10 @@ function synchronize(){
 
 }
 
-function createcanvas(device,action){
+
+function createcanvas(action){
+	
+	idactioncurrent=action;
 	$("#box-synchronize").remove();	
 
 	$.ajaxSetup({ async: false });
@@ -186,8 +190,12 @@ function moveframe(percentage,action,iterations){
 	complete+=percentage;
 
 	if (complete >= 100) { complete=0; contmove++; }
-	if (contmove==iterations) { unlock() }
-
+	if (contmove==iterations) { 
+		contmove=0;
+		complete=0;
+		Sequencer.setCurrent(-1);
+		unlock();
+	}
 	var framesmove=Math.round((to/interval)*percentage/100);
 
 	if(framesmove > 0 ){
@@ -203,5 +211,13 @@ function moveframe(percentage,action,iterations){
 }
 
 function unlock(){
-	window.location="video.php";
+
+	if (numAction == (arrayAction.length-1)) {
+		//window.location="video.php";
+	}else{
+		numAction++;
+		$("#box-action canvas").remove();
+		createcanvas(idactioncurrent);
+	
+	}
 }	

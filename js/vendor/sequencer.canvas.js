@@ -81,6 +81,10 @@ var Sequencer = (function () {
 				config.playMode = mode;
 		}
 
+		function setCurrent(frame){
+			current=frame;
+		}
+		
 		function play(){
 				stop();
 				if (config.playMode === 'mouse'){
@@ -252,6 +256,7 @@ var Sequencer = (function () {
 				showImage : showImage,
 				toFrame : toFrame,
 				getCurrent : getCurrent,
+				setCurrent : setCurrent,
 				stop : stop
 		};
 })();
