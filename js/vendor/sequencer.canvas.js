@@ -142,7 +142,6 @@ var Sequencer = (function () {
 		}
 
 		function onMouseMove(e){
-			console.log(e);
 				var t = images.length;
 				var m, w;
 				if (config.direction == "x") {
@@ -174,7 +173,6 @@ var Sequencer = (function () {
 				
 				// Moviento hasta la izquierda
 				if (m <= (maxLetfVideo) && endMove==1) {
-					console.log();
 					endMove = 0;
 					startMove = 1;
 				}
@@ -187,7 +185,12 @@ var Sequencer = (function () {
 				}
 
 				// Total de movimiento cumplidos - realiza acción
-				if (countMove==maxCountMove) {	unlock();  }
+				if (countMove==maxCountMove) {	
+					unlock();  
+					startMove=1;
+					endMove=0;
+					countMove=0;
+				}
 		}
 
 		function onWindowResize(){

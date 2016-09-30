@@ -1,30 +1,57 @@
 {
-	"1":{
-		"namevideo":"one.mp4",
-		"from":0,
-		"to":162,
-		"folder":"_data/recipe-1/action-1",
-		"basename":"action-one-",
-		"ext":"jpg",
-		"direction":"y",
-		"playmode":"mouse",
-		"text":{
-			"mobile":"Desliza tu dedo arriba o abajo",
-			"desktop":"Mover mouse arriba o abajo"
-		}
-	},
+	"1":
+		{
+			"namevideo":"one.mp4",
+			"action":
+			[
+				{
+					"action":"swipe",
+					"from":0,
+					"to":162,
+					"folder":"_data/recipe-1/action-1",
+					"basename":"action-one-",
+					"ext":"jpg",
+					"direction":"y",
+					"playmode":"mouse",
+					"text":{
+						"mobile":"Desliza tu dedo arriba o abajo",
+						"desktop":"Mover mouse arriba o abajo"
+					}
+				}
+			]
+		},
 	"2":{
-		"namevideo":"two.mp4",
-		"from":0,
-		"to":135,
-		"folder":"_data/recipe-2/action-1",
-		"basename":"action-two-",
-		"ext":"jpg",
-		"direction":"x",
-		"playmode":"mouse",
-		"text":{
-			"mobile":"Desliza tu dedo izquierda o derecha",
-			"desktop":"Mover mouse izquierda o derecha"
-		}
+		"namevideo":"one.mp4",
+		"action":
+			[
+				{
+					"action":"swipe",
+					"from":0,
+					"to":135,
+					"folder":"_data/recipe-2/action-1",
+					"basename":"action-two-",
+					"ext":"jpg",
+					"direction":"x",
+					"playmode":"mouse",
+					"text":{
+						"mobile":"Desliza tu dedo izquierda o derecha",
+						"desktop":"Mover mouse izquierda o derecha"
+					}
+				},
+				{
+					"action":"swipe",
+					"from":0,
+					"to":162,
+					"folder":"_data/recipe-1/action-1",
+					"basename":"action-one-",
+					"ext":"jpg",
+					"direction":"y",
+					"playmode":"mouse",
+					"text":{
+						"mobile":"Desliza tu dedo arriba o abajo",
+						"desktop":"Mover mouse arriba o abajo"
+					}
+				}
+			]
 	}
 }
