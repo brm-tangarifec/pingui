@@ -23,7 +23,6 @@ $(document).ready(function(){
 
 	}else{
 
-
 		$("#btn-sync").html("sincroniza con tu móvil");
 		$("#btn-no-sync").html("continuar sin experiencia móvil");
 
@@ -34,11 +33,10 @@ $(document).ready(function(){
 
 		device="desktop";
 
-
 	}
 
 	$('#send-code').click(function(){
-		//comparaCodigo();
+		comparaCodigo();
 	});
 
 	$('#synchronize').click(function(){
@@ -48,15 +46,6 @@ $(document).ready(function(){
 	$('#no-synchronize').click(function(){
 	
 		createcanvas(syncCAjax( localStorage.getItem("video") ,'desc'));
-		//createcanvas(device,"2");
-	});
-
-	$('#code-mobile').focus( function() {
-	  $("body").addClass('active-code');
-	});
-
-	$('#code-mobile').blur( function() {
-	  $("body").removeClass('active-code');
 	});
 
 });
@@ -68,7 +57,7 @@ function synchronize(){
 
 		if (mobile) {
 
-			$("#code-mobile").show();
+			$("#code-synchronize").show();
 			$('#box-synchronize').remove();
 
 		}else{
@@ -109,7 +98,7 @@ function createcanvas(action){
 	});
 
 	switch(action) {
-		case "1": gestureswipe("y"); break;
+			case "1": gestureswipe("y"); break;
 	    case "2": gestureswipe("x"); break;
 	}
 
