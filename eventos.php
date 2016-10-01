@@ -1,6 +1,6 @@
 <?php
 require('db/requires.php');
-ini_set('display_errors','1');
+ini_set('display_errors','0');
 @error_reporting(0);
 /*se ejecutan eventos dependiendo de lo solicitado*/
 $varPost=filter_input_array(INPUT_POST);
@@ -94,35 +94,40 @@ switch ($vrtCtr) {
 		//setcookie('ywd_usui', "hola", time() + 1200, '/', $secure, $httponly);
 		/*Datos de usauario*/
 		if(isset($varPost['email']) && $varPost['email']!='' && isset($varPost['aceptar']) && $varPost['aceptar']=='S' && isset($varPost['lepas']) && $varPost['lepas']!='' && isset($varPost['lepasc']) && $varPost['lepasc']=!'' && $varPost['lepas']==$varPost['lepasc'] ){
-
-
-
-		$campos['nombre']=utf8_decode($varPost['nombre']);
-		$campos['apellido']=utf8_decode($varPost['apellido']);
-		$campos['email']=strtolower($varPost['email']);
-		$campos['provincia']=utf8_decode($varPost['provincia']);
-		$campos['ciudad']=utf8_decode($varPost['ciudad']);
-		$campos['lepass']=base64_encode($varPost['lepas']);
-		$campos['aceptar']=$varPost['aceptar'];
-		$campos['idR']=$varPost['idR'];
-
-		//printVar($subida,'Hola s');
-		$guardaUsu=$registrar->inscripcion($campos);
-		//printVar($guardaUsu,'Respuesta insert');
-		/*Creación y lectura de cookie*/
-		//if($guardaUsu!=''){
+			
+			
+			$campos['nombre']=utf8_decode($varPost['nombre']);
+			$campos['apellido']=utf8_decode($varPost['apellido']);
+			$campos['email']=strtolower($varPost['email']);
+			$campos['provincia']=utf8_decode($varPost['provincia']);
+			$campos['ciudad']=utf8_decode($varPost['ciudad']);
+			$campos['lepass']=base64_encode($varPost['lepas']);
+			$campos['aceptar']=$varPost['aceptar'];
+			$campos['idR']=$varPost['idR'];
+			//printVar($subida,'Hola s');
+			$guardaUsu=$registrar->inscripcion($campos);
+			//printVar($guardaUsu,'Respuesta insert');
+			/*Creación y lectura de cookie*/
+			if($guardaUsu!=''){
+				if(isset($_COOKIE['ywd_usud']) && $_COOKIE['ywd_usud']!=''){
+				/*Aquí se actualiza la sessión y se destruye la actual*/
+					$idUser=$session->decryptS($_COOKIE['ywd_usud'],$protected);
+					$destruye==$session->destroy($idUser);
+					unset($_COOKIE['ywd_usud']);
+				}
 			$host=$_SERVER['SERVER_NAME'];
 			$dato=$guardaUsu."~".$host.'~4591';
 			$creaSessionU=$session->write($guardaUsu,$dato,$host);
 			//printvar($creaSessionU,'holaCU');
 			$createCookieU=$session->start_session('ywd_usu',true);
 			$datoCookie=$session->encryptS($guardaUsu,$protected);
-
+			
 			//printvar($createCookieU,'holaC');
 			/*Se crea cookie de usuario*/
 			setcookie('ywd_fr',$datoCookie, time() + 1200, '/');
 			setcookie('ywd_usu', $creaSessionU, time() + 1200, '/', $secure, $httponly);
-		//}
+				
+			}
 		
 		//die();
 		if($guardaUsu>0){

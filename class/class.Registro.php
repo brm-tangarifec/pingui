@@ -190,6 +190,31 @@ class Registro {
 	 	return $rec;
 	 	$ping->free();
 	 }
+	 /*Función para actualizar los datos temporales*/
+	 function actualizaTemporal($idT,$id){
+	 	$recetaD=DB_DataObject::Factory('TbRecetaDesbloqueada');
+	 	$recetaD->idUsuario=$id;
+	 	$recetaD->whereAdd('idUsuario='.$idT);
+	 	$recetaD->find();
+	 	$retD= $recetaD->update(DB_DATAOBJECT_WHEREADD_ONLY);
+	 	$recetaD->free();
+	 	return $retD;
+	 	
+	 }
+	 
+	 /*Función para guardar las recetas por usuario*/
+	 function usuarioReceta($campos){
+	 	$receta=DB_DataObject::Factory('TbRecetaDesbloqueada');
+	 	// idusuario = cookie(ydw_usu) registrados o ywd_usud para temporal
+	 	$receta->idUsuario=$campos['idUsuario'];
+	 	$receta->idReceta=$campos['idReceta'];
+	 	$receta->fecha=date("Y-m-d H:i:s");
+	 	$insert = $receta-> insert();
+		$receta -> free();
+		return $insert;
+	 }
+	 
+	 	
 
 }
 ?>

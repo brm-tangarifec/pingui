@@ -15,7 +15,7 @@ $protected=$session->llamaPass();
 if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!='' || isset($_COOKIE['ywd_usud']) && $_COOKIE['ywd_usud']!=''  ){
 	//printVar($_COOKIE['ywd_usud']);
 	/*Aqui va lo del usuario registado*/
-	$smarty->display("recipes.html");
+	//$smarty->display("recipes.html");
 }else{
 	$idF=rand (10000,99999);
 	//printVar($idF);
@@ -23,7 +23,8 @@ if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!='' || isset($_COOKIE['ywd_
 	$protected=$session->llamaPass();
 	$createCookieU=$session->start_session('ywd_usud',true);
 	$datoCookie=$session->encryptS($idUsuarioL,$protected);
-	setcookie('ywd_usud', $creaSessionU, time() + 1200, '/', $secure, $httponly);
+	//setcookie('ywd_usud', $creaSessionU, time() + 1200, '/', $secure, $httponly);
+}
 	$randoR=array("1","8","13");
 	$recetasDesb=array_rand($randoR);
 	//printVar($recetasDesb);
@@ -43,7 +44,7 @@ if(isset($_COOKIE['ywd_usu']) && $_COOKIE['ywd_usu']!='' || isset($_COOKIE['ywd_
 
 	//printVar($recetas);
 	$smarty->display("recipes.html");
-}
+
 
 
 ?>
