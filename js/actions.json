@@ -25,7 +25,7 @@
 		"action":
 			[
 				{
-					"action":"swipe",
+					"action":"swipex",
 					"from":0,
 					"to":135,
 					"folder":"_data/recipe-2/action-1",
@@ -39,7 +39,7 @@
 					}
 				},
 				{
-					"action":"swipe",
+					"action":"swipey",
 					"from":0,
 					"to":162,
 					"folder":"_data/recipe-1/action-1",
