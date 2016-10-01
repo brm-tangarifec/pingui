@@ -1,4 +1,4 @@
-var actionglob=0;mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null,arrayAction=[],numAction=0,datacurrent=null,idactioncurrent=null,devicecurrent=null;
+var actionglob=0;mobile = false,device="",complete=0,toframe=0,contmove=0,interval=1,direction="",text=null,textdesktop=null,textmobile=null,from=null,to=null,folder=null,basename=null,ext=null,direction=null,playmode=null,sprite=null,actions=[],numAction=0,datacurrent=null,idactioncurrent=null,actionname=null;
 
 $(document).ready(function(){
 
@@ -103,13 +103,11 @@ function synchronize(){
 }
 
 function setconfigcanvas(action){
-
 	$.ajaxSetup({ async: false });
 	$.getJSON( "js/actions.json", function( data ) {
-
 		actions = data[action].action;
 		datacurrent = actions[numAction];
-
+		
 		$("#steps-action").html("");
 		for (var i = 1; i < actions.length+1; i++) {
 			$("#steps-action").append("<div class='step' id='step-"+i+"'> <span> 0/"+actions.length+"</span></div>");
@@ -124,6 +122,8 @@ function setconfigcanvas(action){
 		ext=datacurrent.ext;
 		direction=datacurrent.direction;
 		playmode=datacurrent.playmode;
+		actionname=datacurrent.action;
+		
 	});
 
 }
@@ -137,16 +137,14 @@ function setaction(action){
 }
 
 function createcanvas(action){
-
 	setconfigcanvas(action);
 	setaction(action);
 	idactioncurrent=action;
 
 	$("#box-synchronize").remove();	
-
-	switch(action) {
-			case "1": gestureswipe("y"); break;
-	    case "2": gestureswipe("x"); break;
+	switch(actionname) {
+		case "swipex": gestureswipe("x"); break;
+	    case "swipey": gestureswipe("y"); break;
 	}
 
 	switch(device) {
@@ -184,63 +182,87 @@ function createcanvas(action){
 	createsprite(action);
 
 }
+/* Remueve los eventos Listener de un elemento*/
+function recreateNode(el, withChildren) {
+  if (withChildren) {
+    el.parentNode.replaceChild(el.cloneNode(true), el);
+  } else {
+    var newEl = el.cloneNode(false);
+    while (el.hasChildNodes()) newEl.appendChild(el.firstChild);
+    el.parentNode.replaceChild(newEl, el);
+  }
+}
+
 
 /* Acciones */
 
 // Realiza la acción de swipe para el eje X y Y
 function gestureswipe(eje){
+	console.log(eje,"eje");
 	if (mobile) { 
+	  recreateNode(document.getElementById('gesture-content'), true);
 	  var box1 = document.getElementById('gesture-content')
+	  
 	  var start = 0
 	  var end = 0
-	  var dist = 0
+	  var longMovi = 0
 	  // Inicia el evento swipe
 	  box1.addEventListener('touchstart', function(e){
 	      var touchobj = e.changedTouches[0] // reference first touch point (ie: first finger)
-	      start=(eje=="x") ?  parseInt(touchobj.clientX) :  parseInt(touchobj.clientY);
+	      if (eje=="x") {start = parseInt(touchobj.clientX);}
+	      if (eje=="y") {start = parseInt(touchobj.clientY);}
 	      e.preventDefault();
 	  }, false)
 	  // Finaliza el evento swipe
 	  box1.addEventListener('touchend', function(e){
-	      var touchobj = e.changedTouches[0] // reference first touch point for this event
-	      end=(eje=="x") ?  parseInt(touchobj.clientX) :  parseInt(touchobj.clientY);
-	      longMovi = end-start;
-	      realizaAccion(longMovi);
-	      e.preventDefault();
+		var touchobj = e.changedTouches[0] // reference first touch point for this event
+		if (eje=="x") {end = parseInt(touchobj.clientX);}
+		if (eje=="y") {end = parseInt(touchobj.clientY);}
+		longMovi = end-start;
+		console.log(longMovi,"longMovi");
+		var tamano = (eje == "x" ) ? box1.offsetWidth: box1.offsetHeight;
+		var porcentaje=parseInt(longMovi*100/tamano);
+		realizaAccion(porcentaje);
+		e.preventDefault();
 	  }, false)
 	}
 
 }
+
+// 
 function moveframe(percentage,action,iterations){
-
-	complete+=percentage;
-
-	if (complete >= 100) { complete=0; contmove++; }
-	if (contmove==iterations) { 
-		unlock(); 
-		contmove=0;
-		complete=0;
+	if (percentage != 0) {
+		complete+=percentage;
+		if (complete >= 100) { complete=0; contmove++; }
+		if (contmove>=iterations) {
+			contmove=0;complete=0;Sequencer.setCurrent(-1);  unlock(); 
+		}else{
+			var framesmove=Math.round((to/interval)*percentage/100);
+			if(framesmove > 0 ){
+				toframe=(Sequencer.getCurrent() + framesmove);
+				direction="right";
+			}else if(framesmove < 0){
+				toframe=Sequencer.getCurrent() - (framesmove*-1);
+				direction="left";
+			}
+			
+			if (parseInt(framesmove) != 0 ) {
+				Sequencer.toFrame(toframe,direction,interval);
+			}
+		}
+		
 	}
-	var framesmove=Math.round((to/interval)*percentage/100);
-
-	if(framesmove > 0 ){
-		toframe=(Sequencer.getCurrent() + framesmove);
-		direction="right";
-	}else if(framesmove < 0){
-		toframe=Sequencer.getCurrent() - (framesmove*-1);
-		direction="left";
-	}
-	Sequencer.toFrame(toframe,direction,interval);
-
 }
 
 function unlock(){
-	if (numAction == (arrayAction.length-1)) {
-		//window.location="video.php";
+	if (!mobile) {terminaAccion();}
+	if (numAction == (actions.length-1)) {
+		setTimeout(function() {window.location="video.php";}, 2000);
 	}else{
 		numAction++;
 		$("#step-"+ (numAction+1) ).addClass("unlock");
 		$("#box-action canvas").remove();
 		createcanvas(idactioncurrent);
+		
 	}
 }	

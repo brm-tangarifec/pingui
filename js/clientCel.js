@@ -18,21 +18,16 @@ function comparaCodigo(){
 }
 
 // Paso 8 - Se reciben los datos y se realiza la accion
-function realizaAccion(x){
-		var tamanoDevice = screen.width;
-		var porcentaje=x*100/tamanoDevice;
-
+function realizaAccion(porcentaje){
     if (estadoSincro==1) {
-
         var data={
             codigo:codigo,
             porcentaje:porcentaje
         }
-        socket.emit('realizaAccion', data); 
+        socket.emit('realizaAccion', data);
     }else if(estadoSincro==0 && device=="mobile"){
-      //moveframe(porcentaje,syncCAjax( localStorage.getItem("video") ,'desc'),2);
-      moveframe(porcentaje,"2",2);
-
+      var idVideoDesc = syncCAjax( localStorage.getItem("video") ,'desc');
+      moveframe(porcentaje,idVideoDesc,2);
     }
 }
 
@@ -66,5 +61,10 @@ if (screen.width<1280)
         $("#message").html("Se desconecto el cliente web");
         estadoSincro=0;
         location.reload();
+    });
+    
+     //Paso 14 - Termina la accion en la web
+    socket.on('terminaAccion', function () {
+        unlock();
     });
 }

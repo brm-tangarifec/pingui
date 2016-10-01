@@ -1,6 +1,7 @@
 var socket = io.connect('https://pinguino-julian10404.c9users.io/');
 var idSocket;
 var idVideo;
+var codigoUsu;
 // Paso 1 - Enviamos la petición del código al servidor
 function peticionCodigo()
 {
@@ -17,6 +18,13 @@ function peticionCodigo()
     }
 }
 
+// Paso 12 - Enviamos la petición del código al servidor
+function terminaAccion()
+{
+    socket.emit('terminaAccion',codigoUsu);
+}
+
+
 if (screen.width >= 1280) 
 {    
     // Se crea la conexión con el servidor
@@ -26,6 +34,7 @@ if (screen.width >= 1280)
     
     //Paso 3 - Recibimos el código generado
     socket.on('guardarCodigo', function (codigo) {
+        codigoUsu=codigo
         $("#code-desktop").text(codigo);
     });
     
